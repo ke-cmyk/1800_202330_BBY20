@@ -5,11 +5,12 @@
     --text-color: #272727;
 }
 
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
 .navbar {
     background-color: var(--primary-color);
-}
-.navbar-brand {
-    font-family: 'Kanit', sans-serif;
 }
 
 .navbar-brand img {
@@ -24,4 +25,13 @@
 .btn-outline-success:hover {
     background-color: var(--secondary-color);
     color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);    
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);     
 }
