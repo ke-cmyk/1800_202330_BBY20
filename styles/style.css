@@ -1,1 +1,27 @@
+:root {
+    --primary-color: #44633f;
+    --secondary-color: #ACECA1;
+    --accent-color: #ED7D3A;
+    --text-color: #272727;
+}
 
+.navbar {
+    background-color: var(--primary-color);
+}
+.navbar-brand {
+    font-family: 'Kanit', sans-serif;
+}
+
+.navbar-brand img {
+    filter: invert(100%);
+}
+
+.btn-outline-success {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
