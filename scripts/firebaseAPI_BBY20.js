@@ -2,14 +2,12 @@
 //  Your web app's Firebase configuration
 //----------------------------------------
 var firebaseConfig = {
-    
-    apiKey: "AIzaSyAk-f0UCgDF-Hsfem1dKdxw7ZWt5MDxqQA",
-    authDomain: "comp1800-a3789.firebaseapp.com",
-    projectId: "comp1800-a3789",
-    storageBucket: "comp1800-a3789.appspot.com",
-    messagingSenderId: "649524194613",
-    appId: "1:649524194613:web:65e149acb40a64f9f7307c"
-
+    apiKey: "AIzaSyA5N83JGSjh6CeiOBJQhf1FXLE6m7UrFr8",
+    authDomain: "autobridge20.firebaseapp.com",
+    projectId: "autobridge20",
+    storageBucket: "autobridge20.appspot.com",
+    messagingSenderId: "1052859416208",
+    appId: "1:1052859416208:web:6896c0166e119a211c6215"
 };
 
 //--------------------------------------------
