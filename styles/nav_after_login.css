@@ -1,0 +1,53 @@
+#nav_after_login {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    
+    /* centers self */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 80vw;
+    bottom: 30px;
+    margin: 0;
+    border-radius: 25px;
+    height: 60px;
+    background-color: whitesmoke;
+
+    padding: 0px 25px;
+
+    filter: drop-shadow(0px 0px 2px lightgrey);
+}
+
+.nav-icon-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    
+    height: 100%;
+    border-radius: 25px;
+    margin: 0px 7px;
+    filter: opacity(0.7);
+}
+
+.nav-icon-container img {
+    width: 25px;
+}
+
+#buy-icon-container {
+    background-color: var(--secondary-color);
+    filter: opacity(1);
+}
+#sell-icon-container p {
+    display: none;
+}
+#offer-icon-container p {
+    display: none;
+}
+#account-icon-container p {
+    display: none;
+}
