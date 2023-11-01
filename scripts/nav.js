@@ -5,11 +5,25 @@ let sellNav = document.getElementById("sell-icon-container");
 let myCarsNav = document.getElementById("offer-icon-container");
 let accountNav = document.getElementById("account-icon-container");
 
+let path = window.location.pathname;
+let page = path.split("/").pop();
+if (page == "buy.html") {
+    buySwitch();
+} else if (page == "sell.html") {
+    sellSwitch();
+} else if (page == "mycars.html") {
+    myCarsSwitch();
+} else if (page == "account.html") {
+    accountSwitch();
+} else {
+    console.log("Page not found");
+}
+
+// This is certainly not the right way to do it, but it works for now. - Isaac
 buyNav.addEventListener("click", buySwitch);
 sellNav.addEventListener("click", sellSwitch);
 myCarsNav.addEventListener("click", myCarsSwitch);
 accountNav.addEventListener("click", accountSwitch);
-
 function buySwitch() {
     buyNav.style.backgroundColor = "var(--secondary-color)";
     buyNav.style.filter = "opacity(1)";
