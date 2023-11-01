@@ -8,6 +8,10 @@
 body {
     font-family: 'Kanit', sans-serif;
     width: 100vw;
+
+    /* bad way to make space for fixed header - there is a way to do this with
+    position: sticky that I can't figure out - Isaac */
+    padding-top: 50px;
 }
 
 .navbar {

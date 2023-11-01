@@ -1,4 +1,4 @@
-#nav_after_login {
+#nav-after-login {
     position: fixed;
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
     transform: translateX(-50%);
 
     width: 80vw;
-    bottom: 30px;
+    bottom: 10px;
     margin: 0;
     border-radius: 25px;
     height: 60px;
@@ -18,7 +18,7 @@
 
     padding: 0px 25px;
 
-    filter: drop-shadow(0px 0px 2px lightgrey);
+    filter: drop-shadow(0px 0px 5px grey);
 }
 
 .nav-icon-container {
@@ -30,24 +30,17 @@
     
     height: 100%;
     border-radius: 25px;
-    margin: 0px 7px;
+    padding-top: 20px;
+    max-width: calc(50px + 3vw);
+    margin: 0px 0dvi;
     filter: opacity(0.7);
 }
 
 .nav-icon-container img {
-    width: 25px;
+    height: 22px;
 }
 
 #buy-icon-container {
     background-color: var(--secondary-color);
     filter: opacity(1);
-}
-#sell-icon-container p {
-    display: none;
-}
-#offer-icon-container p {
-    display: none;
-}
-#account-icon-container p {
-    display: none;
 }

@@ -1,0 +1,24 @@
+#header-after-login {
+    position: fixed;
+    display: flex;
+    top: 0px;
+    z-index: 100;
+    height: 55px;
+    background-color: var(--primary-color);
+    width: 100vw;
+    padding: 0px;
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+#header-logo {
+    width: 3rem;
+    margin: 0px 0px;
+    filter: invert(1);
+    margin-bottom: 0.45rem;
+}
+
+#header-brand {
+    color: white;
+}
