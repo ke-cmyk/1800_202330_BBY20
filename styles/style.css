@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Kanit', sans-serif;
+    width: 100vw;
 }
 
 .navbar {
@@ -34,4 +35,13 @@ body {
 
 .btn-secondary {
     background-color: var(--primary-color);     
+}
+
+.scrolling-wrapper{
+	overflow-x:scroll;
+}
+
+.big-button {
+    width: 90%;
+    padding-left: 5%;
 }
