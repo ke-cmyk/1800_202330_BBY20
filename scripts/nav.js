@@ -5,6 +5,8 @@ let sellNav = document.getElementById("sell-icon-container");
 let myCarsNav = document.getElementById("offer-icon-container");
 let accountNav = document.getElementById("account-icon-container");
 
+document.querySelector(".svg").getSVGDocument().getElementById("buy-icon").setAttribute("fill", "red");
+/*
 let path = window.location.pathname;
 let page = path.split("/").pop();
 if (page == "buy.html") {
@@ -64,4 +66,4 @@ function accountSwitch() {
     accountNav.style.backgroundColor = "var(--secondary-color)";
     accountNav.style.filter = "opacity(1)";
 }
-
+*/

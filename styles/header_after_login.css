@@ -9,22 +9,19 @@ body {
     display: flex;
     top: 0px;
     z-index: 1;
-    height: 55px;
-    background-color: var(--primary-color);
+    background-color: white;
     width: 100vw;
-    padding: 0px;
-    padding-top: 15px;
+    padding: 5px 15px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+    filter: drop-shadow(0px 0px 5px lightgrey);
 }
 
-#header-logo {
-    width: 3rem;
-    margin: 0px 0px;
-    filter: invert(1);
-    margin-bottom: 0.45rem;
+#header-after-login h1 {
+    padding-top: 7px;
 }
 
 #header-brand {
-    color: white;
+    color: var(--text-color);
 }
