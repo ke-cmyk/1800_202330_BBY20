@@ -16,10 +16,10 @@
 
 
     /* Pretty glass effect */
-    box-shadow: 0 8px 32px 0 rgba( 100, 100, 100, 0.25);
-    background: rgba(255 255 255 0.25);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    box-shadow: 0 -8px 15px 0 rgba( 100, 100, 100, 0.25);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px 10px 0px 0px;
     border: 2px solid rgba( 255, 255, 255, 0.35);
 }

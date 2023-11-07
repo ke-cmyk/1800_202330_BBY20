@@ -35,6 +35,7 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/header_after_login.css">
+    <link rel="stylesheet" href="./styles/account.css">
 
 </head>
 
@@ -42,7 +43,26 @@
     <!-- Header -->
     <div id="headerPlaceholder"></div>
     <!-- Content -->
-    <h1>THIS IS THE ACCOUNT PAGE</h1>
+    <div class="glass-container" id="profile-container">
+        <img src="user-profile.jpg" id="user-profile-image">
+        <h1>John Doe</h1>
+        <h2>johndoe@email.com</h2>
+        <h2>123-456-7890</h2>
+        <button id="edit-profile-button">Edit Profile</button>
+    </div>
+    <div class="glass-container" id="prefs-menu-container">
+        <h1>Settings</h1>
+        <div class="settings-slot">
+            <p>Notifications</p>
+        </div>
+        <div class="settings-slot">
+            <p>Display</p>
+        </div>
+        <div class="settings-slot">
+            <p>Location</p>
+        </div>
+    </div>
+    <button class="glass-container" id="sign-out-button">Sign Out</button>
     <!-- Footer -->
     <div id="footerPlaceholder"></div> 
 

@@ -53,3 +53,17 @@ body {
       column-count: 5;
     }
   }
+
+.glass-container {
+    margin: 20px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    
+    /* Pretty glass effect */
+    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 2px solid rgba( 255, 255, 255, 0.35);
+}
