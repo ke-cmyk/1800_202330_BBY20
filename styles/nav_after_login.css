@@ -12,11 +12,16 @@
     width: 100vw;
     height: 55px;
     bottom: 0px;
-    background-color: white;
-
     padding: 5px 30px;
 
-    filter: drop-shadow(0px 0px 5px lightgrey);
+
+    /* Pretty glass effect */
+    box-shadow: 0 8px 32px 0 rgba( 100, 100, 100, 0.25);
+    background: rgba(255 255 255 0.25);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba( 255, 255, 255, 0.35);
 }
 
 .nav-icon-container {
@@ -25,10 +30,8 @@
     align-items: center;
     font-size: 14px;
     flex: 1;
-    
     max-width: calc(60px + 3vw);
-    filter: opacity(0.7);
-    height: 80%;
+    height: 95%;
 }
 
 .nav-icon-container object {
