@@ -15,7 +15,7 @@
     padding: 5px 30px;
 
 
-    /* Pretty glass effect */
+    /* glass effect */
     box-shadow: 0 -8px 15px 0 rgba( 100, 100, 100, 0.25);
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(4px);

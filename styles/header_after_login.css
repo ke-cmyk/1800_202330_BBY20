@@ -16,9 +16,9 @@ body {
 
 
 
-    /* Pretty glass effect */
+    /* glass effect */
     box-shadow: 0 8px 15px 0 rgba( 100, 100, 100, 0.25);
-    background: rgba(255 255 255 0.25);
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 0px 0px 10px 10px;
