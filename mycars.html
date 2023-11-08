@@ -25,12 +25,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="./scripts/firebaseAPI_BBY20.js"></script>
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -39,10 +41,28 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <div id="headerPlaceholder"></div>
-    <!-- Content -->
-    <div class="card m-3">
+  <!-- Header -->
+  <div id="headerPlaceholder"></div>
+
+  <!-- Content -->
+
+  <!-- Container for all the my cars -->
+  <div class="container">
+    <div id="myCars-go-here" class="col row-cols-auto"></div>
+  </div>
+
+  <!-- Template for mycars -->
+    <template id="myCarTemplate">
+      <div class="card m-3">
+          <img class="card-img-top" src="https://placehold.co/400x150" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="myCar-Info">Car Year/Make/Model</h5>
+            <!-- <p class="myCar-BuyersList"></p> -->
+          </div>
+      </div>
+    </template>
+
+    <!-- <div class="card m-3">
         <img class="card-img-top" src="https://placehold.co/400x150" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Seller Name</h5>
@@ -62,16 +82,9 @@
           <h5 class="card-title">Seller Name</h5>
           <p class="card-text">Car Year/Make/Model - Current Offer</p>
         </div>
-    </div>
-    <div class="card m-3">
-        <img class="card-img-top" src="https://placehold.co/400x150" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Seller Name</h5>
-          <p class="card-text">Car Year/Make/Model - Current Offer</p>
-        </div>
-    </div>
+    </div> -->
     <!-- Footer -->
-    <div id="footerPlaceholder"></div> 
+    <div id="footerPlaceholder"></div>
 
     <!-- Navbar -->
     <div id="navbarPlaceholder"></div>
@@ -81,12 +94,12 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_BBY20.js"></script>
+
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/main.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
-
+    <script src="./scripts/mycars.js"></script>
 </body>
 
 </html>
