@@ -13,13 +13,14 @@ var uiConfig = {
          // If the user is a "brand new" user, then create a new "user" in your own database.
          // Assign this user with the name and email provided.
          // Before this works, you must enable "Firestore" from the firebase console.
-         // The Firestore rules must allow the user to write. 
+         // The Firestore rules must allow the user to write.
          //------------------------------------------------------------------------------------------
          var user = authResult.user;                            // get the user object from the Firebase authentication database
          if (authResult.additionalUserInfo.isNewUser) {         //if new user
              db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
                     name: user.displayName,                    //"users" collection
                     email: user.email,                         //with authenticated user's ID (user.uid)
+                    userID: user.uid
              }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("buy.html");       //re-direct to buy.html after signup
@@ -50,10 +51,9 @@ var uiConfig = {
     // firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
-  tosUrl: '<your-tos-url>',
+  tosUrl: "", // your-tos-url
   // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
+  privacyPolicyUrl: "" //your-privacy-policy-url
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
-  
