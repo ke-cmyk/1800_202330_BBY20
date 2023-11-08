@@ -1,7 +1,7 @@
 body {
     /* bad way to make space for fixed header - there is a way to do this with
     position: sticky that I can't figure out - Isaac */
-    padding-top: 50px;
+    padding-top: 60px;
 }
 
 #header-after-login {

@@ -1,10 +1,6 @@
 
 #find-car-btn {
-    background-color: var(--secondary-color);
-}
-
-.card-section-heading {
-    margin-left: 20px;
+    background-color: var(--primary-color);
 }
 
 .horizontal-scrolling-menu {
@@ -37,12 +33,13 @@
     overflow: hidden;
 }
 
-#car-card-title {
+.car-card-title {
     padding-top: 10px;
     font-size: 14pt;
     font-weight: 450;
 }
 
-#car-card-price {
+.car-card-price {
     
+    color: var(--primary-color);
 }

@@ -16,7 +16,7 @@ let offersIcon;
 let accountIcon;
 
 let unselectedColor = "#444444";
-let selectedColor = "#297373";
+let selectedColor = "#6cd86c";
 
 document.getElementById("buy-icon-obj").addEventListener("load", () => {
     buyIcon = document.getElementById("buy-icon-obj").contentDocument.getElementById("buy-icon");

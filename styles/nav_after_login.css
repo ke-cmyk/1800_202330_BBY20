@@ -10,7 +10,7 @@
     transform: translateX(-50%);
 
     width: 100vw;
-    height: 55px;
+    height: 65px;
     bottom: 0px;
     padding: 5px 30px;
 
@@ -35,7 +35,13 @@
 }
 
 .nav-icon-container object {
-    height: 20px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    
 }
 
 a {
