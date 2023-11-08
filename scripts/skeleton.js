@@ -12,11 +12,8 @@ function loadSkeleton() {
     
             // set the attributes for link element
             link.rel = 'stylesheet';
-        
             link.type = 'text/css';
-        
             link.href = './styles/nav_after_login.css';
-
             link.id = "nav-style";
     
             // Append link element to HTML head

@@ -1,69 +1,39 @@
 // This file controls the dynamic style of the navbar.
 
-let buyNav = document.getElementById("buy-icon-container");
-let sellNav = document.getElementById("sell-icon-container");
-let myCarsNav = document.getElementById("offer-icon-container");
-let accountNav = document.getElementById("account-icon-container");
+const currentUrl = window.location.href.split("/")[3];
 
-document.querySelector(".svg").getSVGDocument().getElementById("buy-icon").setAttribute("fill", "red");
-/*
-let path = window.location.pathname;
-let page = path.split("/").pop();
-if (page == "buy.html") {
-    buySwitch();
-} else if (page == "sell.html") {
-    sellSwitch();
-} else if (page == "mycars.html") {
-    myCarsSwitch();
-} else if (page == "account.html") {
-    accountSwitch();
-} else {
-    console.log("Page not found");
+var buyIcon = document.getElementById("buy-icon-obj").contentDocument.getElementById("buy-icon");
+
+var sellIcon = document.getElementById("sell-icon-obj").contentDocument.getElementById("sell-icon");
+
+var offersIcon = document.getElementById("offers-icon-obj").contentDocument.getElementById("offers-icon");
+
+var accountIcon = document.getElementById("account-icon-obj").contentDocument.getElementById("account-icon");
+
+if (currentUrl == "buy.html") {
+    buyIcon.style.fill = "#297373";
+    sellIcon.style.fill = "black";
+    offersIcon.style.fill = "black";
+    accountIcon.style.fill = "black";
+} else if (currentUrl == "sell.html") {
+    buyIcon.style.fill = "black";
+    sellIcon.style.fill = "#297373";
+    offersIcon.style.fill = "black";
+    accountIcon.style.fill = "black";
+} else if (currentUrl == "mycars.html") {
+    buyIcon.style.fill = "black";
+    sellIcon.style.fill = "black";
+    offersIcon.style.fill = "#297373";
+    accountIcon.style.fill = "black";
+} else if (currentUrl == "account.html") {
+    buyIcon.style.fill = "black";
+    sellIcon.style.fill = "black";
+    offersIcon.style.fill = "black";
+    accountIcon.style.fill = "#297373";
 }
 
-// This is certainly not the right way to do it, but it works for now. - Isaac
-buyNav.addEventListener("click", buySwitch);
-sellNav.addEventListener("click", sellSwitch);
-myCarsNav.addEventListener("click", myCarsSwitch);
-accountNav.addEventListener("click", accountSwitch);
-function buySwitch() {
-    buyNav.style.backgroundColor = "var(--secondary-color)";
-    buyNav.style.filter = "opacity(1)";
-    sellNav.style.backgroundColor = "whitesmoke";
-    sellNav.style.filter = "opacity(0.7)";
-    myCarsNav.style.backgroundColor = "whitesmoke";
-    myCarsNav.style.filter = "opacity(0.7)";
-    accountNav.style.backgroundColor = "whitesmoke";
-    accountNav.style.filter = "opacity(0.7)";
-}
-function sellSwitch() {
-    buyNav.style.backgroundColor = "whitesmoke";
-    buyNav.style.filter = "opacity(0.7)";
-    sellNav.style.backgroundColor = "var(--secondary-color)";
-    sellNav.style.filter = "opacity(1)";
-    myCarsNav.style.backgroundColor = "whitesmoke";
-    myCarsNav.style.filter = "opacity(0.7)";
-    accountNav.style.backgroundColor = "whitesmoke";
-    accountNav.style.filter = "opacity(0.7)";
-}
-function myCarsSwitch() {
-    buyNav.style.backgroundColor = "whitesmoke";
-    buyNav.style.filter = "opacity(0.7)";
-    sellNav.style.backgroundColor = "whitesmoke";
-    sellNav.style.filter = "opacity(0.7)";
-    myCarsNav.style.backgroundColor = "var(--secondary-color)";
-    myCarsNav.style.filter = "opacity(1)";
-    accountNav.style.backgroundColor = "whitesmoke";
-    accountNav.style.filter = "opacity(0.7)";
-}
-function accountSwitch() {
-    buyNav.style.backgroundColor = "whitesmoke";
-    buyNav.style.filter = "opacity(0.7)";
-    sellNav.style.backgroundColor = "whitesmoke";
-    sellNav.style.filter = "opacity(0.7)";
-    myCarsNav.style.backgroundColor = "whitesmoke";
-    myCarsNav.style.filter = "opacity(0.7)";
-    accountNav.style.backgroundColor = "var(--secondary-color)";
-    accountNav.style.filter = "opacity(1)";
-}
-*/
+// function changeNavColor(id) {
+//     if (id == "buy-icon-container") {
+//         buyIcon.style.fill = "red";
+//     }
+// }
