@@ -1,21 +1,14 @@
 :root {
-    --primary-color: #44633f;
-    --secondary-color: #ACECA1;
-    --accent-color: #ED7D3A;
-    --text-color: #272727;
+    --primary-color: #297373;
+    --secondary-color: #FFC857;
+    --text-color: #292F36;
+    --background-color: white;
 }
 
 body {
     font-family: 'Kanit', sans-serif;
     width: 100vw;
-}
-
-.navbar {
-    background-color: var(--primary-color);
-}
-
-.navbar-brand img {
-    filter: invert(100%);
+    background-color: var(--background-color);
 }
 
 .btn-outline-success {
@@ -66,4 +59,19 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 2px solid rgba( 255, 255, 255, 0.35);
+}
+
+.solid-container {
+    margin: 20px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    
+    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    border: 2px solid rgba( 255, 255, 255, 0.5);
+}
+
+#find-car-btn {
+    background-color: var(--secondary-color);
 }
