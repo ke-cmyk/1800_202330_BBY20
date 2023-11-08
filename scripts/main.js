@@ -1,4 +1,11 @@
-const userID = firebase.auth().currentUser.uid;
+var userID;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    userID = firebase.auth().currentUser.uid;
+  } else {
+    console.log("user is not signed in!");
+  }
+});
 
 function writeMyPosts() {
     // Define a reference to the user document

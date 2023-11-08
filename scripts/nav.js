@@ -5,7 +5,7 @@ setTimeout(() => {
     let evt = document.createEvent('Event');
     evt.initEvent('load', false, false);
     window.dispatchEvent(evt);
-}, 300);
+}, 200);
 
 const currentUrl = window.location.href.split("/")[3];
 
@@ -19,29 +19,24 @@ let unselectedColor = "#444444";
 let selectedColor = "#297373";
 
 document.getElementById("buy-icon-obj").addEventListener("load", () => {
-    console.log("buy icon loaded!");
     buyIcon = document.getElementById("buy-icon-obj").contentDocument.getElementById("buy-icon");
 });
 
 document.getElementById("sell-icon-obj").addEventListener("load", () => {
-    console.log("sell icon loaded!");
     sellIcon = document.getElementById("sell-icon-obj").contentDocument.getElementById("sell-icon");
 });
 
 document.getElementById("offers-icon-obj").addEventListener("load", () => {
-    console.log("offers icon loaded!");
     offersIcon = document.getElementById("offers-icon-obj").contentDocument.getElementById("offers-icon");
 });
 
 document.getElementById("account-icon-obj").addEventListener("load", () => {
-    console.log("account icon loaded!");
     accountIcon = document.getElementById("account-icon-obj").contentDocument.getElementById("account-icon");
 });
 
 window.addEventListener("load", determineColor);
 
 function determineColor() {
-    console.log("hello from body!");
     if (currentUrl == "buy.html") {
         buyIcon.style.fill = selectedColor;
         sellIcon.style.fill = unselectedColor;
