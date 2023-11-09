@@ -21,7 +21,7 @@ const db = firebase.firestore(); // creates a new database called "db"
 
 var userID = null;
 
-function getUserID(callback) {
+function authenticateUser(callback) {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
@@ -32,12 +32,7 @@ function getUserID(callback) {
     });
 }
 
-// Use the callback to execute the rest of your code
-getUserID(function () {
-    // Your code that depends on userID goes here
-    console.log(userID);
-    // Continue with the rest of your code
-});
+
 
 
 // function getUserID() {

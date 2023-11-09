@@ -44,6 +44,13 @@
 
 // }
 
+
+authenticateUser(function () {
+    console.log(userID);
+    displayCardsDynamically();
+
+});
+
 function displayCardsDynamically() {
     let cardTemplate = document.getElementById("myCarTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable.
     console.log(userID)
@@ -78,4 +85,4 @@ function displayCardsDynamically() {
 
 }
 
-displayCardsDynamically();
+
