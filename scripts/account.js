@@ -15,8 +15,6 @@ function updateUserInfo() {
                             var userCity = userDoc.data().city;
                             var userPhone = userDoc.data().phone;
 
-                            
-
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("user-name-display").textContent = userName;
