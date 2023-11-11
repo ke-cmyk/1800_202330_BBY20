@@ -1,6 +1,6 @@
 // This file controls the dynamic style of the navbar.
 
-// I don't know why this fixes the window load event not triggering...
+// Fixes window load event not triggering
 setTimeout(() => {
     let evt = document.createEvent('Event');
     evt.initEvent('load', false, false);
@@ -21,15 +21,12 @@ let selectedColor = "#6cd86c";
 document.getElementById("buy-icon-obj").addEventListener("load", () => {
     buyIcon = document.getElementById("buy-icon-obj").contentDocument.getElementById("buy-icon");
 });
-
 document.getElementById("sell-icon-obj").addEventListener("load", () => {
     sellIcon = document.getElementById("sell-icon-obj").contentDocument.getElementById("sell-icon");
 });
-
 document.getElementById("offers-icon-obj").addEventListener("load", () => {
     offersIcon = document.getElementById("offers-icon-obj").contentDocument.getElementById("offers-icon");
 });
-
 document.getElementById("account-icon-obj").addEventListener("load", () => {
     accountIcon = document.getElementById("account-icon-obj").contentDocument.getElementById("account-icon");
 });

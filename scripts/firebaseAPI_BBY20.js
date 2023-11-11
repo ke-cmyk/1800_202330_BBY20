@@ -31,10 +31,6 @@ function authenticateUser(callback) {
         }
     });
 }
-
-
-
-
 // function getUserID() {
 //      firebase.auth().onAuthStateChanged( (user) => {
 //         if (user) {
