@@ -14,8 +14,6 @@ body {
     align-items: center;
     justify-content: space-between;
 
-
-
     /* glass effect */
     box-shadow: 0 8px 15px 0 rgba( 100, 100, 100, 0.25);
     background: rgba(255, 255, 255, 0.25);
@@ -24,11 +22,24 @@ body {
     border-radius: 0px 0px 10px 10px;
     border: 2px solid rgba( 255, 255, 255, 0.35);
 }
-
-#header-after-login h1 {
+#header-brand {
+    color: var(--text-color);
     padding-top: 7px;
 }
 
-#header-brand {
+.header-back {
+    justify-content: center !important;
+}
+
+#header-page-title {
     color: var(--text-color);
+    padding-top: 7px;
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+.back-button {
+    position: absolute;
+    left: 10px;
+    float: left;
 }

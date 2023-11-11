@@ -3,8 +3,6 @@
 // (navbar, footer, and other things) into html doc.
 //---------------------------------------------------
 function loadSkeleton() {
-
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             let navLink = document.createElement('link');

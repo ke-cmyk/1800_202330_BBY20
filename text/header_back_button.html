@@ -1,5 +1,9 @@
-<nav id="header-after-login">
-  
-    <h1 id="header-brand">Back Header</h1>
-    <object class="svg" type="image/svg+xml" data="../images/notifications.svg"></object>
-  </nav>
+<nav id="header-after-login" class="header-back">
+  <a class="back-button" onclick="history.back()">
+    <img src="../images/back.svg">
+  </a>
+  <h1 id="header-page-title">Back Header</h1>
+</nav>
+<script>
+  document.querySelector("#header-page-title").textContent = document.body.getAttribute("name");
+</script>
