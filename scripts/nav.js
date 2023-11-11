@@ -44,7 +44,7 @@ function determineColor() {
         sellIcon.style.fill = selectedColor;
         offersIcon.style.fill = unselectedColor;
         accountIcon.style.fill = unselectedColor;
-    } else if (currentUrl == "mycars.html") {
+    } else if (currentUrl == "home.html") {
         buyIcon.style.fill = unselectedColor;
         sellIcon.style.fill = unselectedColor;
         offersIcon.style.fill = selectedColor;

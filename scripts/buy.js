@@ -1,6 +1,7 @@
 authenticateUser(() => {
     console.log(userID);
     displayCardsDynamically();
+    loadBuySearchPage();
 });
 
 function displayCardsDynamically() {
@@ -37,4 +38,8 @@ function displayCardsDynamically() {
 
 }
 
-
+function loadBuySearchPage() {
+    document.querySelector("#find-car-btn").addEventListener("mouseup", () => {
+        window.location.href = "buySearch.html";
+    })
+}
