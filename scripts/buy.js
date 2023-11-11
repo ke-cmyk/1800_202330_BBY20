@@ -1,7 +1,14 @@
 authenticateUser(() => {
     console.log(userID);
-    displayCardsDynamically();
-    loadBuySearchPage();
+
+
+    if (window.location.href.includes("buy.html")) {
+        displayCardsDynamically();
+        document.getElementById("find-car-btn").addEventListener("mouseup", () => {
+            window.location.href = "buySearch.html";
+    })
+}
+
 });
 
 function displayCardsDynamically() {
@@ -38,8 +45,33 @@ function displayCardsDynamically() {
 
 }
 
-function loadBuySearchPage() {
-    document.querySelector("#find-car-btn").addEventListener("mouseup", () => {
-        window.location.href = "buySearch.html";
+
+
+
+function searchCars() {
+
+    let cardTemplate = document.getElementById("search-results");
+    var userDocRef = db.collection("users").doc(userID);
+
+    let searchInput = document.querySelector("#search-bar").value;
+    var myPostsCollectionRef = userDocRef.collection("myPosts").where("make", "==", searchInput);
+
+    // uncomment once collection of cars is populated
+    // var cars = db.collection("cars");
+
+    // cars.where("make" == searchInput).get()
+
+    myPostsCollectionRef.get()
+    .then(allmycars => {
+        allmycars.forEach(doc => {
+            var make = doc.data().make;
+            var model = doc.data().model;
+            var year = doc.data().year;
+
+            let newcard = cardTemplate.content.cloneNode(true);
+
+            newcard.querySelector('.myCar-Info').innerHTML = year + " " + make + " " + model;
+            document.getElementById("myCars-go-here").appendChild(newcard);
+        })
     })
 }
