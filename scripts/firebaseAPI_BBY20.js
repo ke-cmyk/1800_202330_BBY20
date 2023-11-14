@@ -17,28 +17,16 @@ var firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(); // creates a new database called "db"
 
-// var userID = null;
-
 var userID = null;
 
-function authenticateUser(callback) {
-    firebase.auth().onAuthStateChanged((user) => {
+function getUserID() {
+     firebase.auth().onAuthStateChanged( (user) => {
         if (user) {
             userID = user.uid;
-            callback(); // Call the callback function after setting userID
         } else {
-            window.location.href = "index.html";
+            window.location.href = "index.html";s
         }
-    });
+     })
 }
-// function getUserID() {
-//      firebase.auth().onAuthStateChanged( (user) => {
-//         if (user) {
-//             userID = user.uid;
-//         } else {
-//             window.location.href = "index.html";s
-//         }
-//      })
-// }
 
-// getUserID();
+getUserID();

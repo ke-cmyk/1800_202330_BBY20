@@ -48,3 +48,17 @@ a {
     color: var(--text-color);
     text-decoration: none;
 }
+
+/* Used to make svg icon clickable */
+a.nav-icon-container {
+    position: relative;
+  }
+
+a.nav-icon-container::after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+  }
