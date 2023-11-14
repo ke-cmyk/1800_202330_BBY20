@@ -45,23 +45,19 @@ function displayCardsDynamically() {
 
 }
 
-
-
-
 function searchCars() {
 
     let cardTemplate = document.getElementById("search-results");
-    var userDocRef = db.collection("users").doc(userID);
 
     let searchInput = document.querySelector("#search-bar").value;
-    var myPostsCollectionRef = userDocRef.collection("myPosts").where("make", "==", searchInput);
+    var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
 
     // uncomment once collection of cars is populated
     // var cars = db.collection("cars");
 
     // cars.where("make" == searchInput).get()
 
-    myPostsCollectionRef.get()
+    carsCollectionRef.get()
     .then(allmycars => {
         allmycars.forEach(doc => {
             var make = doc.data().make;

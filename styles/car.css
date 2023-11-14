@@ -1,0 +1,15 @@
+#car-image-container {
+    height: 30vh;
+    overflow: hidden;
+}
+
+#car-image-preview {
+    width: 100%;
+}
+
+#details-container {
+    background-color: white;
+    height: 150px;
+    border-radius: 20px;
+    transform: translate(0px, -20px);
+}

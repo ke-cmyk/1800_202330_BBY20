@@ -34,48 +34,30 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/buy.css">
+    <link rel="stylesheet" href="./styles/car.css">
 
     <!-- firebase authentication script-->
     <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
-<body name="Find a Car">
+<body name="Some Car Name">
     <!-- Header -->
     <div id="headerPlaceholder"></div>
     <!-- Content -->
-    <div id="search-container">
-      <input type="text" placeholder="Search Make" id="search-bar">
-      <img src="./images/filter.svg" id="search-filter-icon">
-      <img src="./images/search.svg" id="search-activate-icon" onclick="searchCars()">
+    <div id="car-image-container">
+        <img src="./images/car.jpeg" id="car-image-preview">
     </div>
+    <div id="details-container">
 
-    <div class="search-results-container">
-      <div id="myCars-go-here" class="col row-cols-auto"></div>
     </div>
-
-    <!-- Template for search results -->
-    <template id="search-results">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://placehold.co/400x150" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="myCar-Info">Car Year/Make/Model</h5>
-        </div>
-      </div>
-    </template>
-
+    
     <!-- Footer -->
     <div id="footerPlaceholder"></div>
 
     <!-- Navbar -->
     <div id="navbarPlaceholder"></div>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
     <!-- Link to scripts of your own -->
-    <script src="./scripts/buy.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
