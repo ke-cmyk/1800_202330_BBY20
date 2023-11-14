@@ -1,0 +1,335 @@
+[
+    {
+        "year": 2018,
+        "make": "Tesla",
+        "model": "Model 3",
+        "type": "Sedan",
+        "fuel": "Electric",
+        "trim": [
+            {
+                "name": "Standard Range",
+                "msrp": 41630
+            },
+            {
+                "name": "Dual Motor",
+                "msrp": 48630
+            },
+            {
+                "name": "Performance",
+                "msrp": 54630
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "Honda",
+        "model": "Civic",
+        "type": "Sedan",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "LX",
+                "msrp": 25045
+            },
+            {
+                "name": "Sport",
+                "msrp": 26645
+            },
+            {
+                "name": "EX",
+                "msrp": 28045
+            },
+            {
+                "name": "Si",
+                "msrp": 30195
+            },
+            {
+                "name": "Touring",
+                "msrp": 31645
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "Rivian",
+        "model": "R1T",
+        "type": "Truck",
+        "fuel": "Electric",
+        "trim": [
+            {
+                "name": "Explore",
+                "msrp": 68575
+            },
+            {
+                "name": "Adventure",
+                "msrp": 74075
+            },
+            {
+                "name": "Launch Edition",
+                "msrp": 72075
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "Rivian",
+        "model": "R1S",
+        "type": "SUV",
+        "fuel": "Electric",
+        "trim": [
+            {
+                "name": "Explore",
+                "msrp": 74000
+            },
+            {
+                "name": "Adventure",
+                "msrp": 79500
+            },
+            {
+                "name": "Launch Edition",
+                "msrp": 91500
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2020,
+        "make": "Audi",
+        "model": "S5",
+        "type": "Sedan",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "Premium",
+                "msrp": 57895
+            },
+            {
+                "name": "Premium Plus",
+                "msrp": 60895
+            },
+            {
+                "name": "Prestige",
+                "msrp": 65295
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "Audi",
+        "model": "Q5",
+        "type": "SUV",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "Premium",
+                "msrp": 44495
+            },
+            {
+                "name": "Premium S Line",
+                "msrp": 46995
+            },
+            {
+                "name": "Premium Plus",
+                "msrp": 49495
+            },
+            {
+                "name": "Premium Plus S Line",
+                "msrp": 51995
+            },
+            {
+                "name": "Prestige",
+                "msrp": 55195
+            },
+            {
+                "name": "Prestige S Line",
+                "msrp": 57695
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "Toyota",
+        "model": "Tacoma",
+        "type": "Truck",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "SR",
+                "msrp": 29195
+            },
+            {
+                "name": "SR5",
+                "msrp": 31045
+            },
+            {
+                "name": "TRD Sport",
+                "msrp": 36530
+            },
+            {
+                "name": "TRD Off Road",
+                "msrp": 36555
+            },
+            {
+                "name": "Limited",
+                "msrp": 41120
+            },
+            {
+                "name": "TRD PRO",
+                "msrp": 47800
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2020,
+        "make": "Toyota",
+        "model": "GR Supra",
+        "type": "Coupe",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "2.0",
+                "msrp": 46635
+            },
+            {
+                "name": "3.0",
+                "msrp": 55595
+            },
+            {
+                "name": "3.0 Premium",
+                "msrp": 58745
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2022,
+        "make": "BMW",
+        "model": "M4",
+        "type": "Coupe",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "Base",
+                "msrp": 72995
+            },
+            {
+                "name": "Competition",
+                "msrp": 75895
+            },
+            {
+                "name": "Competition xDrive",
+                "msrp": 79995
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2024,
+        "make": "Mercedes-Benz",
+        "model": "GLE-Class",
+        "type": "SUV",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "GLE 350 4MATIC",
+                "msrp": 63800
+            },
+            {
+                "name": "GLE 450 4MATIC",
+                "msrp": 70650
+            },
+            {
+                "name": "GLE 450e",
+                "msrp": 70650,
+                "type": "Hybrid"
+            },
+            {
+                "name": "GLE 580 4MATIC",
+                "msrp": 87850
+            },
+            {
+                "name": "AMG GLE 53",
+                "msrp": 87900
+            },
+            {
+                "name": "AMG GLE 63 S",
+                "msrp": 128850
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2023,
+        "make": "Toyota",
+        "model": "Prius",
+        "type": "Hybrid",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "LE",
+                "msrp": 28545
+            },
+            {
+                "name": "XLE",
+                "msrp": 31990
+            },
+            {
+                "name": "Limited",
+                "msrp": 35560
+            }
+        ],
+        "img": ""
+    },
+    {
+        "year": 2021,
+        "make": "Ford",
+        "model": "F150",
+        "type": "Truck",
+        "fuel": "Gas",
+        "trim": [
+            {
+                "name": "XL",
+                "msrp": 43325
+            },
+            {
+                "name": "XLT",
+                "msrp": 48155
+            },
+            {
+                "name": "Lariat",
+                "msrp": 59275
+            },
+            {
+                "name": "Tremor",
+                "msrp": 62905
+            },
+            {
+                "name": "King Ranch",
+                "msrp": 64800
+            },
+            {
+                "name": "Platinum",
+                "msrp": 66490
+            },
+            {
+                "name": "Raptor",
+                "msrp": 78570
+            },
+            {
+                "name": "Limited",
+                "msrp": 86705
+            },
+            {
+                "name": "Raptor R",
+                "msrp": 109145
+            }
+        ],
+        "img": ""
+    }
+]
