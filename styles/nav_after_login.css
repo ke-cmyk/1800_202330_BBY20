@@ -50,11 +50,11 @@ a {
 }
 
 /* Used to make svg icon clickable */
-a.nav-icon-container {
+.nav-icon-container {
     position: relative;
   }
 
-a.nav-icon-container::after {
+.nav-icon-container::after {
     content: ""; 
     position: absolute; 
     top: 0; 

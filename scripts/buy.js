@@ -1,8 +1,7 @@
 authenticateUser(() => {
     console.log(userID);
 
-
-    if (window.location.href.includes("buy.html")) {
+    if (window.location.href.endsWith("buy.html")) {
         displayCardsDynamically();
         document.getElementById("find-car-btn").addEventListener("mouseup", () => {
             window.location.href = "buySearch.html";
@@ -63,10 +62,12 @@ function searchCars() {
             var make = doc.data().make;
             var model = doc.data().model;
             var year = doc.data().year;
+            var docID = doc.id;
 
             let newcard = cardTemplate.content.cloneNode(true);
 
             newcard.querySelector('.myCar-Info').innerHTML = year + " " + make + " " + model;
+            newcard.querySelector('a').href = 'car.html?docID=' + docID;
             document.getElementById("myCars-go-here").appendChild(newcard);
         })
     })
