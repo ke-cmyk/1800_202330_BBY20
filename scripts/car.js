@@ -40,13 +40,12 @@ function createRequest() {
         requesterID: userID,
         vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
     })
-    // db.collection("users").doc(userID).set({
-    //     requestDate: firebase.firestore.FieldValue.serverTimestamp(),
-    //     requesterID: userID,
-    //     vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
-    // })
-    .then(() => {
+
+    .then((requestRef) => {
         console.log("Document successfully written!");
+        db.collection("users").doc(userID).update({
+            requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id)
+        })
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
