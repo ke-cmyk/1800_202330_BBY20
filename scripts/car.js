@@ -40,11 +40,11 @@ function createRequest() {
         requesterID: userID,
         vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
     })
-    db.collection("users").doc(userID).set({
-        requestDate: firebase.firestore.FieldValue.serverTimestamp(),
-        requesterID: userID,
-        vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
-    })
+    // db.collection("users").doc(userID).set({
+    //     requestDate: firebase.firestore.FieldValue.serverTimestamp(),
+    //     requesterID: userID,
+    //     vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
+    // })
     .then(() => {
         console.log("Document successfully written!");
     })
