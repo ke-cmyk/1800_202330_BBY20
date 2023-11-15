@@ -1,10 +1,23 @@
-#car-image-container {
-    height: 30vh;
-    overflow: hidden;
+#vehicle-name-display {
+    display: flex;
+    justify-content: center;
+}
+
+#vehicle-year-display, #vehicle-make-display, #vehicle-model-display {
+ display: inline;
+ font-size: xx-large;
+ padding: 0 0.25em 0 0.25em;
+}
+
+#vehicle-type-display, #vehicle-fuel-display {
+    display: inline;
 }
 
 #car-image-preview {
     width: 100%;
+    max-height: 35h;
+    object-position: center;
+    object-fit: cover;
 }
 
 #details-container {

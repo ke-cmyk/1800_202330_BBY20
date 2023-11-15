@@ -62,13 +62,14 @@ function searchCars() {
             var make = doc.data().make;
             var model = doc.data().model;
             var year = doc.data().year;
-            var docID = doc.id;
+            var vehicleID = doc.id;
 
             let newcard = cardTemplate.content.cloneNode(true);
 
             newcard.querySelector('.myCar-Info').innerHTML = year + " " + make + " " + model;
-            newcard.querySelector('a').href = 'car.html?docID=' + docID;
+            newcard.querySelector('a').href = 'car.html?vehicleID=' + vehicleID;
             document.getElementById("myCars-go-here").appendChild(newcard);
         })
     })
 }
+

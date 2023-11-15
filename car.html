@@ -16,7 +16,7 @@
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -40,18 +40,42 @@
     <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
-<body name="Some Car Name">
+<body name="Vehicle Details">
     <!-- Header -->
     <div id="headerPlaceholder"></div>
+
     <!-- Content -->
-    <div id="car-image-container">
-        <img src="./images/car.jpeg" id="car-image-preview">
+    <div>
+        <div id="car-image-container">
+            <img src="./images/car.jpeg" id="car-image-preview" alt="Image of car.">
+        </div>
+
+        <div>
+            <div id="vehicle-name-display">
+            <p id="vehicle-year-display">Year</p>
+            <p id="vehicle-make-display">Make</p>
+            <p id="vehicle-model-display">Model</p>
+        </div>
+
+            <div>
+            <p id="vehicle-type-display">Type</p>
+            <p id="vehicle-fuel-display">Fuel</p>
+        </div>
+
+            <p>Trims:</p>
+            <template id="vehicle-trim">
+                <p id="vehicle-trim-name-display">Type</p>
+                <p id="vehicle-trim-price-display">Fuel</p>
+            </template>
+        </div>
+
+        <div>
+            <button type="button">Request This Car</button>
+        </div>
+
     </div>
-    <div id="details-container">
-        <a href="#">
-            <button>Request This Car</button>
-        </a>
-    </div>
+
+
 
     <!-- Footer -->
     <div id="footerPlaceholder"></div>
@@ -62,6 +86,7 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/car.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
