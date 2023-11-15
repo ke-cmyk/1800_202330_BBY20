@@ -19,6 +19,10 @@ function loadSkeleton() {
             headerLink.id = "nav-style";
             document.head.appendChild(headerLink);
 
+            if (window.location.href.endsWith("index.html") || window.location.href.endsWith("login.html")) {
+                window.location.href = "home.html";
+            }
+
             // loads either the main header or the back button header
             // depending on if you are on one of the 4 main pages or not.
             if (document.body.getAttribute("main") === "true"){
@@ -31,6 +35,9 @@ function loadSkeleton() {
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         } else {
             // No user is signed in.
+            if (!window.location.href.endsWith("index.html") && !window.location.href.endsWith("login.html")) {
+                window.location.href = "index.html";
+            }
             console.log($('#headerPlaceholder').load('./text/nav_before_login.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         }

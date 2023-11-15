@@ -1,3 +1,7 @@
+authenticateUser(() => {
+    displayVehicleInfo();
+})
+
 function displayVehicleInfo() {
     let params = new URL( window.location.href ); //get URL of search bar
     let vehicleID = params.searchParams.get( "vehicleID" ); //get value for key "vehicleID"
@@ -29,4 +33,22 @@ function displayVehicleInfo() {
             // imgEvent.src = "../images/" + hikeCode + ".jpg";
         } );
 }
-displayVehicleInfo();
+
+function createRequest() {
+    db.collection("requests").add({
+        requestDate: firebase.firestore.FieldValue.serverTimestamp(),
+        requesterID: userID,
+        vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
+    })
+    db.collection("users").doc(userID).set({
+        requestDate: firebase.firestore.FieldValue.serverTimestamp(),
+        requesterID: userID,
+        vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
+    })
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}

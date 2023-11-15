@@ -26,8 +26,6 @@ function authenticateUser(callback) {
         if (user) {
             userID = user.uid;
             callback(); // Call the callback function after setting userID
-        } else {
-            window.location.href = "index.html";
         }
     });
 }
