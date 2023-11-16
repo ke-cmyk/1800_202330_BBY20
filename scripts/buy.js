@@ -32,7 +32,9 @@ function displayCardsDynamically() {
 
                         //update title and text and image
                         newcard.querySelector('.request-car-name').innerHTML = year + " " + make + " " + model;
-                        newcard.querySelector('.request-card').style.background = `url(${vehicleImage2})`; //Example: NV01.jpg
+                        newcard.querySelector('.request-card').style.setProperty("background", `url(${vehicleImage2})`);
+                        newcard.querySelector('.request-card').style.setProperty("background-position", "center");
+                        newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
 
             
                         //Optional: give unique ids to all elements for future use

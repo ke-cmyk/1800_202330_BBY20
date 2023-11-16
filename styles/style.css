@@ -100,7 +100,6 @@ body {
 
     height: 150px;
     margin: 20px;
-    overflow: hidden;
     border-radius: 10px;
 
     background: url(../images/prius.jpg);
@@ -144,7 +143,6 @@ body {
 
 .car-preview-info {
     position: absolute;
-    text-align: center;
     
     bottom: 0;
     width: 100%;
@@ -152,4 +150,13 @@ body {
     max-height: 35px;
 
     border-radius: 0px 0px;
+}
+
+.car-details-prompt {
+    float: right;
+}
+
+.car-preview-msrp {
+    float: left;
+    color: var(--primary-color);
 }
