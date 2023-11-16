@@ -110,6 +110,15 @@ body {
     box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
 }
 
+.request-car-name {
+    position: absolute;
+    top: 0px;
+    border-radius: 10px 0px 10px 0px;
+
+    padding: 0px 10px;
+    z-index: 1;
+}
+
 .request-preview-info {
     position: absolute;
     
@@ -123,22 +132,23 @@ body {
     border-radius: 0px 0px;
 }
 
-.request-car-name {
-    position: absolute;
-    top: 0px;
-    border-radius: 10px 0px 10px 0px;
-    /* background-color: white; */
-
-    padding: 0px 10px;
-    color: var(--text-color);
-    z-index: 1;
-
-    transform: translate(-1px, -1px);
-}
 .request-highest-price {
     float: right;
     color: var(--primary-color);
 }
 .request-offer-number {
     float: left;
+}
+
+/* Car Preview Card CSS */
+.car-preview-info {
+    position: absolute;
+    text-align: center;
+    
+    bottom: 0;
+    width: 100%;
+    padding: 5px 10px;
+    max-height: 35px;
+
+    border-radius: 0px 0px;
 }
