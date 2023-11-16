@@ -5,6 +5,15 @@
     --background-color: white;
 }
 
+h2 {
+    font-weight: 100;
+}
+
+h3 {
+    font-weight: 100;
+    font-size: 14pt;
+}
+
 body {
     font-family: 'Kanit', sans-serif;
     width: 100vw;
@@ -49,6 +58,7 @@ body {
 
 .card-section-heading {
     margin-left: 20px;
+    font-weight: 100;
 }
 
 .glass-container {
@@ -65,6 +75,14 @@ body {
     border: 2px solid rgba( 255, 255, 255, 0.35);
 }
 
+.glass-background-only {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 2px solid rgba( 255, 255, 255, 0.5);
+}
+
 .solid-container {
     margin: 20px;
     padding: 20px;
@@ -74,4 +92,49 @@ body {
     background: rgba(255, 255, 255, 0.25);
     border-radius: 10px;
     border: 2px solid rgba( 255, 255, 255, 0.5);
+}
+
+/* Request Preview Card CSS */
+.request-card {
+    position:relative;
+
+    height: 140px;
+    margin: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    background: url(../images/car.jpeg);
+    background-position: center;
+    background-size: cover;
+
+    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+}
+
+.request-preview-info {
+    position: absolute;
+    
+    bottom: 0;
+    width: 100%;
+    padding: 0px 10px;
+    max-height: 30px;
+
+    background-color: white;
+}
+
+.request-car-name {
+    position: absolute;
+    top: 0px;
+    border-radius: 10px 0px 10px 0px;
+    background-color: white;
+
+    padding: 0px 10px;
+    color: var(--text-color);
+    z-index: 1;
+}
+.request-highest-price {
+    float: right;
+    color: var(--primary-color);
+}
+.request-offer-number {
+    float: left;
 }

@@ -32,7 +32,7 @@ function loadSkeleton() {
             }
             
             console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
-            console.log($('#footerPlaceholder').load('./text/footer.html'));
+            // console.log($('#footerPlaceholder').load('./text/footer.html'));
         } else {
             // No user is signed in.
             if (!window.location.href.endsWith("index.html") && !window.location.href.endsWith("login.html")) {

@@ -19,7 +19,7 @@ function displayVehicleInfo() {
             vehicleType = thisVehicle.type;
             vehicleFuel = thisVehicle.fuel;
 
-            // poplate name
+            // populate name
             document.getElementById("vehicle-year-display").innerHTML = vehicleYear;
             document.getElementById("vehicle-make-display").innerHTML = vehicleMake;
             document.getElementById("vehicle-model-display").innerHTML = vehicleModel;
@@ -40,7 +40,6 @@ function createRequest() {
         requesterID: userID,
         vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
     })
-
     .then((requestRef) => {
         console.log("Document successfully written!");
         db.collection("users").doc(userID).update({
