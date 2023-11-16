@@ -102,44 +102,66 @@ body {
     margin: 20px;
     border-radius: 10px;
 
-    background: url(../images/prius.jpg);
+    /* background: url(../images/prius.jpg); */
     background-position: center;
     background-size: cover;
 
     box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
 }
 
+.request-preview-icon {
+    border-radius: 10px 0px 10px 0px;
+    
+    background-color: var(--primary-color);
+    height: 100%;
+    margin-right: 10px;
+    padding: 3px;
+    width: 35px;
+}
+
 .request-car-name {
     position: absolute;
     top: 0px;
     border-radius: 10px 0px 10px 0px;
+    height: 25px;
 
-    padding: 0px 10px;
-    z-index: 1;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .request-preview-info {
     position: absolute;
-    
     bottom: 0;
     width: 100%;
     padding: 5px 10px;
     max-height: 35px;
 
-    background-color: white;
-
-    border-radius: 0px 0px;
+    border-radius: 0px 0px 10px 10px;
+    
+    box-shadow: 0 -15px 10px -10px rgba( 100, 100, 100, 0.25);
 }
 
 .request-highest-price {
-    float: right;
+    float: left;
     color: var(--primary-color);
 }
 .request-offer-number {
-    float: left;
+    float: right;
 }
 
 /* Car Preview Card CSS */
+
+.car-preview-name {
+    position: absolute;
+    top: 0px;
+    border-radius: 10px 0px 10px 0px;
+    height: 25px;
+
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+}
 
 .car-preview-info {
     position: absolute;
@@ -149,7 +171,8 @@ body {
     padding: 5px 10px;
     max-height: 35px;
 
-    border-radius: 0px 0px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 -15px 10px -10px rgba( 100, 100, 100, 0.25);
 }
 
 .car-details-prompt {

@@ -18,15 +18,17 @@ function displayVehicleInfo() {
             vehicleModel = thisVehicle.model;
             vehicleType = thisVehicle.type;
             vehicleFuel = thisVehicle.fuel;
+            vehicleImage2 = thisVehicle.img[1];
+
+            // Insert image
+            document.getElementById("vehicle-image-preview").setAttribute("src", vehicleImage2);
 
             // populate name
-            document.getElementById("vehicle-year-display").innerHTML = vehicleYear;
-            document.getElementById("vehicle-make-display").innerHTML = vehicleMake;
-            document.getElementById("vehicle-model-display").innerHTML = vehicleModel;
+            document.getElementById("vehicle-name-display").textContent = `${vehicleYear} ${vehicleMake} ${vehicleModel}`;
 
             // populate fuel & type
-            document.getElementById("vehicle-type-display").innerHTML = vehicleType;
-            document.getElementById("vehicle-fuel-display").innerHTML = vehicleFuel;
+            document.getElementById("vehicle-type-display").innerHTML = "Type: " + vehicleType;
+            document.getElementById("vehicle-fuel-display").innerHTML = "Engine: " + vehicleFuel;
 
             // uncomment when image stuff is sorted
             // let imgEvent = document.querySelector( ".hike-img" );
