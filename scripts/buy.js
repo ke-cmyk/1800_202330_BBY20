@@ -26,12 +26,14 @@ function displayCardsDynamically() {
                         var make = vehicleDoc.data().make;
                         var model = vehicleDoc.data().model;
                         var year = vehicleDoc.data().year;
+                        var vehicleImage2 =vehicleDoc.data().img[1];
             
                         let newcard = cardTemplate.content.cloneNode(true);
-            
+
                         //update title and text and image
                         newcard.querySelector('.request-car-name').innerHTML = year + " " + make + " " + model;
-                        // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
+                        newcard.querySelector('.request-card').style.background = `url(${vehicleImage2})`; //Example: NV01.jpg
+
             
                         //Optional: give unique ids to all elements for future use
                         // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -53,10 +55,10 @@ function displayCardsDynamically() {
 }
 
 function searchCars() {
-
     let cardTemplate = document.getElementById("search-results");
 
     let searchInput = document.querySelector("#search-bar").value;
+    searchInput = toTitleCase(searchInput);
     var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
 
     // uncomment once collection of cars is populated
