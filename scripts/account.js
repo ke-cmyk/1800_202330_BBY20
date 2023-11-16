@@ -53,3 +53,7 @@ function saveUserInfo() {
             window.location.href = "account.html";
         })
 }
+
+function signOut() {
+    firebase.auth().signOut();
+}

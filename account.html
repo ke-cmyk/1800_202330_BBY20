@@ -44,12 +44,12 @@
     <!-- Content -->
     <div class="glass-container" id="profile-container">
         <img src="user-profile.jpg" id="user-profile-image">
-        <h1 id="user-name-display">John Doe</h1>
-        <h2 id="user-email-display">johndoe@email.com</h2>
-        <h2 id="user-city-display">Some City</h2>
-        <h2 id="user-phone-display">000-000-0000</h2>
-        <a href="editAccount.html">
-            <button id="edit-profile-button" >Edit Profile</button>
+        <h1 id="user-name-display"></h1>
+        <h2 id="user-email-display"></h2>
+        <h2 id="user-city-display"></h2>
+        <h2 id="user-phone-display"></h2>
+        <a href="editAccount.html" id="edit-profile-button">
+            <button>Edit Profile</button>
         </a>
     </div>
     <div class="glass-container" id="prefs-menu-container">
@@ -64,7 +64,7 @@
             <p>Location</p>
         </div>
     </div>
-    <button class="glass-container" id="sign-out-button">Sign Out</button>
+    <button class="glass-container" id="sign-out-button" onclick="signOut()">Sign Out</button>
     <!-- Footer -->
     <div id="footerPlaceholder"></div> 
 

@@ -31,17 +31,10 @@ function displayCardsDynamically() {
             
                         //update title and text and image
                         newcard.querySelector('.request-car-name').innerHTML = year + " " + make + " " + model;
+
                         // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
-            
-                        //Optional: give unique ids to all elements for future use
-                        // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                        // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                        // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-            
-                        //attach to gallery, Example: "hikes-go-here"
+
                         document.getElementById("requests-container").appendChild(newcard);
-            
-                        //i++;   //Optional: iterate variable to serve as unique ID
                     })
 
                 })
@@ -53,16 +46,9 @@ function displayCardsDynamically() {
 }
 
 function searchCars() {
-
     let cardTemplate = document.getElementById("search-results");
-
     let searchInput = document.querySelector("#search-bar").value;
     var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
-
-    // uncomment once collection of cars is populated
-    // var cars = db.collection("cars");
-
-    // cars.where("make" == searchInput).get()
 
     carsCollectionRef.get()
     .then(allmycars => {
@@ -71,9 +57,7 @@ function searchCars() {
             var model = doc.data().model;
             var year = doc.data().year;
             var vehicleID = doc.id;
-
             let newcard = cardTemplate.content.cloneNode(true);
-
             newcard.querySelector('.myCar-Info').innerHTML = year + " " + make + " " + model;
             newcard.querySelector('a').href = 'car.html?vehicleID=' + vehicleID;
             document.getElementById("myCars-go-here").appendChild(newcard);
