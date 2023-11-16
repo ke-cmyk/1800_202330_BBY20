@@ -65,3 +65,9 @@ function searchCars() {
     })
 }
 
+// Allows user to activate search by pressing enter
+document.addEventListener("keyup", (event) => {
+    if (window.location.href.endsWith("buySearch.html") && event.key === "Enter" && document.querySelector("#search-bar").value != "") {
+        searchCars();
+    }
+})
