@@ -38,7 +38,7 @@ function loadSkeleton() {
             if (!window.location.href.endsWith("index.html") && !window.location.href.endsWith("login.html")) {
                 window.location.href = "index.html";
             }
-            console.log($('#headerPlaceholder').load('./text/nav_before_login.html'));
+            // console.log($('#headerPlaceholder').load('./text/nav_before_login.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         }
     });

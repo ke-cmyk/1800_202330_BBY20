@@ -42,8 +42,6 @@ function displayCardsDynamically() {
             
                         //attach to gallery, Example: "hikes-go-here"
                         document.getElementById("requests-container").appendChild(newcard);
-            
-                        //i++;   //Optional: iterate variable to serve as unique ID
                     })
 
                 })
@@ -56,15 +54,9 @@ function displayCardsDynamically() {
 
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
-
     let searchInput = document.querySelector("#search-bar").value;
     searchInput = toTitleCase(searchInput);
     var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
-
-    // uncomment once collection of cars is populated
-    // var cars = db.collection("cars");
-
-    // cars.where("make" == searchInput).get()
 
     carsCollectionRef.get()
     .then(allmycars => {
@@ -73,13 +65,17 @@ function searchCars() {
             var model = doc.data().model;
             var year = doc.data().year;
             var vehicleID = doc.id;
-
             let newcard = cardTemplate.content.cloneNode(true);
-
-            newcard.querySelector('.myCar-Info').innerHTML = year + " " + make + " " + model;
+            newcard.querySelector('.request-car-name').innerHTML = year + " " + make + " " + model;
             newcard.querySelector('a').href = 'car.html?vehicleID=' + vehicleID;
             document.getElementById("myCars-go-here").appendChild(newcard);
         })
     })
 }
 
+// Allows user to activate search by pressing enter
+document.addEventListener("keyup", (event) => {
+    if (window.location.href.endsWith("buySearch.html") && event.key === "Enter" && document.querySelector("#search-bar").value != "") {
+        searchCars();
+    }
+})
