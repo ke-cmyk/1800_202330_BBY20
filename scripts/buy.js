@@ -53,9 +53,13 @@ function displayCardsDynamically() {
 
 }
 
+let makeArray = ["Audi", "Toyota", "Ford", "Rivian", "BMW", "Tesla", "Mercedes-Benz", "Honda"];
+
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let searchInput = document.querySelector("#search-bar").value;
+
+    // converts searchInput into an array of query-ready tokens
     searchInput = toTitleCase(searchInput);
     var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
 
