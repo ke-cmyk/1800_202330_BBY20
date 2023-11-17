@@ -17,7 +17,11 @@ h3 {
 body {
     font-family: 'Kanit', sans-serif;
     width: 100vw;
-    background-color: var(--background-color);
+    background: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-color: var(--background-color); */
 }
 
 .btn-outline-success {
@@ -67,7 +71,7 @@ body {
     width: calc(100% - 40px);
     
     /* glass effect */
-    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+    box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -89,9 +93,13 @@ body {
     padding: 20px;
     width: calc(100% - 40px);
     
-    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+    box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
     background: rgba(255, 255, 255, 0.25);
     border-radius: 10px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 /* Request Preview Card CSS */
@@ -106,7 +114,7 @@ body {
     background-position: center;
     background-size: cover;
 
-    box-shadow: 0 0 15px 0 rgba( 100, 100, 100, 0.25);
+    box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
 }
 
 .request-preview-icon {

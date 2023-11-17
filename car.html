@@ -46,24 +46,27 @@
 
     <!-- Content -->
     <div>
-        <div id="car-image-container">
+        <div id="vehicle-image-container">
             <img src="./images/car.jpeg" id="vehicle-image-preview" alt="Image of car.">
         </div>
         <div>
             <h2 id="vehicle-name-display"></h2>
             <div>
-                <p id="vehicle-type-display">Type</p>
-                <p id="vehicle-fuel-display">Fuel</p>
+                <button type="button" id="request-button" onclick="createRequest()">Request This Car</button>
             </div>
-            <p>Trims:</p>
-            <template id="vehicle-trim">
-                <p id="vehicle-trim-name-display">Type</p>
-                <p id="vehicle-trim-price-display">Fuel</p>
-            </template>
+            <div class="glass-container">
+                <div>
+                    <p id="vehicle-type-display">Type</p>
+                    <p id="vehicle-fuel-display">Fuel</p>
+                </div>
+                <p>Trims:</p>
+                <template id="vehicle-trim">
+                    <p id="vehicle-trim-name-display">Type</p>
+                    <p id="vehicle-trim-price-display">Fuel</p>
+                </template>
+            </div>
         </div>
-        <div>
-            <button type="button" id="request-button" onclick="createRequest()">Request This Car</button>
-        </div>
+
     </div>
 
     <!-- Footer -->

@@ -36,7 +36,6 @@ function displayCardsDynamically() {
                         newcard.querySelector('.request-card').style.setProperty("background-position", "center");
                         newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
 
-            
                         //Optional: give unique ids to all elements for future use
                         // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
                         // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
