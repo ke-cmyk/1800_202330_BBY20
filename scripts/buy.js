@@ -58,10 +58,41 @@ let makeArray = ["Audi", "Toyota", "Ford", "Rivian", "BMW", "Tesla", "Mercedes-B
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let searchInput = document.querySelector("#search-bar").value;
+    let makeTerm = "";
+    let modelTerm = "";
+    let yearTerm = "";
 
     // converts searchInput into an array of query-ready tokens
-    searchInput = toTitleCase(searchInput);
-    var carsCollectionRef = db.collection("vehicles").where("make", "==", searchInput);
+    searchTerms = searchInput.split(" ");
+    searchTerms = searchTerms.map(term => {
+        return toTitleCase(term);
+    })
+
+    searchTerms.forEach(term => {
+        if (term.startsWith("20")) {
+            yearTerm = term;
+        } else if (makeArray.includes(term)) {
+            makeTerm = term;
+        } else {
+            modelTerm = term;
+        }
+    })
+    console.log(makeTerm, modelTerm, yearTerm);
+    var carsCollectionRef = db.collection("vehicles");
+
+    //create conditional queries5 based off of whether or not make, model and yearSearchTerm are empty.
+    if (makeTerm) {
+        carsCollectionRef = carsCollectionRef.where("make", "==", makeTerm);
+    }
+    if (modelTerm) {
+        carsCollectionRef = carsCollectionRef.where("model", "==", modelTerm);
+    }
+    if (yearTerm) {
+        carsCollectionRef = carsCollectionRef.where("year", "==", parseInt(yearTerm));
+    } 
+    if (!makeTerm && !modelTerm && !yearTerm) {
+        carsCollectionRef = carsCollectionRef.where("year", "==", -1);
+    }
 
     carsCollectionRef.get()
     .then(allmycars => {
