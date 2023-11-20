@@ -1,3 +1,5 @@
+
+
 function toTitleCase(str) {
     if (str.length <= 3) {
         return str.toUpperCase();

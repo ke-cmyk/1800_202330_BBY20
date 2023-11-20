@@ -139,6 +139,8 @@ textarea:focus, input:focus{
     padding-right: 10px;
     display: flex;
     flex-direction: row;
+    border-right: 1px solid rgba( 255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .request-preview-info {
@@ -147,10 +149,9 @@ textarea:focus, input:focus{
     width: 100%;
     padding: 5px 10px;
     max-height: 35px;
-
     border-radius: 0px 0px 10px 10px;
-    
     box-shadow: 0 -15px 10px -10px rgba( 100, 100, 100, 0.25);
+    border-top: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .request-highest-price {
@@ -172,18 +173,20 @@ textarea:focus, input:focus{
     padding: 0px 10px;
     display: flex;
     flex-direction: row;
+
+    border-right: 1px solid rgba( 255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .car-preview-info {
-    position: absolute;
-    
+    position: absolute;    
     bottom: 0;
     width: 100%;
     padding: 5px 10px;
     max-height: 35px;
-
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0 -15px 10px -10px rgba( 100, 100, 100, 0.25);
+    border-top: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .car-details-prompt {

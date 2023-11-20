@@ -1,6 +1,6 @@
 #vehicle-name-display {
     text-align: center;
-    font-size: xx-large;
+    /* font-size: xx-large; */
     padding: 0 0.25em 0 0.25em;
 }
 
@@ -19,8 +19,22 @@
 }
 
 #details-container {
-    background-color: white;
-    height: 150px;
-    border-radius: 20px;
-    transform: translate(0px, -20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#request-button {
+    padding: 5px;
+    margin: 10px;
+    
+    width: 150px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    
+    box-shadow: 0 5px 15px -5px rgba( 100, 100, 100, 0.25);
+    border-radius: 10px;
+    border: 0 solid rgba( 255, 255, 255, 0.35);
 }
