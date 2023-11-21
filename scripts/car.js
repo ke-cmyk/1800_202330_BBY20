@@ -15,6 +15,9 @@ authenticateUser(() => {
     })
 })
 
+/**
+ * Grabs the vehicleID from the url and searches db for the id. Then, it populates the image container and vehicle info fields.
+ */
 function displayVehicleInfo() {
     let params = new URL(window.location.href); //get URL of search bar
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
@@ -49,6 +52,11 @@ function displayVehicleInfo() {
         });
 }
 
+/**
+ * Sets visibility of warning page when the request button is clicked.
+ * 
+ * @event click #request-button
+ */
 function createRequest() {
     if (localStorage.getItem("hideRequestWarning") != "true") {
         document.querySelector("#popup-container").style.visibility = "visible";
@@ -62,6 +70,11 @@ function createRequest() {
     }
 }
 
+/**
+ * Adds a request to the db under requests collection and user request array.
+ * Sets visibility for warning menu and success menu.
+ * Switches the onclick attribute from createRequest to deleteRequest.
+ */
 function addRequestToFirestore() {
     db.collection("requests").add({
         requestDate: firebase.firestore.FieldValue.serverTimestamp(),
@@ -88,6 +101,9 @@ function addRequestToFirestore() {
         });
 }
 
+/**
+ * Deletes the request of the current vehicle page from the requests collection and user request array
+ */
 function deleteRequest() {
     vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
     requestsCollectionRef = db.collection("requests").where("requesterID", "==", userID).where("vehicleID", "==", vehicleID);

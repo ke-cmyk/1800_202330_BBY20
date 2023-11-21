@@ -19,7 +19,7 @@ function loadSkeleton() {
             headerLink.id = "nav-style";
             document.head.appendChild(headerLink);
 
-            if (window.location.href.endsWith("index.html") || window.location.href.endsWith("login.html")) {
+            if (window.location.href.endsWith("index.html")) {
                 window.location.href = "home.html";
             }
 

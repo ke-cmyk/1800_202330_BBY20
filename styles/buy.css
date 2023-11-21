@@ -39,6 +39,11 @@
     color: var(--primary-color);
 }
 
+#find-car-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 /* -------------------------------------- */
 /* ------------- Buy Search ------------- */
 /* -------------------------------------- */

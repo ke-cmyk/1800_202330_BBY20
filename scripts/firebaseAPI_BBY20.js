@@ -25,7 +25,10 @@ function authenticateUser(callback) {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
+            console.log(userID);
             callback(); // Call the callback function after setting userID
+        } else {
+            console.log("user is not signed in.");
         }
     });
 }
