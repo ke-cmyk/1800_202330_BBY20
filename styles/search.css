@@ -1,0 +1,28 @@
+/* -------------------------------------- */
+/* ------------- Search Bar ------------- */
+/* -------------------------------------- */
+#search-container {
+    height: 10vw;
+    width: calc(100vw - 40px);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid var(--text-color);
+}
+#search-bar {
+    border: none;
+    width: 100%;
+    margin: 0px 10px;
+    background: rgba(255, 255, 255, 0);
+}
+#search-filter-icon {
+    padding: 5px;
+    width: 20%;
+    border-left: 2px solid var(--text-color);
+}
+#search-activate-icon {
+    padding: 7px;
+    width: 20%;
+    border-left: 2px solid var(--text-color);
+}

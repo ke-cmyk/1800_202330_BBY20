@@ -5,9 +5,8 @@ authenticateUser(() => {
         displayCardsDynamically();
         document.getElementById("find-car-btn").addEventListener("mouseup", () => {
             window.location.href = "buySearch.html";
-    })
-}
-
+        })
+    }
 });
 
 function displayCardsDynamically() {
