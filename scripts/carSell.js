@@ -2,6 +2,35 @@ authenticateUser(() => {
     displayCardsDynamically();
 })
 
+displayVehicleInfo()
+
+function displayVehicleInfo() {
+    let params = new URL( window.location.href ); //get URL of search bar
+    let vehicleID = params.searchParams.get( "vehicleID" ); //get value for key "vehicleID"
+
+    // doublecheck: is your collection called "Reviews" or "reviews"?
+    db.collection( "vehicles" )
+        .doc( vehicleID )
+        .get()
+        .then( doc => {
+            thisVehicle = doc.data();
+            vehicleYear = thisVehicle.year;
+            vehicleMake = thisVehicle.make;
+            vehicleModel = thisVehicle.model;
+            vehicleImage2 = thisVehicle.img[1];
+
+            // Insert image
+            document.getElementById("vehicle-image-preview").setAttribute("src", vehicleImage2);
+
+            // populate name
+            document.getElementById("vehicle-name-display").textContent = `${vehicleYear} ${vehicleMake} ${vehicleModel}`;
+
+            // uncomment when image stuff is sorted
+            // let imgEvent = document.querySelector( ".hike-img" );
+            // imgEvent.src = "../images/" + hikeCode + ".jpg";
+        } );
+}
+
 function displayCardsDynamically() {
 
     let params = new URL(window.location.href); //get URL of search bar
@@ -54,73 +83,3 @@ function displayCardsDynamically() {
         });
 
 }
-
-
-                // // Access individual documents within the query results
-                // console.log(vehicleRequestsDoc.id, " => ", vehicleRequestsDoc.data());
-
-                // // You can extract specific fields from the document
-                // let requestId = vehicleRequestsDoc.id;
-                // let requestData = vehicleRequestsDoc.data();
-
-                // // Now you can use requestId and requestData as needed
-
-                // if (requestId != "") {
-                //     db.collection("requests").doc(requestId).get()
-                //     .then(requestDoc => {
-                //         // Retrieve the requesterID from the request document
-                //         let requesterID = requestDoc.data().requesterID;
-
-                //         // Use requesterID to query the users collection
-                //         db.collection("users").doc(requesterID).get()
-                //         .then(userDoc => {
-                //             // Access user information
-                //             let userName = userDoc.data().name;
-                //             let userLocation = userDoc.data().location;
-
-                //             // Continue with the rest of your code
-                //             // ...
-
-                //             // Example: Log user information
-                //             console.log("User Name:", userName);
-                //             console.log("User Location:", userLocation);
-                //         })
-                //     })
-                // }
-
-
-    // userDocRef.get()
-    // .then(userDoc => {
-    //     userDoc.data().requests.forEach(requestId => {
-    //         if (requestId != "") {
-    //             db.collection("requests").doc(requestId).get()
-    //             .then(requestDoc => {
-    //                 db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
-    //                 .then(vehicleDoc => {
-    //                     var make = vehicleDoc.data().make;
-    //                     var model = vehicleDoc.data().model;
-    //                     var year = vehicleDoc.data().year;
-    //                     var vehicleImage2 = vehicleDoc.data().img[1];
-
-    //                     let newcard = cardTemplate.content.cloneNode(true);
-
-    //                     //update title and text and image
-    //                     newcard.querySelector('.request-car-name p').innerHTML = year + " " + make + " " + model;
-    //                     newcard.querySelector('.request-card').style.setProperty("background", `url(${vehicleImage2})`);
-    //                     newcard.querySelector('.request-card').style.setProperty("background-position", "center");
-    //                     newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
-
-    //                     //Optional: give unique ids to all elements for future use
-    //                     // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-    //                     // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-    //                     // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-    //                     //attach to gallery, Example: "hikes-go-here"
-    //                     document.getElementById("requests-container").appendChild(newcard);
-    //                 })
-
-    //             })
-    //         }
-
-    //     })
-    // })
