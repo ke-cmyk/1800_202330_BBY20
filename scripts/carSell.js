@@ -5,14 +5,13 @@ authenticateUser(() => {
 displayVehicleInfo()
 
 function displayVehicleInfo() {
-    let params = new URL( window.location.href ); //get URL of search bar
-    let vehicleID = params.searchParams.get( "vehicleID" ); //get value for key "vehicleID"
+    let params = new URL(window.location.href); //get URL of search bar
+    let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
 
-    // doublecheck: is your collection called "Reviews" or "reviews"?
-    db.collection( "vehicles" )
-        .doc( vehicleID )
+    db.collection("vehicles")
+        .doc(vehicleID)
         .get()
-        .then( doc => {
+        .then(doc => {
             thisVehicle = doc.data();
             vehicleYear = thisVehicle.year;
             vehicleMake = thisVehicle.make;
@@ -24,11 +23,7 @@ function displayVehicleInfo() {
 
             // populate name
             document.getElementById("vehicle-name-display").textContent = `${vehicleYear} ${vehicleMake} ${vehicleModel}`;
-
-            // uncomment when image stuff is sorted
-            // let imgEvent = document.querySelector( ".hike-img" );
-            // imgEvent.src = "../images/" + hikeCode + ".jpg";
-        } );
+        });
 }
 
 function displayCardsDynamically() {
@@ -37,11 +32,6 @@ function displayCardsDynamically() {
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
 
     let cardTemplate = document.getElementById("requests");
-    // console.log(cardTemplate);
-    // let userDocRef = db.collection("users").doc(userID);
-
-    // carsCollectionRef = carsCollectionRef.where("make", "==", makeTerm);
-
     let vehicleRequests = db.collection("requests").where("vehicleID", "==", vehicleID);
 
     vehicleRequests.get()
@@ -49,8 +39,10 @@ function displayCardsDynamically() {
             querySnapshot.forEach(vehicleRequestsDoc => {
 
                 let requesterID = vehicleRequestsDoc.data().requesterID;
-
                 let userDocRef = db.collection("users").doc(requesterID);
+
+                var requestDate = vehicleRequestsDoc.data().requestDate;
+                console.log(requestDate);
 
                 // Get the document
                 userDocRef.get()
@@ -65,9 +57,19 @@ function displayCardsDynamically() {
 
                             let newcard = cardTemplate.content.cloneNode(true);
 
-                            // newcard.querySelector('.request-car-name p').innerHTML = year + " " + make + " " + model;
                             newcard.querySelector('#requester-name').innerHTML = name;
                             newcard.querySelector('#requester-location').innerHTML = location;
+
+
+                            // const match = requestDate.match(/seconds=(\d+),/);
+                            // const seconds = match ? parseInt(match[1], 10) : null;
+                            const date = new Date(requestDate.seconds*1000);
+                            const year = date.getFullYear();
+                            const month = date.toLocaleString('en-US', { month: 'short' });
+                            const day = date.getDate();
+
+                            newcard.querySelector('#request-date').innerHTML = month + " " + day + ", " + year;
+                            // TODO: after user profile pic is implemented, update picture here
 
                             document.getElementById("list-of-requests").appendChild(newcard);
 
@@ -81,5 +83,4 @@ function displayCardsDynamically() {
         .catch(error => {
             console.error("Error getting documents: ", error);
         });
-
 }
