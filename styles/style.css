@@ -77,7 +77,6 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: none;
-    border: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .glass-background-only {
@@ -86,6 +85,7 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: none;
+    order: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .solid-container {

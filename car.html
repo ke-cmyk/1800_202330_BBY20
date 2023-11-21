@@ -62,8 +62,36 @@
                 <p id="vehicle-trim-price-display">Fuel</p>
             </template>
         </div>
-
     </div>
+
+    <!-- Confirmation Popup -->
+    <div id="popup-container" class="fullscreen-popup">
+        <div class="popup glass-background-only">
+            <h1>Warning</h1>
+            <p>AutoBridge implements a reverse-marketplace model, where sellers reach out to buyers with offers. When you as a buyer post a "request", <span style="color: var(--secondary-color)">your post will be visible to anyone using the app</span> that wants to sell that car. They will then be able to contact you in the app or through a provided email.</p>
+            <form>
+                <input type="checkbox" id="request-info-hide" name="request-info-hide" value="Hide">
+                <label for="request-info-hide">Don't show me this again.</label>
+            </form>
+            <div class="warning-button-container">
+                <button id="confirm-request">Confirm Request</button>
+                <button id="cancel-request">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Successful Request Popup -->
+        <!-- Confirmation Popup -->
+        <div id="success-container" class="fullscreen-popup">
+            <div class="popup glass-background-only">
+                <h1>Success!</h1>
+                <p>Your request is live.</p>
+                <div class="warning-button-container">
+                    <button id="undo-request">Undo Request</button>
+                    <button id="return-button">Return</button>
+                </div>
+            </div>
+        </div>
 
     <!-- Footer -->
     <div id="footerPlaceholder"></div>

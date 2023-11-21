@@ -52,8 +52,6 @@ function displayCardsDynamically() {
 
 }
 
-let makeArray = ["Audi", "Toyota", "Ford", "Rivian", "BMW", "Tesla", "Mercedes-Benz", "Honda"];
-
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let makeTerm = toTitleCase(document.querySelector("#search-make").value);
