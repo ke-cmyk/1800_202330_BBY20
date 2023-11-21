@@ -57,7 +57,7 @@
 #sign-out-button {
     display: flex;
     align-self: left;
-    color: red;
+    color: var(--secondary-color);
 }
 
 #account-edit-table input {

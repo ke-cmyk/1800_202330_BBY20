@@ -56,26 +56,10 @@ let makeArray = ["Audi", "Toyota", "Ford", "Rivian", "BMW", "Tesla", "Mercedes-B
 
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
-    let searchInput = document.querySelector("#search-bar").value;
-    let makeTerm = "";
-    let modelTerm = "";
-    let yearTerm = "";
+    let makeTerm = toTitleCase(document.querySelector("#search-make").value);
+    let modelTerm = toTitleCase(document.querySelector("#search-model").value);
+    let yearTerm = document.querySelector("#search-year").value;
 
-    // converts searchInput into an array of query-ready tokens
-    searchTerms = searchInput.split(" ");
-    searchTerms = searchTerms.map(term => {
-        return toTitleCase(term);
-    })
-
-    searchTerms.forEach(term => {
-        if (term.startsWith("20")) {
-            yearTerm = term;
-        } else if (makeArray.includes(term)) {
-            makeTerm = term;
-        } else {
-            modelTerm = term;
-        }
-    })
     console.log(makeTerm, modelTerm, yearTerm);
     var carsCollectionRef = db.collection("vehicles");
 
@@ -121,7 +105,7 @@ function searchCars() {
 
 // Allows user to activate search by pressing enter
 document.addEventListener("keyup", (event) => {
-    if (window.location.href.endsWith("buySearch.html") && event.key === "Enter" && document.querySelector("#search-bar").value != "") {
+    if (window.location.href.endsWith("buySearch.html") && event.key === "Enter") {
         searchCars();
     }
 })

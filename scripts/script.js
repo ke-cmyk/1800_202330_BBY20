@@ -1,19 +1,17 @@
-
-
 function toTitleCase(str) {
-    if (str.length <= 3) {
-        return str.toUpperCase();
-    }
-
-    let firstLetter = str.substr(0, 1).toUpperCase();
-    let restOfWord = str.substr(1,str.length).toLowerCase();
-    let fullWord = firstLetter + restOfWord;
-
-    if (str.includes("-")) {
-        let secondWord = fullWord.split("-")[1];
-        firstLetter = secondWord.substr(0, 1).toUpperCase();
-        restOfWord = secondWord.substr(1,str.length).toLowerCase();
-        fullWord = fullWord.split("-")[0] + "-" + firstLetter + restOfWord;
-    }
-    return fullWord;
+    let result = "";
+    let wordCount = 0;
+    strArray = str.split(/[ -]/);
+    strArray.forEach((word) => {
+        if (word.length <= 3) {
+            result += word;
+        } else {
+            result += word.substring(0, 1).toUpperCase() + word.substring(1);
+        }
+        if (wordCount < strArray.length - 1) {
+            result += " ";
+        }
+        wordCount++;
+    })
+    return result;
 }
