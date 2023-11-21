@@ -44,10 +44,13 @@
     <!-- Header -->
     <div id="headerPlaceholder"></div>
     <!-- Content -->
-    <div id="search-container">
-      <input type="text" placeholder="Search Make" id="search-bar">
-      <img src="./images/filter.svg" id="search-filter-icon">
+    <div id="search-container" class="glass-background-only">
+
+      <input id="search-make" type="text" placeholder="Make">
+      <input id="search-model" type="text" placeholder="Model">
+      <input id="search-year" type="text" placeholder="Year">
       <img src="./images/search.svg" id="search-activate-icon" onclick="searchCars()">
+
     </div>
 
     <div class="search-results-container">

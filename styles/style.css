@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #6cd86c;
-    --secondary-color: #FFC857;
+    --primary-color: #386641;
+    --secondary-color: #BC4749;
     --text-color: #292F36;
-    --background-color: white;
+    --background-color: #F2E8CF;
 }
 
 h2 {
@@ -77,7 +77,6 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: none;
-    border: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .glass-background-only {
@@ -86,6 +85,7 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: none;
+    order: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 .solid-container {
@@ -103,6 +103,11 @@ body {
 
 textarea:focus, input:focus{
     outline: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /* Request Preview Card CSS */

@@ -37,14 +37,12 @@ body {
     height: 95%;
 }
 
-.nav-icon-container object {
+.nav-icon-container img {
     height: 30px;
     border-radius: 5px;
     padding: 5px;
 
-    background: rgba(255, 255, 255, 0.75);
-
-    
+    background: rgba(255, 255, 255, 0.5);
 }
 
 a {
