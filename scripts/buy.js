@@ -26,7 +26,7 @@ function displayCardsDynamically() {
                         var model = vehicleDoc.data().model;
                         var year = vehicleDoc.data().year;
                         var vehicleImage2 = vehicleDoc.data().img[1];
-            
+
                         let newcard = cardTemplate.content.cloneNode(true);
 
                         //update title and text and image
