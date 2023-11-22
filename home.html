@@ -45,7 +45,23 @@
 
   <!-- Content -->
   <h2 class="card-section-heading">Recommendations</h2>
-  <div class="horizontal-scrolling-menu">
+  <div id="recommendations"></div>
+
+  <!-- Template for search results -->
+  <template id="car-card">
+    <a>
+      <div class="request-card">
+        <div class="car-preview-name glass-background-only">
+          <h3></h3>
+        </div>
+        <div class="car-preview-info  glass-background-only">
+          <p class="car-preview-msrp">$$$$$$</p>
+          <p class="car-details-prompt">Request vehicle </p>
+        </div>
+      </div>
+    </a>
+  </template>
+  <!-- <div class="horizontal-scrolling-menu">
     <div class="glass-container car-card">
       <div class="image-container">
         <img src="./images/car.jpeg" alt="Car Photo Placeholder">
@@ -67,7 +83,7 @@
       <p id="car-card-title3" class="car-card-title">Car Year/Make/Model</p>
       <p id="car-card-msrp3" class="car-card-price">Car MSRP</p>
     </div>
-  </div>
+  </div> -->
 
 
   <!-- Footer -->
@@ -83,6 +99,8 @@
   <!-- Link to scripts of your own -->
 
   <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/buy.js"></script>
+  <script src="./scripts/home.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/dataUpload.js"></script>
 </body>

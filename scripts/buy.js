@@ -92,6 +92,7 @@ function populateCarCard(doc, cardTemplate, target, requested) {
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
         newcard.querySelector('.car-details-prompt').textContent = "2 Offers >";
+        newcard.querySelector('.car-preview-name').style.backgroundColor = "white";
     } else {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
         newcard.querySelector('.car-details-prompt').textContent = "Request this car >";
