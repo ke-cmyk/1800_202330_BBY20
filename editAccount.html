@@ -21,6 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +42,10 @@
         <form>
             <fieldset>
                 <table id="account-edit-table">
+                    <tr>
+                        <td><label>Picture:</label></td>
+                        <td><input type="file" id="photo-input" accept="image/*"></td>
+                    </tr>
                     <tr>
                         <td><label>Name:</label></td>
                         <td><input type="text" placeholder="Your Name" id="name-input"></td>

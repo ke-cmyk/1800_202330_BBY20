@@ -1,7 +1,9 @@
 :root {
     --primary-color: #386641;
     --secondary-color: #BC4749;
-    --text-color: #292F36;
+    --tertiary-color: #6A994E;
+    --text-color: black;
+    /* --text-color: #292F36; */
     --background-color: #F2E8CF;
 }
 
@@ -108,6 +110,12 @@ textarea:focus, input:focus{
 button {
     background-color: var(--primary-color);
     color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    min-width: 70px;
+    padding: 5px 10px;
+    box-shadow: 0 5px 10px -5px rgba( 0, 0, 0, 0.5);
 }
 
 /* Car Preview Card CSS */
@@ -158,10 +166,6 @@ button {
     border-top: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
-.request-highest-price {
-    float: left;
-    color: var(--primary-color);
-}
 .request-offer-number {
     float: right;
 }
@@ -195,7 +199,12 @@ button {
 
 .car-preview-msrp {
     float: left;
-    color: var(--primary-color);
+    color: var(--tertiary-color);
+    background: rgba(255, 255, 255, 1);
+    padding: 0px 10px;
+    margin-left: -5px;
+    border-radius: 10px;
+    /* box-shadow: 0 0px 10px 5px red; */
 }
 
 .color-text {

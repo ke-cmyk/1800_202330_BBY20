@@ -77,8 +77,9 @@
 
 #search-activate-icon {
     background-color: var(--primary-color);
-    padding: 7px;
+    padding: 1vh;
     height: 4.5vh;
     border-radius: 2.25vh;
     margin: 0.75vh;
+    cursor: pointer;
 }

@@ -16,6 +16,7 @@ var firebaseConfig = {
 //--------------------------------------------
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(); // creates a new database called "db"
+const storage = firebase.storage();
 
 // var userID = null;
 

@@ -14,25 +14,6 @@
     font-weight: 200;
 }
 
-#edit-profile-button {
-    margin: 15px;
-    padding: 5px;
-    width: 40%;
-    display:flex;
-    justify-content: center;
-
-    background-color: var(--primary-color);
-    
-    box-shadow: 0 5px 15px -5px rgba( 100, 100, 100, 0.25);
-    border-radius: 10px;
-    border: 0 solid rgba( 255, 255, 255, 0.35);
-}
-
-#edit-profile-button button {
-    background: none;
-    border: 0 solid rgba( 255, 255, 255, 0.35);
-}
-
 .settings-slot {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -62,10 +43,11 @@
 
 #account-edit-table input {
     margin: 5px;
+    max-width: 200px;
+    font-size: 10pt;
 }
 
 #edit-profile-title {
-    
     text-align: center;
     margin-top: 10px;
 }
