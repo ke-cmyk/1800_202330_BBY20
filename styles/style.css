@@ -110,7 +110,7 @@ button {
     color: white;
 }
 
-/* Request Preview Card CSS */
+/* Car Preview Card CSS */
 .request-card {
     position:relative;
 
@@ -118,7 +118,6 @@ button {
     margin: 20px;
     border-radius: 10px;
 
-    /* background: url(../images/prius.jpg); */
     background-position: center;
     background-size: cover;
 
@@ -167,8 +166,6 @@ button {
     float: right;
 }
 
-/* Car Preview Card CSS */
-
 .car-preview-name {
     position: absolute;
     top: 0px;
@@ -176,8 +173,6 @@ button {
     height: 25px;
 
     padding: 0px 10px;
-    display: flex;
-    flex-direction: row;
 
     border-right: 1px solid rgba( 255, 255, 255, 0.35);
     border-bottom: 1px solid rgba( 255, 255, 255, 0.35);
@@ -200,5 +195,9 @@ button {
 
 .car-preview-msrp {
     float: left;
+    color: var(--primary-color);
+}
+
+.color-text {
     color: var(--primary-color);
 }

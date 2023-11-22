@@ -21,32 +21,11 @@ function displayCardsDynamically() {
                 db.collection("requests").doc(requestId).get()
                 .then(requestDoc => {
                     db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
-                    .then(vehicleDoc => {
-                        var make = vehicleDoc.data().make;
-                        var model = vehicleDoc.data().model;
-                        var year = vehicleDoc.data().year;
-                        var vehicleImage2 = vehicleDoc.data().img[1];
-
-                        let newcard = cardTemplate.content.cloneNode(true);
-
-                        //update title and text and image
-                        newcard.querySelector('.request-car-name p').innerHTML = year + " " + make + " " + model;
-                        newcard.querySelector('.request-card').style.setProperty("background", `url(${vehicleImage2})`);
-                        newcard.querySelector('.request-card').style.setProperty("background-position", "center");
-                        newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
-
-                        //Optional: give unique ids to all elements for future use
-                        // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                        // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                        // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-            
-                        //attach to gallery, Example: "hikes-go-here"
-                        document.getElementById("requests-container").appendChild(newcard);
+                    .then(doc => {
+                        populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true);
                     })
-
                 })
             }
-
         })
     })
 }
@@ -78,18 +57,15 @@ function searchCars() {
     .then(allmycars => {
         document.getElementById("myCars-go-here").innerHTML = ``;
         if (allmycars.size > 0) {
-            allmycars.forEach(doc => {
-                var make = doc.data().make;
-                var model = doc.data().model;
-                var year = doc.data().year;
-                var vehicleID = doc.id;
-                let newcard = cardTemplate.content.cloneNode(true);
-                newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
-                newcard.querySelector('.request-card').style.setProperty("background", `url(${doc.data().img[1]})`);
-                newcard.querySelector('.request-card').style.setProperty("background-position", "center");
-                newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
-                newcard.querySelector('a').href = 'car.html?vehicleID=' + vehicleID;
-                document.getElementById("myCars-go-here").appendChild(newcard);
+            db.collection("users").doc(userID).get().then(userDoc => {
+                allmycars.forEach(car => {
+                    if (userDoc.data().vehicles != null) {
+                        isRequested = userDoc.data().vehicles.includes(car.id);
+                    } else {
+                        isRequested = false;
+                    }
+                    populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested);
+                })
             })
         } else {
             document.getElementById("myCars-go-here").innerHTML = 
@@ -106,3 +82,24 @@ document.addEventListener("keyup", (event) => {
         searchCars();
     }
 })
+
+function populateCarCard(doc, cardTemplate, target, requested) {
+    var make = doc.data().make;
+    var model = doc.data().model;
+    var year = doc.data().year;
+    var vehicleID = doc.id;
+    let newcard = cardTemplate.content.cloneNode(true);
+    if (requested) {
+        newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
+        newcard.querySelector('.car-details-prompt').textContent = "2 Offers >";
+    } else {
+        newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
+        newcard.querySelector('.car-details-prompt').textContent = "Request this car >";
+    }
+
+    newcard.querySelector('.request-card').style.setProperty("background", `url(${doc.data().img[1]})`);
+    newcard.querySelector('.request-card').style.setProperty("background-position", "center");
+    newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
+    newcard.querySelector('a').href = 'car.html?vehicleID=' + vehicleID;
+    target.appendChild(newcard);
+}

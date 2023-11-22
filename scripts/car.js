@@ -76,15 +76,17 @@ function createRequest() {
  * Switches the onclick attribute from createRequest to deleteRequest.
  */
 function addRequestToFirestore() {
+    vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
     db.collection("requests").add({
         requestDate: firebase.firestore.FieldValue.serverTimestamp(),
         requesterID: userID,
-        vehicleID: window.location.href.substring(window.location.href.indexOf("=") + 1),
+        vehicleID: vehicleID
     })
         .then((requestRef) => {
             console.log("Document successfully written!");
             db.collection("users").doc(userID).update({
-                requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id)
+                requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id),
+                vehicles: firebase.firestore.FieldValue.arrayUnion(vehicleID)
             })
 
             // Success Menu
@@ -113,7 +115,8 @@ function deleteRequest() {
             requestRef.forEach(doc => {
                 if (doc.id != "") {
                     db.collection("users").doc(userID).update({
-                        requests: firebase.firestore.FieldValue.arrayRemove(doc.id)
+                        requests: firebase.firestore.FieldValue.arrayRemove(doc.id),
+                        vehicles: firebase.firestore.FieldValue.arrayRemove(vehicleID)
                     });
                     db.collection("requests").doc(doc.id).delete().then(() => {
                         console.log("request successfully deleted")
