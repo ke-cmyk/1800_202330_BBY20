@@ -13,6 +13,7 @@ function updateUserInfo() {
                     var userEmail = userDoc.data().email;
                     var userCity = userDoc.data().city;
                     var userPhone = userDoc.data().phone;
+                    var userPicture = userDoc.data().profile;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -27,6 +28,9 @@ function updateUserInfo() {
                     if (userPhone != null) {
                         document.getElementById("user-phone-display").textContent = userPhone;
                     }
+                    if (userPicture != null) {
+                        document.getElementById("user-profile-image").setAttribute("src", userPicture);
+                    }
                 })
         } else {
             // No user is signed in.
@@ -34,24 +38,23 @@ function updateUserInfo() {
         }
     });
 }
-
 updateUserInfo();
 
-function saveUserInfo() {
-    userName = document.getElementById("name-input").value;
-    userCity = document.getElementById("city-input").value;
-    userPhone = document.getElementById("phone-input").value;
+// function saveUserInfo() {
+//     userName = document.getElementById("name-input").value;
+//     userCity = document.getElementById("city-input").value;
+//     userPhone = document.getElementById("phone-input").value;
 
-    currentUser.update({
-        name: userName,
-        city: userCity,
-        phone: userPhone
-    })
-        .then(() => {
-            console.log("Document successfully updated!");
-            window.location.href = "account.html";
-        })
-}
+//     currentUser.update({
+//         name: userName,
+//         city: userCity,
+//         phone: userPhone
+//     })
+//         .then(() => {
+//             console.log("Document successfully updated!");
+//             window.location.href = "account.html";
+//         })
+// }
 
 function signOut() {
     firebase.auth().signOut();
