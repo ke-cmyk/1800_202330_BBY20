@@ -5,6 +5,8 @@
     --text-color: black;
     /* --text-color: #292F36; */
     --background-color: #F2E8CF;
+    --selected: #0058d0aa;
+    --selected-border: #0058d0;
 }
 
 h2 {

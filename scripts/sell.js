@@ -27,32 +27,32 @@ function searchCars() {
     }
     if (yearTerm) {
         carsCollectionRef = carsCollectionRef.where("year", "==", parseInt(yearTerm));
-    } 
+    }
     if (!makeTerm && !modelTerm && !yearTerm) {
         carsCollectionRef = carsCollectionRef.where("year", "==", -1);
     }
 
     carsCollectionRef.get()
-    .then(allmycars => {
-        document.getElementById("myCars-go-here").innerHTML = ``;
-        if (allmycars.size > 0) {
-            db.collection("users").doc(userID).get().then(userDoc => {
-                allmycars.forEach(car => {
-                    if (userDoc.data().vehicles != null) {
-                        isRequested = userDoc.data().vehicles.includes(car.id);
-                    } else {
-                        isRequested = false;
-                    }
-                    populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested);
+        .then(allmycars => {
+            document.getElementById("myCars-go-here").innerHTML = ``;
+            if (allmycars.size > 0) {
+                db.collection("users").doc(userID).get().then(userDoc => {
+                    allmycars.forEach(car => {
+                        if (userDoc.data().vehicles != null) {
+                            isRequested = userDoc.data().vehicles.includes(car.id);
+                        } else {
+                            isRequested = false;
+                        }
+                        populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested);
+                    })
                 })
-            })
-        } else {
-            document.getElementById("myCars-go-here").innerHTML =
-            `<p class="glass-container">
+            } else {
+                document.getElementById("myCars-go-here").innerHTML =
+                    `<p class="glass-container">
             We couldn't find any cars with your specifications.
             </p>`;
-        }
-    })
+            }
+        })
 }
 
 // Allows user to activate search by pressing enter

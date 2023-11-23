@@ -58,7 +58,10 @@ function displayCardsDynamically() {
 
                             //set custom html attribut of requestID to relevant request for reference by toggle selection
                             let newcardElement = newcard.querySelector('.request-card');
-                            newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.data().id);
+                            newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
+                            newcardElement.addEventListener('click', function () {
+                                        toggleSelection(this);
+                                    });
 
                             newcard.querySelector('#requester-name').innerHTML = name;
                             newcard.querySelector('#requester-location').innerHTML = location;
@@ -76,12 +79,6 @@ function displayCardsDynamically() {
 
                             document.getElementById("list-of-requests").appendChild(newcard);
 
-                            const listItems = document.querySelectorAll('.request-card');
-                            listItems.forEach(item => {
-                                item.addEventListener('click', function () {
-                                    toggleSelection(item);
-                                });
-                            });
                         } else {
                             console.log("User not found");
                         }
@@ -110,6 +107,8 @@ function toggleSelection(element) {
     } else {
         selectedItems.push(requestId); // Add if not selected
     }
-
     console.log(selectedItems);
 }
+
+// document.getElementById("send-offer-button").addEventListener("click", function() {
+// })
