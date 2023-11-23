@@ -54,7 +54,7 @@ function displayVehicleInfo() {
 
 /**
  * Sets visibility of warning page when the request button is clicked.
- * 
+ *
  * @event click #request-button
  */
 function createRequest() {

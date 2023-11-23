@@ -28,11 +28,16 @@
 .request-card {
     display:flex;
     justify-content: space-between;
+    height: 100%;
+}
+
+.request-card:hover {
+    cursor: pointer;
 }
 
 #requester-info {
     display: flex;
-    height: 5em;
+    height: 4em;
 }
 
 #requster-pic {
@@ -45,5 +50,26 @@
 }
 
 .selected {
-    background: blue;
+    background: var(--selected);
+    border-color: var(--selected-border);
+}
+
+/* Floating Button */
+
+.floating-button {
+    position: fixed;
+    background-color: var(--primary-color);
+    width: 90vw;
+    left: 5vw;
+    text-align: center;
+    z-index: 1;
+    bottom: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18pt;
+    color: white;
+}
+
+.floating-button:hover {
+    cursor: pointer;
 }
