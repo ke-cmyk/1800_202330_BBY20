@@ -3,7 +3,7 @@ function toTitleCase(str) {
     let wordCount = 0;
     strArray = str.split(/[ -]/);
     strArray.forEach((word) => {
-        if (word.length <= 3) {
+        if (word.length < 4) {
             result += word;
         } else {
             result += word.substring(0, 1).toUpperCase() + word.substring(1);

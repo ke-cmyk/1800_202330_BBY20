@@ -25,7 +25,7 @@
 
 /* Requests */
 
-#request-card {
+.request-card {
     display:flex;
     justify-content: space-between;
 }
@@ -42,4 +42,8 @@
 
 #request-date {
     align-self: center;
+}
+
+.selected {
+    background: blue;
 }

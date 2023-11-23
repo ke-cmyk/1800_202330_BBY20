@@ -42,7 +42,6 @@ function displayCardsDynamically() {
                 let userDocRef = db.collection("users").doc(requesterID);
 
                 var requestDate = vehicleRequestsDoc.data().requestDate;
-                console.log(requestDate);
 
                 // Get the document
                 userDocRef.get()
@@ -57,13 +56,17 @@ function displayCardsDynamically() {
 
                             let newcard = cardTemplate.content.cloneNode(true);
 
+                            //set custom html attribut of requestID to relevant request for reference by toggle selection
+                            let newcardElement = newcard.querySelector('.request-card');
+                            newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.data().id);
+
                             newcard.querySelector('#requester-name').innerHTML = name;
                             newcard.querySelector('#requester-location').innerHTML = location;
 
 
                             // const match = requestDate.match(/seconds=(\d+),/);
                             // const seconds = match ? parseInt(match[1], 10) : null;
-                            const date = new Date(requestDate.seconds*1000);
+                            const date = new Date(requestDate.seconds * 1000);
                             const year = date.getFullYear();
                             const month = date.toLocaleString('en-US', { month: 'short' });
                             const day = date.getDate();
@@ -73,14 +76,40 @@ function displayCardsDynamically() {
 
                             document.getElementById("list-of-requests").appendChild(newcard);
 
+                            const listItems = document.querySelectorAll('.request-card');
+                            listItems.forEach(item => {
+                                item.addEventListener('click', function () {
+                                    toggleSelection(item);
+                                });
+                            });
                         } else {
                             console.log("User not found");
                         }
                     })
-
             });
         })
         .catch(error => {
             console.error("Error getting documents: ", error);
         });
+}
+
+// Local variable to store selected items
+let selectedItems = [];
+
+// JavaScript function to toggle the 'selected' class and update local variable
+function toggleSelection(element) {
+    element.classList.toggle('selected');
+
+    // Get the unique identifier for the item (data-id attribute)
+    const requestId = element.getAttribute('data-request-id');
+
+    // Toggle the item in the array
+    const index = selectedItems.indexOf(requestId);
+    if (index !== -1) {
+        selectedItems.splice(index, 1); // Remove if already selected
+    } else {
+        selectedItems.push(requestId); // Add if not selected
+    }
+
+    console.log(selectedItems);
 }

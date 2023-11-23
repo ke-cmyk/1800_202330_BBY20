@@ -44,14 +44,16 @@
     <!-- Header -->
     <div id="headerPlaceholder"></div>
     <!-- Content -->
-    <div id="search-container">
-      <input type="text" placeholder="Search Make" id="search-bar">
-      <img src="./images/filter.svg" id="search-filter-icon">
+    <div id="search-container" class="glass-background-only">
+      <input id="search-make" type="text" placeholder="Make">
+      <input id="search-model" type="text" placeholder="Model">
+      <input id="search-year" type="text" placeholder="Year">
       <img src="./images/search.svg" id="search-activate-icon" onclick="searchCars()">
+
     </div>
 
     <div class="search-results-container">
-      <div id="myCars-go-here" class="col row-cols-auto"></div>
+      <div id="myCars-go-here"></div>
     </div>
 
     <!-- Template for search results -->
@@ -59,12 +61,11 @@
       <a>
         <div class="request-card">
           <div class="car-preview-name glass-background-only">
-            <img src="./images/nav icons/buy.svg" class="request-preview-icon">
             <h3></h3>
           </div>
           <div class="car-preview-info  glass-background-only">
             <p class="car-preview-msrp">$$$$$$</p>
-            <p class="car-details-prompt">Request vehicle ></p>
+            <p class="car-details-prompt">Request Vehicle</p>
           </div>
         </div>
       </a>

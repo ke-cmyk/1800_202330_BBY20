@@ -1,3 +1,7 @@
+#find-car-btn:hover {
+    cursor: pointer;
+}
+
 .horizontal-scrolling-menu {
     display: flex;
     overflow-x: auto;
@@ -42,44 +46,4 @@
 #find-car-btn {
     background-color: var(--primary-color);
     color: white;
-}
-
-/* -------------------------------------- */
-/* ------------- Buy Search ------------- */
-/* -------------------------------------- */
-#search-container {
-    height: 6vh;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 700px;
-
-    border-radius: 3vh;
-    border: 1px solid rgba( 255, 255, 255, 0.35);
-    box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
-}
-#search-container input {
-    border: none;
-    width: 100%;
-    margin: 0px 3px;
-    background: rgba(255, 255, 255, 0);
-    font-size: 0.9rem;
-    text-align: center;
-}
-#search-make {
-    border-right: 1.5px solid rgba( 100, 100, 100, 0.35) !important;
-}
-
-#search-model {
-    border-right: 1.5px solid rgba( 100, 100, 100, 0.35) !important;
-}
-
-#search-activate-icon {
-    background-color: var(--primary-color);
-    padding: 1vh;
-    height: 4.5vh;
-    border-radius: 2.25vh;
-    margin: 0.75vh;
-    cursor: pointer;
 }
