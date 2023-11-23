@@ -83,3 +83,9 @@
     background-color: white;
     color: black;
 }
+
+#trims-container {
+    padding: 10px 0px;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+}

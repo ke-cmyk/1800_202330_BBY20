@@ -7,38 +7,11 @@
     overflow-x: auto;
 }
 
-.car-card {
-    aspect-ratio: 1 / 1.3;
-    min-width: 60vw;
+#recommendations {
+    display: flex;
+    flex-direction: column;
 }
 
-.car-card + .car-card {
-    margin-left: 0;
-}
-
-.image-container {
-    aspect-ratio: 1 / 1 ;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-
-    box-shadow: 0 0 5px 0 rgba( 100, 100, 100, 0.15);
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.car-card-title {
-    padding-top: 10px;
-    font-size: 14pt;
-    font-weight: 450;
-}
-
-.car-card-price {
-    
-    color: var(--primary-color);
+#recommendations a {
+    margin-bottom: 0px;
 }

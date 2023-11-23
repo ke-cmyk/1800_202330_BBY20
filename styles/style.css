@@ -94,9 +94,11 @@ body {
     margin: 20px;
     padding: 20px;
     width: calc(100% - 40px);
+    background-color: var(--primary-color);
+    color: white;
     
     box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
-    background: rgba(255, 255, 255, 0.25);
+    /* background: rgba(255, 255, 255, 0.25); */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
@@ -123,13 +125,16 @@ button {
     position:relative;
 
     height: 150px;
-    margin: 20px;
     border-radius: 10px;
 
     background-position: center;
     background-size: cover;
 
     box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
+}
+
+.request-card-anchor {
+    margin: 20px 20px 0px 20px;
 }
 
 .request-preview-icon {

@@ -94,6 +94,7 @@ function addRequestToFirestore() {
 
             document.querySelector("#return-button").addEventListener("click", () => {
                 document.querySelector("#success-container").style.visibility = "hidden";
+                window.location.assign("buy.html");
             })
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";

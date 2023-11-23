@@ -37,3 +37,8 @@
     margin: 0.75vh;
     cursor: pointer;
 }
+
+#myCars-go-here {
+    display: flex;
+    flex-direction: column;
+}

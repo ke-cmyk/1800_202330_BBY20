@@ -39,7 +39,7 @@ function searchCars() {
     console.log(makeTerm, modelTerm, yearTerm);
     var carsCollectionRef = db.collection("vehicles");
 
-    //create conditional queries5 based off of whether or not make, model and yearSearchTerm are empty.
+    //create conditional queries based off of whether or not make, model and yearTerm are empty.
     if (makeTerm) {
         carsCollectionRef = carsCollectionRef.where("make", "==", makeTerm);
     }
