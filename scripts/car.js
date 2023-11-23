@@ -75,14 +75,14 @@ function createRequest() {
  * Sets visibility for warning menu and success menu.
  * Switches the onclick attribute from createRequest to deleteRequest.
  */
-function addRequestToFirestore() {
+function addRequestToFirestore()  {
     vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
     db.collection("requests").add({
         requestDate: firebase.firestore.FieldValue.serverTimestamp(),
         requesterID: userID,
         vehicleID: vehicleID
     })
-        .then((requestRef) => {
+        .then(async (requestRef) => {
             console.log("Document successfully written!");
             db.collection("users").doc(userID).update({
                 requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id),
@@ -90,14 +90,22 @@ function addRequestToFirestore() {
             })
 
             // Success Menu
-            document.querySelector("#success-container").style.visibility = "visible";
+            // document.querySelector("#success-container").style.visibility = "visible";
 
-            document.querySelector("#return-button").addEventListener("click", () => {
-                document.querySelector("#success-container").style.visibility = "hidden";
-                window.location.assign("buy.html");
-            })
+            // document.querySelector("#return-button").addEventListener("click", () => {
+            //     // document.querySelector("#success-container").style.visibility = "hidden";
+            //     window.location.assign("buy.html");
+            // })
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";
+
+            document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
+
+            // $('#successRequestPlaceholder').load('./text/request_success.html').then(() => {
+            //     document.getElementById("success-popup-container").className += "slide-in-bottom";
+            // });
+
+
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
@@ -131,7 +139,8 @@ function deleteRequest() {
 
 function undoRequest() {
     deleteRequest();
-    document.querySelector("#success-container").style.visibility = "hidden";
+    document.querySelector("#success-popup").remove();
+    // history.back();
 }
 
 function confirmRequest() {

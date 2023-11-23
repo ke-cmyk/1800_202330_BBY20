@@ -68,13 +68,20 @@ function searchCars() {
                 })
             })
         } else {
-            document.getElementById("myCars-go-here").innerHTML = 
-            `<p class="glass-container">
-            We couldn't find any cars with your specifications.
-            </p>`;
+            if (yearTerm || modelTerm || makeTerm) {
+                document.getElementById("myCars-go-here").innerHTML = 
+                `<p class="glass-container">
+                We couldn't find any cars with your specifications.
+                </p>`;
+            }
         }
     })
 }
+
+if (window.location.href.includes("buySearch.html")) {
+    window.onload = searchCars;
+}
+
 
 // Allows user to activate search by pressing enter
 document.addEventListener("keyup", (event) => {
