@@ -30,7 +30,7 @@ function loadSkeleton() {
             } else {
                 console.log($('#headerPlaceholder').load('./text/header_back_button.html'));
             }
-            
+
             console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
             // console.log($('#footerPlaceholder').load('./text/footer.html'));
         } else {

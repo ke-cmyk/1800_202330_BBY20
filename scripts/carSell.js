@@ -110,5 +110,15 @@ function toggleSelection(element) {
     console.log(selectedItems);
 }
 
-// document.getElementById("send-offer-button").addEventListener("click", function() {
-// })
+document.getElementById("send-offer-button").addEventListener("click", function() {
+
+    if (selectedItems.length != 0) {
+        localStorage.setItem('selectedRequests', selectedItems);
+        let params = new URL(window.location.href); //get URL of search bar
+        let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
+        window.location.href = 'offerForm.html?vehicleID=' + vehicleID;
+    } else {
+        console.log("no new requests");
+        //ADD CODE TO SHOW WARNING
+    }
+})

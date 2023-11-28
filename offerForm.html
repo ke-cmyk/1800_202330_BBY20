@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -34,45 +35,63 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/carSell.css">
+    <link rel="stylesheet" href="./styles/offerForm.css">
 
     <!-- firebase authentication script-->
     <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
-<body name="Vehicle Details">
+<body name="Create Your Offer">
     <!-- Header -->
     <div id="headerPlaceholder"></div>
 
     <!-- Content -->
-    <div>
-        <div id="vehicle-image-container">
-            <img src="https://dummyimage.com/600x400/ababab/fff.jpg&text=Image+of+Car" id="vehicle-image-preview"
-                alt="Preview Image">
-            <div id="vehicle-name-display" class="car-preview-info glass-background-only">Vehicle Year/Make/Model</div>
-        </div>
 
-        <h2 class="card-section-heading">Select Requests: </h2>
+    <!-- Things to indclude:
+    car make model year (non changeable - from request)
+    - milage (user input)
+    - price (user input)
+    - vin (user input)
+    year
+    color
+-->
 
-        <div id="list-of-requests"></div>
 
-        <template id="requests">
-            <div class="request-card glass-container" data-request-id="">
-                <div id="requester-info">
-                    <img src="https://dummyimage.com/300x300/ababab/fff.jpg&text=Profile+Pic" id="requster-pic"
-                        alt="Requester Profile Picture">
-                    <div id="request-info">
-                        <h1 id="requester-name">Requester</h1>
-                        <p id="requester-location">Location</p>
-                    </div>
-                </div>
-                <p id="request-date">Date requested</p>
-            </div>
-        </template>
-    </div>
 
-    <div id="send-offer-button" class="floating-button">
-        Send Offers
+<div id="vehicle-image-container">
+    <img src="https://dummyimage.com/600x400/ababab/fff.jpg&text=Image+of+Car" id="vehicle-image-preview"
+        alt="Preview Image">
+    <div id="vehicle-name-display" class="car-preview-info glass-background-only">Vehicle Year/Make/Model</div>
+</div>
+
+    <div class="glass-container" id="offer-container">
+        <form>
+                <table id="offer-edit-table">
+                    <tbody>
+                        <tr>
+                            <td><label>Price [USD]:</label></td>
+                            <td><input type="text" placeholder="Sale Price" id="price-input"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Year:</label></td>
+                            <td><input type="number" placeholder="Vehicle Year" id="year-input"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Color:</label></td>
+                            <td><input type="text" placeholder="Vehicle Color" id="color-input"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Odometer Reading [Miles]:</label></td>
+                            <td><input type="number" placeholder="Vehicle Odomoter Reading" id="odometer-input"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Vehicle Identification Number (VIN):</label></td>
+                            <td><input type="text" placeholder="Vehicle VIN" id="vin-input"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 
     <!-- Footer -->
@@ -84,7 +103,7 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/carSell.js"></script>
+    <script src="./scripts/offerForm.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
