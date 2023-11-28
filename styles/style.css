@@ -29,6 +29,12 @@ body {
     /* background-color: var(--background-color); */
 }
 
+#content-center {
+    justify-self: center;
+    margin: auto;
+    max-width: 700px;
+}
+
 .btn-outline-success {
     color: var(--secondary-color);
     border-color: var(--secondary-color);

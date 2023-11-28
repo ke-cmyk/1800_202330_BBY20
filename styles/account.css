@@ -5,9 +5,9 @@
 }
 
 #profile-image-container {
-    height: 30vw;
-    width: 30vw;
-    border-radius: 15vw;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 10vh;
     overflow: hidden;
     margin: 5px;
 

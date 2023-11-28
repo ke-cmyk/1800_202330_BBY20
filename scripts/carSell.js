@@ -57,7 +57,7 @@ function displayCardsDynamically() {
                             let newcard = cardTemplate.content.cloneNode(true);
 
                             //set custom html attribut of requestID to relevant request for reference by toggle selection
-                            let newcardElement = newcard.querySelector('.request-card');
+                            let newcardElement = newcard.querySelector('.request-item');
                             newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
                             newcardElement.addEventListener('click', function () {
                                         toggleSelection(this);
@@ -74,7 +74,7 @@ function displayCardsDynamically() {
                             const month = date.toLocaleString('en-US', { month: 'short' });
                             const day = date.getDate();
 
-                            newcard.querySelector('#request-date').innerHTML = month + " " + day + ", " + year;
+                            newcard.querySelector('#request-date').innerHTML = month + " " + day + "<br>" + year;
                             // TODO: after user profile pic is implemented, update picture here
 
                             document.getElementById("list-of-requests").appendChild(newcard);

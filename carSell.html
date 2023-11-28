@@ -45,7 +45,7 @@
     <div id="headerPlaceholder"></div>
 
     <!-- Content -->
-    <div>
+    <div id="content-center">
         <div id="vehicle-image-container">
             <img src="https://dummyimage.com/600x400/ababab/fff.jpg&text=Image+of+Car" id="vehicle-image-preview"
                 alt="Preview Image">
@@ -57,7 +57,7 @@
         <div id="list-of-requests"></div>
 
         <template id="requests">
-            <div class="request-card glass-container" data-request-id="">
+            <div class="request-item glass-background-only" data-request-id="">
                 <div id="requester-info">
                     <img src="https://dummyimage.com/300x300/ababab/fff.jpg&text=Profile+Pic" id="requster-pic"
                         alt="Requester Profile Picture">
@@ -69,12 +69,10 @@
                 <p id="request-date">Date requested</p>
             </div>
         </template>
+        <div id="send-offer-button" class="floating-button">
+            Send Offers
+        </div>
     </div>
-
-    <div id="send-offer-button" class="floating-button">
-        Send Offers
-    </div>
-
     <!-- Footer -->
     <div id="footerPlaceholder"></div>
 
