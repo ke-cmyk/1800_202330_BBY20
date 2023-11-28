@@ -58,23 +58,27 @@
         </div>
 
         <div class="glass-container" id="details-container">
-            <h2>Details</h2>
-            <div>
-                <p id="vehicle-type-display">Type</p>
-                <p id="vehicle-fuel-display">Fuel</p>
-            </div>
-            <div id="trims-container">
-                <p id="trims-title">Trims:</p>
-                <img src="./images/expandMore.svg" id="expand-button">
-                <div id="trim-entries"></div>
-            </div>
-
-            <template id="vehicle-trim">
-                <div class="trim-entry-container">
-                    <span class="vehicle-trim-name-display">Type</span>
-                    <span class="vehicle-trim-price-display">Fuel</span>
+            <header>
+                <h2 id="details-header">Details</h2>
+                <img src="./images/expandLess.svg" id="expand-details-button">
+            </header>
+            <div id="details-content">
+                <div>
+                    <p id="vehicle-type-display">Type</p>
+                    <p id="vehicle-fuel-display">Fuel</p>
                 </div>
-            </template>
+                <div id="trims-container">
+                    <p id="trims-title">Trims:</p>
+                    <img src="./images/expandMore.svg" id="expand-button">
+                    <div id="trim-entries"></div>
+                </div>
+                <template id="vehicle-trim">
+                    <div class="trim-entry-container">
+                        <span class="vehicle-trim-name-display">Type</span>
+                        <span class="vehicle-trim-price-display">Fuel</span>
+                    </div>
+                </template>
+            </div>
         </div>
     </div>
 

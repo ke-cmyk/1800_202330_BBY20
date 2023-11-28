@@ -154,8 +154,6 @@ function displayTrims() {
     let template = document.getElementById("vehicle-trim");
     let vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
 
- 
-
     db.collection("vehicles").doc(vehicleID).get().then((vehicleDoc) => {
         vehicleDoc.data().trim.forEach((trim) => {
             let newTrim = template.content.cloneNode(true);
@@ -165,19 +163,33 @@ function displayTrims() {
         })
     });
 }
-
 displayTrims();
 
-let hidden = "true";
+let trimsHidden = "true";
 document.querySelector("#expand-button").addEventListener("click", () => {
-    if (hidden == "true") {
+    if (trimsHidden == "true") {
         document.querySelector("#trim-entries").style.display = "inherit";
         document.querySelector("#expand-button").setAttribute("src", "./images/expandLess.svg");
-        hidden = "false";
+        trimsHidden = "false";
     } else {
         document.querySelector("#trim-entries").style.display = "none";
         document.querySelector("#expand-button").setAttribute("src", "./images/expandMore.svg");
-        hidden = "true";
+        trimsHidden = "true";
+    }
+})
+
+let detailsHidden = "false";
+document.querySelector("#expand-details-button").addEventListener("click", () => {
+    if (detailsHidden == "true") {
+        document.querySelector("#details-content").style.display = "block";
+        document.querySelector("#expand-details-button").setAttribute("src", "./images/expandLess.svg");
+        // document.querySelector("#details-header").style.fontSize = "calc(1.325rem + .9vw)";
+        detailsHidden = "false";
+    } else {
+        document.querySelector("#details-content").style.display = "none";
+        document.querySelector("#expand-details-button").setAttribute("src", "./images/expandMore.svg");
+        // document.querySelector("#details-header").style.fontSize = "20px";
+        detailsHidden = "true";
     }
 })
 
