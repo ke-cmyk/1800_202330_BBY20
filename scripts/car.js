@@ -148,3 +148,22 @@ function confirmRequest() {
     document.querySelector("#popup-container").style.visibility = "hidden";
     addRequestToFirestore();
 }
+
+function displayTrims() {
+    let target = document.getElementById("trims-container");
+    let template = document.getElementById("vehicle-trim");
+    let vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
+
+ 
+
+    db.collection("vehicles").doc(vehicleID).get().then((vehicleDoc) => {
+        vehicleDoc.data().trim.forEach((trim) => {
+            let newTrim = template.content.cloneNode(true);
+            newTrim.querySelector(".vehicle-trim-name-display").textContent = trim.name;
+            newTrim.querySelector(".vehicle-trim-price-display").textContent = "$" + trim.msrp;
+            target.appendChild(newTrim);
+        })
+    });
+}
+
+displayTrims();

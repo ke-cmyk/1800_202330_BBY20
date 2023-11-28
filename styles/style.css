@@ -216,6 +216,27 @@ button {
     color: var(--primary-color);
 }
 
+/* Trims Dropdown */
+#trims-title {
+    float: left;
+}
+
+.trim-entry-container {
+    clear: left;
+}
+
+.trim-entry-container {
+    margin: 10px 0px;
+}
+
+.trim-entry-container span:nth-child(even) {
+    color: var(--primary-color);
+    background-color: white;
+    border-radius: 10px;
+    padding: 0px 10px;
+    float: right;
+}
+
 /* Success Request Popup */
 @keyframes slideInBottom {
     0% {

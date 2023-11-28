@@ -60,13 +60,14 @@
                 <p id="vehicle-fuel-display">Fuel</p>
             </div>
             <div id="trims-container">
-                <p class="trims-title">Trims:</p>
-                <img src="./images/expandMore.svg">
+                <p id="trims-title">Trims:</p>
             </div>
 
             <template id="vehicle-trim">
-                <p id="vehicle-trim-name-display">Type</p>
-                <p id="vehicle-trim-price-display">Fuel</p>
+                <div class="trim-entry-container">
+                    <span class="vehicle-trim-name-display">Type</span>
+                    <span class="vehicle-trim-price-display">Fuel</span>
+                </div>
             </template>
         </div>
     </div>
@@ -75,7 +76,10 @@
     <div id="popup-container" class="fullscreen-popup">
         <div class="popup glass-background-only">
             <h1>Warning</h1>
-            <p>AutoBridge implements a reverse-marketplace model, where sellers reach out to buyers with offers. When you as a buyer post a "request", <span style="color: var(--secondary-color)">your post will be visible to anyone using the app</span> that wants to sell that car. They will then be able to contact you in the app or through a provided email.</p>
+            <p>AutoBridge implements a reverse-marketplace model, where sellers reach out to buyers with offers. When
+                you as a buyer post a "request", <span style="color: var(--secondary-color)">your post will be visible
+                    to anyone using the app</span> that wants to sell that car. They will then be able to contact you in
+                the app or through a provided email.</p>
             <form>
                 <input type="checkbox" id="request-info-hide" name="request-info-hide" value="Hide">
                 <label for="request-info-hide">Don't show me this again.</label>
@@ -88,8 +92,8 @@
     </div>
 
     <!-- Successful Request Popup -->
-        <!-- Confirmation Popup -->
-        <!-- <div id="success-container" class="fullscreen-popup">
+    <!-- Confirmation Popup -->
+    <!-- <div id="success-container" class="fullscreen-popup">
             <div class="popup glass-background-only">
                 <h1>Success!</h1>
                 <p>Your request is live.</p>
