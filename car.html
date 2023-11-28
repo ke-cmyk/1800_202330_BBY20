@@ -51,10 +51,14 @@
     <div>
         <div id="vehicle-image-container">
             <img src="" id="vehicle-image-preview" alt="Preview Image">
+            <h2 id="vehicle-name-display" class="glass-background-only"></h2>
         </div>
-        <div class="glass-container" id="details-container">
-            <h2 id="vehicle-name-display"></h2>
+        <div style="display: flex; justify-content: center;">
             <button type="button" id="request-button" onclick="createRequest()">Request This Car</button>
+        </div>
+
+        <div class="glass-container" id="details-container">
+            <h2>Details</h2>
             <div>
                 <p id="vehicle-type-display">Type</p>
                 <p id="vehicle-fuel-display">Fuel</p>

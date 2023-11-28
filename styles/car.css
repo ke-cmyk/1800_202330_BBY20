@@ -1,7 +1,15 @@
 #vehicle-name-display {
     text-align: center;
-    /* font-size: xx-large; */
-    padding: 0 0.25em 0 0.25em;
+    position: relative;
+
+    bottom: 50px;
+    margin-bottom: -30px;
+
+    padding: 10px;
+    color: #151515;
+
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.35);
 }
 
 #vehicle-image-preview {
@@ -13,7 +21,7 @@
 }
 
 #vehicle-image-container {
-    padding: 10px 20px;
+    padding: 0px 20px;
 }
 
 #details-container {
@@ -24,9 +32,9 @@
 
 #request-button {
     padding: 5px;
-    margin: 10px;
+    margin: -5px;
     
-    width: 150px;
+    width: 80%;
     display: flex;
     align-self: center;
     justify-content: center;
