@@ -150,7 +150,7 @@ function confirmRequest() {
 }
 
 function displayTrims() {
-    let target = document.getElementById("trims-container");
+    let target = document.getElementById("trim-entries");
     let template = document.getElementById("vehicle-trim");
     let vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
 
@@ -167,3 +167,18 @@ function displayTrims() {
 }
 
 displayTrims();
+
+let hidden = "true";
+document.querySelector("#expand-button").addEventListener("click", () => {
+    if (hidden == "true") {
+        document.querySelector("#trim-entries").style.display = "inherit";
+        document.querySelector("#expand-button").setAttribute("src", "./images/expandLess.svg");
+        hidden = "false";
+    } else {
+        document.querySelector("#trim-entries").style.display = "none";
+        document.querySelector("#expand-button").setAttribute("src", "./images/expandMore.svg");
+        hidden = "true";
+    }
+})
+
+document.querySelector("#trim-entries").addEventListener

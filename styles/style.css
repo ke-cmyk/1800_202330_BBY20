@@ -221,6 +221,14 @@ button {
     float: left;
 }
 
+#trim-entries {
+    display: none;
+}
+
+#expand-button {
+    float: right;
+}
+
 .trim-entry-container {
     clear: left;
 }
