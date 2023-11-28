@@ -75,14 +75,14 @@ function createRequest() {
  * Sets visibility for warning menu and success menu.
  * Switches the onclick attribute from createRequest to deleteRequest.
  */
-function addRequestToFirestore() {
+function addRequestToFirestore()  {
     vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
     db.collection("requests").add({
         requestDate: firebase.firestore.FieldValue.serverTimestamp(),
         requesterID: userID,
         vehicleID: vehicleID
     })
-        .then((requestRef) => {
+        .then(async (requestRef) => {
             console.log("Document successfully written!");
             db.collection("users").doc(userID).update({
                 requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id),
@@ -90,14 +90,22 @@ function addRequestToFirestore() {
             })
 
             // Success Menu
-            document.querySelector("#success-container").style.visibility = "visible";
+            // document.querySelector("#success-container").style.visibility = "visible";
 
-            document.querySelector("#return-button").addEventListener("click", () => {
-                document.querySelector("#success-container").style.visibility = "hidden";
-                window.location.assign("buy.html");
-            })
+            // document.querySelector("#return-button").addEventListener("click", () => {
+            //     // document.querySelector("#success-container").style.visibility = "hidden";
+            //     window.location.assign("buy.html");
+            // })
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";
+
+            document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
+
+            // $('#successRequestPlaceholder').load('./text/request_success.html').then(() => {
+            //     document.getElementById("success-popup-container").className += "slide-in-bottom";
+            // });
+
+
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
@@ -131,7 +139,8 @@ function deleteRequest() {
 
 function undoRequest() {
     deleteRequest();
-    document.querySelector("#success-container").style.visibility = "hidden";
+    document.querySelector("#success-popup").remove();
+    // history.back();
 }
 
 function confirmRequest() {
@@ -139,3 +148,49 @@ function confirmRequest() {
     document.querySelector("#popup-container").style.visibility = "hidden";
     addRequestToFirestore();
 }
+
+function displayTrims() {
+    let target = document.getElementById("trim-entries");
+    let template = document.getElementById("vehicle-trim");
+    let vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
+
+    db.collection("vehicles").doc(vehicleID).get().then((vehicleDoc) => {
+        vehicleDoc.data().trim.forEach((trim) => {
+            let newTrim = template.content.cloneNode(true);
+            newTrim.querySelector(".vehicle-trim-name-display").textContent = trim.name;
+            newTrim.querySelector(".vehicle-trim-price-display").textContent = "$" + trim.msrp;
+            target.appendChild(newTrim);
+        })
+    });
+}
+displayTrims();
+
+let trimsHidden = "true";
+document.querySelector("#expand-button").addEventListener("click", () => {
+    if (trimsHidden == "true") {
+        document.querySelector("#trim-entries").style.display = "inherit";
+        document.querySelector("#expand-button").setAttribute("src", "./images/expandLess.svg");
+        trimsHidden = "false";
+    } else {
+        document.querySelector("#trim-entries").style.display = "none";
+        document.querySelector("#expand-button").setAttribute("src", "./images/expandMore.svg");
+        trimsHidden = "true";
+    }
+})
+
+let detailsHidden = "false";
+document.querySelector("#expand-details-button").addEventListener("click", () => {
+    if (detailsHidden == "true") {
+        document.querySelector("#details-content").style.display = "block";
+        document.querySelector("#expand-details-button").setAttribute("src", "./images/expandLess.svg");
+        // document.querySelector("#details-header").style.fontSize = "calc(1.325rem + .9vw)";
+        detailsHidden = "false";
+    } else {
+        document.querySelector("#details-content").style.display = "none";
+        document.querySelector("#expand-details-button").setAttribute("src", "./images/expandMore.svg");
+        // document.querySelector("#details-header").style.fontSize = "20px";
+        detailsHidden = "true";
+    }
+})
+
+document.querySelector("#trim-entries").addEventListener

@@ -3,7 +3,7 @@
 /* -------------------------------------- */
 #search-container {
     height: 6vh;
-    margin: 20px;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,6 +36,13 @@
     border-radius: 2.25vh;
     margin: 0.75vh;
     cursor: pointer;
+}
+
+#search-caption {
+    margin: 5px 20px;
+    font-size: 10pt;
+    color: var(--primary-color);
+
 }
 
 #myCars-go-here {

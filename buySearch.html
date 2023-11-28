@@ -45,12 +45,12 @@
   <div id="headerPlaceholder"></div>
   <!-- Content -->
   <div id="search-container" class="glass-background-only">
-    <input id="search-make" type="text" placeholder="Make">
+    <input id="search-make" type="text" placeholder="Brand">
     <input id="search-model" type="text" placeholder="Model">
     <input id="search-year" type="text" placeholder="Year">
     <img src="./images/search.svg" id="search-activate-icon" onclick="searchCars()">
-
   </div>
+  <p id="search-caption">You can search by any one or multiple fields.</p>
 
   <div class="search-results-container">
     <div id="myCars-go-here"></div>
@@ -58,7 +58,7 @@
 
   <!-- Template for search results -->
   <template id="search-results">
-    <a  class="request-card-anchor">
+    <a>
       <div class="request-card">
         <div class="car-preview-name glass-background-only">
           <h3></h3>

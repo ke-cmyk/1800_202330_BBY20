@@ -15,3 +15,13 @@ function toTitleCase(str) {
     })
     return result;
 }
+
+/**
+ * Returns the text at the specified url for placement in documents.
+ * 
+ * @param {*} url 
+ * @returns the text at the url
+ */
+async function fetchHtmlAsText(url) {
+    return await (await fetch(url)).text();
+}
