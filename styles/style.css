@@ -5,7 +5,7 @@
     --text-color: black;
     /* --text-color: #292F36; */
     --background-color: #F2E8CF;
-    --selected: #0058d0aa;
+    --selected: #ffffff;
     --selected-border: #0058d0;
 }
 
@@ -27,6 +27,12 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* background-color: var(--background-color); */
+}
+
+#content-center {
+    justify-self: center;
+    margin: auto;
+    max-width: 700px;
 }
 
 .btn-outline-success {
@@ -214,4 +220,49 @@ button {
 
 .color-text {
     color: var(--primary-color);
+}
+
+/* User Profile Pills */
+.request-item {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 5px;
+
+    box-shadow: 0 5px 15px 0 rgba( 100, 100, 100, 0.25);
+    margin: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba( 255, 255, 255, 0.35);
+}
+.request-card:hover {
+    cursor: pointer;
+}
+#requester-info {
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+#requster-pic {
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 25px;
+}
+#requester-name {
+    display: inline;
+    font-size: 18pt;
+    margin: 0;
+}
+#requester-location {
+    margin: 0;
+}
+#request-date {
+    text-align: center;
+    margin: 0;
+    padding-right: 15px;
+    line-height: 18px;
+}
+.selected {
+    background: var(--selected);
+    box-shadow: 0 5px 15px 0 rgba( 0, 0, 0, 0.25);
 }
