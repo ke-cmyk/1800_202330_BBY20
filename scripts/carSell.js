@@ -91,7 +91,7 @@ function displayCardsDynamically() {
 }
 
 // Local variable to store selected items
-let selectedItems = [];
+var selectedItems = [];
 
 // JavaScript function to toggle the 'selected' class and update local variable
 function toggleSelection(element) {
@@ -107,13 +107,15 @@ function toggleSelection(element) {
     } else {
         selectedItems.push(requestId); // Add if not selected
     }
-    console.log(selectedItems);
+    // console.log(selectedItems);
+
+
 }
 
 document.getElementById("send-offer-button").addEventListener("click", function() {
 
     if (selectedItems.length != 0) {
-        localStorage.setItem('selectedRequests', selectedItems);
+        localStorage.setItem('selectedRequests', JSON.stringify(selectedItems));
         let params = new URL(window.location.href); //get URL of search bar
         let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
         window.location.href = 'offerForm.html?vehicleID=' + vehicleID;

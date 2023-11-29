@@ -13,6 +13,7 @@ authenticateUser(() => {
         })
 
     })
+    displayCardsDynamically();
 })
 
 /**
@@ -193,4 +194,77 @@ document.querySelector("#expand-details-button").addEventListener("click", () =>
     }
 })
 
-document.querySelector("#trim-entries").addEventListener
+/* ---------------------------------
+            Display Offers
+---------------------------------*/
+
+function displayCardsDynamically() {
+
+    let params = new URL(window.location.href); //get URL of search bar
+    let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
+
+    let cardTemplate = document.getElementById("vehicle-offers");
+    let vehicleOffers = db.collection("offers").where("vehicleID", "==", vehicleID).where("buyerID", "==", userID);
+
+    // console.log(db.collection("offers").where("vehicleID", "==", vehicleID));
+    // console.log(vehicleOffers); // temp
+
+    vehicleOffers.get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(vehicleOffersDoc => {
+
+                console.log("vehicle log", vehicleOffersDoc);
+
+                let sellerID = vehicleOffersDoc.data().sellerID;
+                let userDocRef = db.collection("users").doc(sellerID);
+
+                var requestDate = vehicleOffersDoc.data().offerDate;
+
+                // Get the document
+                userDocRef.get()
+                    .then(userDoc => {
+                        if (userDoc.exists) {
+                            // Document found, you can access the data using userDoc.data()
+                            // console.log("User document data:", userDoc.data());
+
+                            var name = userDoc.data().name;
+                            var location = userDoc.data().city;
+                            var picture = userDoc.data().picture;
+                            var price = vehicleOffersDoc.data().price;
+
+                            let newcard = cardTemplate.content.cloneNode(true);
+
+                            //set custom html attribut of requestID to relevant request for reference by toggle selection
+                            let newcardElement = newcard.querySelector('.offer-card');
+                            // newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
+                            newcardElement.addEventListener('click', function () {
+                                        // toggleSelection(this);
+                                    });
+
+                            newcard.querySelector('#offer-name-display').innerHTML = name;
+                            newcard.querySelector('#offer-location-display').innerHTML = location;
+                            newcard.querySelector('#offer-price-display').innerHTML = price;
+
+
+                            // const match = requestDate.match(/seconds=(\d+),/);
+                            // const seconds = match ? parseInt(match[1], 10) : null;
+                            const date = new Date(requestDate.seconds * 1000);
+                            const year = date.getFullYear();
+                            const month = date.toLocaleString('en-US', { month: 'short' });
+                            const day = date.getDate();
+
+                            newcard.querySelector('#offer-date-display').innerHTML = month + " " + day + ", " + year;
+                            // TODO: after user profile pic is implemented, update picture here
+
+                            document.getElementById("offers-container").appendChild(newcard);
+
+                        } else {
+                            console.log("User not found");
+                        }
+                    })
+            });
+        })
+        .catch(error => {
+            console.error("Error getting documents: ", error);
+        });
+}
