@@ -215,14 +215,14 @@ function displayCardsDynamically() {
 
     let cardTemplate = document.getElementById("vehicle-offers");
     let vehicleOffers = db.collection("offers").where("vehicleID", "==", vehicleID).where("buyerID", "==", userID);
-
     // console.log(db.collection("offers").where("vehicleID", "==", vehicleID));
     // console.log(vehicleOffers); // temp
 
     vehicleOffers.get()
         .then(querySnapshot => {
+            console.log("query finished", querySnapshot.size);
             querySnapshot.forEach(vehicleOffersDoc => {
-
+                
                 console.log("vehicle log", vehicleOffersDoc);
 
                 let sellerID = vehicleOffersDoc.data().sellerID;
@@ -239,22 +239,24 @@ function displayCardsDynamically() {
 
                             var name = userDoc.data().name;
                             var location = userDoc.data().city;
-                            var picture = userDoc.data().picture;
+                            var picture = userDoc.data().profile;
                             var price = vehicleOffersDoc.data().price;
 
                             let newcard = cardTemplate.content.cloneNode(true);
 
                             //set custom html attribut of requestID to relevant request for reference by toggle selection
-                            let newcardElement = newcard.querySelector('.offer-card');
+                            let newcardElement = newcard.querySelector('.pill-item');
                             // newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
                             newcardElement.addEventListener('click', function () {
                                         // toggleSelection(this);
                                     });
 
-                            newcard.querySelector('#offer-name-display').innerHTML = name;
-                            newcard.querySelector('#offer-location-display').innerHTML = location;
-                            newcard.querySelector('#offer-price-display').innerHTML = price;
-
+                            newcard.querySelector('#pill-name').innerHTML = name;
+                            newcard.querySelector('#pill-location').innerHTML = location;
+                            newcard.querySelector('#pill-price').innerHTML = price;
+                            if (price.substring(0, 1) != "$") {
+                                newcard.querySelector('#pill-price').innerHTML = "$" + newcard.querySelector('#pill-price').innerHTML;
+                            }
 
                             // const match = requestDate.match(/seconds=(\d+),/);
                             // const seconds = match ? parseInt(match[1], 10) : null;
@@ -263,8 +265,9 @@ function displayCardsDynamically() {
                             const month = date.toLocaleString('en-US', { month: 'short' });
                             const day = date.getDate();
 
-                            newcard.querySelector('#offer-date-display').innerHTML = month + " " + day + ", " + year;
+                            newcard.querySelector('#pill-date').innerHTML = month + " " + day + ", " + year;
                             // TODO: after user profile pic is implemented, update picture here
+                            newcard.querySelector('#pill-pic').setAttribute("src", picture);
 
                             document.getElementById("offers-container").appendChild(newcard);
 

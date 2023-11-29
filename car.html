@@ -2,122 +2,129 @@
 <html lang="en">
 
 <head>
-    <title>AutoBridge</title>
-    <meta name="AutoBridge" content="AutoBridge">
+  <title>AutoBridge</title>
+  <meta name="AutoBridge" content="AutoBridge">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/car.css">
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/car.css">
 
-    <!-- firebase authentication script-->
-    <script src="./scripts/firebaseAPI_BBY20.js"></script>
+  <!-- firebase authentication script-->
+  <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
 <body name="Vehicle Details">
-    <!-- Header -->
-    <div id="headerPlaceholder"></div>
+  <!-- Header -->
+  <div id="headerPlaceholder"></div>
 
-    <!-- Success Popup -->
-    <div id="successRequestPlaceholder"></div>
+  <!-- Success Popup -->
+  <div id="successRequestPlaceholder"></div>
 
-    <!-- Content -->
-    <div id="content-center">
-        <div id="vehicle-image-container">
-            <img src="" id="vehicle-image-preview" alt="Preview Image">
-            <div id="vehicle-name-display" class="car-preview-info glass-background-only"></div>
+  <!-- Content -->
+  <div id="content-center">
+    <div id="vehicle-image-container">
+      <img src="" id="vehicle-image-preview" alt="Preview Image">
+      <div id="vehicle-name-display" class="car-preview-info glass-background-only"></div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <button type="button" id="request-button" onclick="createRequest()">Request This Car</button>
+    </div>
+
+    <div class="glass-container" id="details-container">
+      <header>
+        <h2 id="details-header">Details</h2>
+        <img src="./images/expandLess.svg" id="expand-details-button">
+      </header>
+      <div id="details-content">
+        <div>
+          <p id="vehicle-type-display">Type</p>
+          <p id="vehicle-fuel-display">Fuel</p>
         </div>
-        <div style="display: flex; justify-content: center;">
-            <button type="button" id="request-button" onclick="createRequest()">Request This Car</button>
+        <div id="trims-container">
+          <p id="trims-title">Trims</p>
+          <img src="./images/expandMore.svg" id="expand-button">
+          <div id="trim-entries"></div>
         </div>
-
-        <div class="glass-container" id="details-container">
-            <header>
-                <h2 id="details-header">Details</h2>
-                <img src="./images/expandLess.svg" id="expand-details-button">
-            </header>
-            <div id="details-content">
-                <div>
-                    <p id="vehicle-type-display">Type</p>
-                    <p id="vehicle-fuel-display">Fuel</p>
-                </div>
-                <div id="trims-container">
-                    <p id="trims-title">Trims</p>
-                    <img src="./images/expandMore.svg" id="expand-button">
-                    <div id="trim-entries"></div>
-                </div>
-                <template id="vehicle-trim">
-                    <div class="trim-entry-container">
-                        <span class="vehicle-trim-name-display">Type</span>
-                        <span class="vehicle-trim-price-display">Fuel</span>
-                    </div>
-                </template>
-            </div>
-        </div>
-
-        <div id="offers-container" class="glass-container">
-        </div>
-
-        <template id="vehicle-offers">
-            <div class="offer-card">
-            <img id="offer-profile-display" src="./images/" alt="Profile Picture">
-                <p id="offer-name-display">Name</p>
-                <p id="offer-location-display">Location</p>
-                <p id="offer-price-display">Price</p>
-                <p id="offer-date-display">Date</p>
-            </div>
+        <template id="vehicle-trim">
+          <div class="trim-entry-container">
+            <span class="vehicle-trim-name-display">Type</span>
+            <span class="vehicle-trim-price-display">Fuel</span>
+          </div>
         </template>
-
+      </div>
     </div>
 
-    <!-- Confirmation Popup -->
-    <div id="popup-container" class="fullscreen-popup">
-        <div class="popup glass-background-only">
-            <h1>Warning</h1>
-            <p>AutoBridge implements a reverse-marketplace model, where sellers reach out to buyers with offers. When
-                you as a buyer post a "request", <span style="color: var(--secondary-color)">your post will be visible
-                    to anyone using the app</span> that wants to sell that car. They will then be able to contact you in
-                the app or through a provided email.</p>
-            <form>
-                <input type="checkbox" id="request-info-hide" name="request-info-hide" value="Hide">
-                <label for="request-info-hide">Don't show me this again.</label>
-            </form>
-            <div class="warning-button-container">
-                <button id="confirm-request" onclick="confirmRequest()">Confirm Request</button>
-                <button id="cancel-request">Cancel</button>
-            </div>
+    <h2 class="card-section-heading">Offers</h2>
+    <div id="offers-container">
+    </div>
+
+    <template id="vehicle-offers">
+      <div class="pill-item glass-background-only">
+        <div id="pill-content">
+          <img id="pill-pic" src="./images/prius.jpg" alt="Profile Picture">
+          <div class="pill-info">
+            <h1 id="pill-name">Name</h1>
+            <p id="pill-location">Location</p>
+          </div>
         </div>
-    </div>
+        <div>
+          <p id="pill-date">Date</p>
+          <p id="pill-price">Price</p>
+        </div>
+      </div>
+    </template>
 
-    <!-- Successful Request Popup -->
-    <!-- Confirmation Popup -->
-    <!-- <div id="success-container" class="fullscreen-popup">
+  </div>
+
+  <!-- Confirmation Popup -->
+  <div id="popup-container" class="fullscreen-popup">
+    <div class="popup glass-background-only">
+      <h1>Warning</h1>
+      <p>AutoBridge implements a reverse-marketplace model, where sellers reach out to buyers with offers. When
+        you as a buyer post a "request", <span style="color: var(--secondary-color)">your post will be visible
+          to anyone using the app</span> that wants to sell that car. They will then be able to contact you in
+        the app or through a provided email.</p>
+      <form>
+        <input type="checkbox" id="request-info-hide" name="request-info-hide" value="Hide">
+        <label for="request-info-hide">Don't show me this again.</label>
+      </form>
+      <div class="warning-button-container">
+        <button id="confirm-request" onclick="confirmRequest()">Confirm Request</button>
+        <button id="cancel-request">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Successful Request Popup -->
+  <!-- Confirmation Popup -->
+  <!-- <div id="success-container" class="fullscreen-popup">
             <div class="popup glass-background-only">
                 <h1>Success!</h1>
                 <p>Your request is live.</p>
@@ -128,17 +135,17 @@
             </div>
         </div> -->
 
-    <!-- Footer -->
-    <div id="footerPlaceholder"></div>
+  <!-- Footer -->
+  <div id="footerPlaceholder"></div>
 
-    <!-- Navbar -->
-    <div id="navbarPlaceholder"></div>
+  <!-- Navbar -->
+  <div id="navbarPlaceholder"></div>
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/car.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/car.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 

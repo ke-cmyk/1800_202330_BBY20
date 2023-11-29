@@ -22,6 +22,7 @@ var uiConfig = {
           name: user.displayName,
           email: user.email,
           userID: user.uid,
+          profile: "https://firebasestorage.googleapis.com/v0/b/autobridge20.appspot.com/o/User%20Profile%20Pictures%2FdefaultAccount.svg?alt=media&token=6399ebf4-08d4-4fdd-9f33-c6d6ce7a9752",
         }).then(function () {
           console.log("New user added to firestore");
           window.location.assign("home.html");       //re-direct to home.html after sign-up

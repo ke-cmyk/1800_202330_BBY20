@@ -57,14 +57,14 @@ function displayCardsDynamically() {
                             let newcard = cardTemplate.content.cloneNode(true);
 
                             //set custom html attribut of requestID to relevant request for reference by toggle selection
-                            let newcardElement = newcard.querySelector('.request-item');
+                            let newcardElement = newcard.querySelector('.pill-item');
                             newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
                             newcardElement.addEventListener('click', function () {
                                         toggleSelection(this);
                                     });
 
-                            newcard.querySelector('#requester-name').innerHTML = name;
-                            newcard.querySelector('#requester-location').innerHTML = location;
+                            newcard.querySelector('#pill-name').innerHTML = name;
+                            newcard.querySelector('#pill-location').innerHTML = location;
 
 
                             // const match = requestDate.match(/seconds=(\d+),/);
@@ -74,7 +74,7 @@ function displayCardsDynamically() {
                             const month = date.toLocaleString('en-US', { month: 'short' });
                             const day = date.getDate();
 
-                            newcard.querySelector('#request-date').innerHTML = month + " " + day + "<br>" + year;
+                            newcard.querySelector('#pill-date').innerHTML = month + " " + day + "<br>" + year;
                             // TODO: after user profile pic is implemented, update picture here
 
                             document.getElementById("list-of-requests").appendChild(newcard);

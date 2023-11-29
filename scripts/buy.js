@@ -15,19 +15,21 @@ function displayCardsDynamically() {
     let userDocRef = db.collection("users").doc(userID);
 
     userDocRef.get()
-    .then(userDoc => {
-        userDoc.data().requests.forEach(requestId => {
-            if (requestId != "") {
-                db.collection("requests").doc(requestId).get()
-                .then(requestDoc => {
-                    db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
-                    .then(doc => {
-                        populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true);
+        .then(userDoc => {
+            userDoc.data().requests.forEach(requestId => {
+                if (requestId != "") {
+                    db.collection("requests").doc(requestId).get().then(requestDoc => {
+                        db.collection("vehicles").doc(requestDoc.data().vehicleID).get().then(doc => {
+                            let numberOfOffers;
+                            db.collection("offers").where("requestID", "==", requestId).get().then((offerDocs) => {
+                                numberOfOffers = offerDocs.size;
+                                populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true, numberOfOffers);
+                            })
+                        })
                     })
-                })
-            }
+                }
+            })
         })
-    })
 }
 
 function searchCars() {
@@ -48,34 +50,42 @@ function searchCars() {
     }
     if (yearTerm) {
         carsCollectionRef = carsCollectionRef.where("year", "==", parseInt(yearTerm));
-    } 
+    }
     if (!makeTerm && !modelTerm && !yearTerm) {
         carsCollectionRef = carsCollectionRef.where("year", "==", -1);
     }
 
     carsCollectionRef.get()
-    .then(allmycars => {
-        document.getElementById("myCars-go-here").innerHTML = ``;
-        if (allmycars.size > 0) {
-            db.collection("users").doc(userID).get().then(userDoc => {
-                allmycars.forEach(car => {
-                    if (userDoc.data().vehicles != null) {
-                        isRequested = userDoc.data().vehicles.includes(car.id);
-                    } else {
-                        isRequested = false;
-                    }
-                    populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested);
+        .then(allmycars => {
+            document.getElementById("myCars-go-here").innerHTML = ``;
+            if (allmycars.size > 0) {
+                db.collection("users").doc(userID).get().then(userDoc => {
+                    allmycars.forEach(car => {
+                        if (userDoc.data().vehicles != null) {
+                            isRequested = userDoc.data().vehicles.includes(car.id);
+                        } else {
+                            isRequested = false;
+                        }
+
+                        // Gets the number of offers that the request currently has.
+                        let carIndex = userDoc.data().vehicles.indexOf(car.id);
+                        let currentRequestID = userDoc.data().requests[carIndex];
+                        let numberOfOffers;
+                        db.collection("offers").where("requestID", "==", currentRequestID).get().then((offerDocs) => {
+                            numberOfOffers = offerDocs.size;
+                            populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested, numberOfOffers);
+                        })
+                    })
                 })
-            })
-        } else {
-            if (yearTerm || modelTerm || makeTerm) {
-                document.getElementById("myCars-go-here").innerHTML = 
-                `<p class="glass-container">
+            } else {
+                if (yearTerm || modelTerm || makeTerm) {
+                    document.getElementById("myCars-go-here").innerHTML =
+                        `<p class="glass-container">
                 We couldn't find any cars with your specifications.
                 </p>`;
+                }
             }
-        }
-    })
+        })
 }
 
 if (window.location.href.includes("buySearch.html")) {
@@ -90,7 +100,7 @@ document.addEventListener("keyup", (event) => {
     }
 })
 
-function populateCarCard(doc, cardTemplate, target, requested) {
+function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
     var make = doc.data().make;
     var model = doc.data().model;
     var year = doc.data().year;
@@ -98,8 +108,13 @@ function populateCarCard(doc, cardTemplate, target, requested) {
     let newcard = cardTemplate.content.cloneNode(true);
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
-        newcard.querySelector('.car-details-prompt').textContent = "2 Offers >";
+        if (requestNumber == 1) {
+            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offer >";
+        } else {
+            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offers >";
+        }
         newcard.querySelector('.car-preview-name').style.backgroundColor = "white";
+
     } else {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
         newcard.querySelector('.car-details-prompt').textContent = "Request this car >";
