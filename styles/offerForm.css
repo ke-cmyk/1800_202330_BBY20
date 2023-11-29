@@ -1,5 +1,4 @@
 /* Car Info */
-
 #vehicle-image-container {
     margin: 0px 20px 20px 20px;
     width: calc(100% - 40px);
@@ -21,4 +20,29 @@
     font-size: 20pt;
     text-align: center;
     position: absolute;
+}
+
+/* Input Form */
+#offer-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#offer-edit-table {
+
+}
+
+input {
+    width: 100%;
+    margin: 5px;
+}
+
+#offer-edit-table tr {
+    margin-bottom: 20px;
+}
+
+#send-offer-button {
+    width: 100px;
+    margin-top: 15px;
 }

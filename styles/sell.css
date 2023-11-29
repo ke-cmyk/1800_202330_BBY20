@@ -2,38 +2,9 @@
     cursor: pointer;
 }
 
-
-/*
-Offered Cars Card
-*/
-
-/* .offered-car-card {
-    width: 100%;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .offered-car-image {
-    width: 100%;
-    height: 80%;
-  }
-  
-  .offered-car-name {
-    margin: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  .offered-car-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px 10px 10px;
-  }
-  
-  .car-details-prompt {
-    font-size: 0.8em;
-    color: #555;
-  } */
+#sell-button-icon {
+    width: 40%;
+    max-width: 100px;
+    min-width: 80px;
+    padding: 20px;
+}

@@ -10,13 +10,15 @@ function loadRecommendations() {
     let target = document.getElementById("recommendations");
 
     db.collection("users").doc(userID).get().then(userDoc => {
-        db.collection("vehicles").get().then(vehiclesDoc => {
+        db.collection("vehicles").where(firebase.firestore.FieldPath.documentId(), "not-in", userDoc.data().vehicles).get().then(vehiclesDoc => {
+
             vehiclesDoc.forEach(vehicle => {
                 if (userDoc.data().vehicles != null) {
                     isRequested = userDoc.data().vehicles.includes(vehicle.id);
                 } else {
                     isRequested = false;
                 }
+
                 populateCarCard(vehicle, cardTemplate, target, isRequested);
             })
         })
