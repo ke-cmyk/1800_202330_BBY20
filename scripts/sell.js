@@ -2,12 +2,127 @@ authenticateUser(() => {
     console.log(userID);
 
     if (window.location.href.endsWith("sell.html")) {
-        // displayCardsDynamically();
+        displayCardsDynamically();
         document.getElementById("find-car-btn").addEventListener("click", () => {
             window.location.href = "sellSearch.html";
         })
     }
 });
+
+// Shows car w/ offers on sell page
+async function displayCardsDynamically() {
+
+    let cardTemplate = document.getElementById("offered-car-template");
+    let userDoc = await db.collection("users").doc(userID).get();
+
+    console.log("this users ID doc", userDoc);
+
+    let offerVehicleIDs = userDoc.data().offerVehicleIDs;
+
+    //I am getting the list properly from database
+    console.log("offer vehicles", offerVehicleIDs);
+
+    offerVehicleIDs.forEach(vehicleID => {
+
+        let vehicleDoc = db.collection("vehicles").doc(vehicleID);
+
+        vehicleDoc.get()
+            .then(vehicleDoc => {
+                if (vehicleDoc.exists) {
+                    // Document found, you can access the data using userDoc.data()
+                    // console.log("User document data:", userDoc.data());
+                    var vehicleYear = vehicleDoc.data().year;
+                    var vehicleMake = vehicleDoc.data().make;
+                    var vehicleModel = vehicleDoc.data().model;
+                    var vehicleImage2 = vehicleDoc.data().img[1];
+
+                    let newcard = cardTemplate.content.cloneNode(true);
+
+                    //set custom html attribut of requestID to relevant request for reference by toggle selection
+                    let newcardElement = newcard.querySelector('.request-card');
+
+                    newcardElement.addEventListener('click', function () {
+                        console.log("add link to next page");
+                        // window.location.href = 
+                    });
+
+                    // for adding image to html <img>
+                    // let newcardImg = newcardElement.querySelector('.offered-car-image');
+                    // newcardImg.setAttribute('src', vehicleImage2);
+
+                    newcard.querySelector('.offered-car-name').innerHTML = vehicleYear + " " + vehicleMake + " " + vehicleModel;
+
+                    // newcard.querySelector('#offer-location-display').innerHTML = location;
+                    // newcard.querySelector('#offer-price-display').innerHTML = price;
+
+
+                    // const match = requestDate.match(/seconds=(\d+),/);
+                    // const seconds = match ? parseInt(match[1], 10) : null;
+                    // const date = new Date(requestDate.seconds * 1000);
+                    // const year = date.getFullYear();
+                    // const month = date.toLocaleString('en-US', { month: 'short' });
+                    // const day = date.getDate();
+
+                    // TODO: after user profile pic is implemented, update picture here
+
+                    newcard.querySelector('.request-card').style.setProperty("background", `url(${vehicleDoc.data().img[1]})`);
+                    newcard.querySelector('.request-card').style.setProperty("background-position", "center");
+                    newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
+
+                    document.getElementById("offered-cars-container").appendChild(newcard);
+
+                } else {
+                    console.log("User not found");
+                }
+            })
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+
+
+
+    // let userOffers = db.collection("requests").where("sellerID", "==", userID);
+
+    // let carsBeingOffered = new Set();
+
+    // userOffers.get()
+    //     .then(offerDoc => {
+    //         offerDoc.forEach(vehicleOfferDoc => {
+    //             var vehicleID = vehicleOfferDoc.vehicleID;
+    //             carsBeingOffered.add(vehicleID);
+    //         })
+    //     })
+
+    // console.log(carsBeingOffered);
+    //------------
+
+    // .doc(userID);
+
+    // userDocRef.get()
+    // .then(userDoc => {
+    //     userDoc.data().requests.forEach(requestId => {
+    //         if (requestId != "") {
+    //             db.collection("requests").doc(requestId).get()
+    //             .then(requestDoc => {
+    //                 db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
+    //                 .then(doc => {
+    //                     populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true);
+    //                 })
+    //             })
+    //         }
+    //     })
+    // })
+}
 
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");

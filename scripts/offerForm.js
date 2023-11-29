@@ -30,20 +30,8 @@ function displayVehicleInfo() {
         });
 }
 
-
-
-
-// console.log();
 // Retrieving data from local storage on the second page
 const selectedRequests = JSON.parse(localStorage.getItem("selectedRequests"));
-
-// const selectedRequests = localStorage.getItem("selectedRequests");
-
-// localStorage.getItem("selectedRequests");
-
-
-
-// console.log(selectedRequests);
 
 // Check if the data exists before using it
 if (selectedRequests) {
@@ -79,7 +67,7 @@ async function submitForm() {
                 var buyerID = doc.data().requesterID;
                 console.log("Buyer ID:", buyerID);
 
-                await db.collection("offers").add({
+                const offerRef = await db.collection("offers").add({
                     requestID: selectedRequests[i],
                     buyerID: buyerID,
                     sellerID: userID,
@@ -91,6 +79,15 @@ async function submitForm() {
                     odometer: odometer,
                     vin: vin
                 });
+
+                const offerID = offerRef.id;
+
+                // Update user info with the offerID
+                await db.collection("users").doc(userID).update({
+                    offers: firebase.firestore.FieldValue.arrayUnion(offerID),
+                    offerVehicleIDs: firebase.firestore.FieldValue.arrayUnion(vehicleID)
+                });
+
             } else {
                 console.log("No such document!");
             }
@@ -102,6 +99,7 @@ async function submitForm() {
 
 document.getElementById("offer-form-submit").addEventListener("click", function (event) {
     event.preventDefault();
-    submitForm();
-    window.location.href = "sell.html";
+    submitForm().then(function() {
+        window.location.href = "sell.html";
+    });
 })

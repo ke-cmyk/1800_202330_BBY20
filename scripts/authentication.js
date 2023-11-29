@@ -21,7 +21,7 @@ var uiConfig = {
         db.collection("users").doc(user.uid).set({
           name: user.displayName,
           email: user.email,
-          userID: user.uid
+          userID: user.uid,
         }).then(function () {
           console.log("New user added to firestore");
           window.location.assign("home.html");       //re-direct to home.html after sign-up

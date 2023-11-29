@@ -41,25 +41,6 @@
 <body main="true">
   <!-- Header -->
   <div id="headerPlaceholder"></div>
-  <!-- Content -->
-
-  <!-- <div class="text-center mt-3">
-        <button type="button" class="btn bg-success text-white btn-lg mt-3 mb-3 big-button">Sell your Car</button>
-    </div>
-    <h2 class="p-2">My Cars</h2>
-    <div class="card-group p-2">
-        <div class="card border-1;">
-          <img class="card-img-top" src="https://placehold.co/200x150" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Car Year/Make/Model</h5>
-            <p class="card-text">List of Buyers: ...</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last Contact: Name|Time</small>
-          </div>
-        </div>
-        <div class="card border-1">
-      </div> -->
 
   <!-- Content -->
   <div id="content-center">
@@ -70,14 +51,23 @@
     <div class="container">
       <div id="myCars-go-here" class="col row-cols-auto"></div>
     </div>
-  
-    <!-- Template for mycars -->
-    <template id="myCarTemplate">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://placehold.co/400x150" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="myCar-Info">Car Year/Make/Model</h5>
-          <!-- <p class="myCar-BuyersList"></p> -->
+
+    <!-- Display for Requests -->
+    <h2 class="card-section-heading">Your Car Offers</h2>
+    <div id="offered-cars-container"></div>
+    <template id="offered-car-template">
+      <div class="request-card">
+        <!--
+          <img src="." class="offered-car-image" alt="Image of Car">
+          <p class="offered-car-name "></p> <!--car-preview-name -->
+        <!-- <div class=""> car-preview-info -->
+        <!-- <p class=""># Offers &gt;</p>car-details-prompt -->
+        <!-- </div> -->
+
+        <p class="offered-car-name car-preview-name glass-background-only"></p>
+        <div class="car-preview-info  glass-background-only">
+          <p class="">$$$$$$</p>
+          <p class="car-details-prompt"># Offers &gt;</p>
         </div>
       </div>
     </template>
