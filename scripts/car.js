@@ -9,6 +9,8 @@ authenticateUser(() => {
             if (doc) {
                 document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
                 document.querySelector("#request-button").textContent = "Delete Request";
+
+                document.querySelector("#vehicle-name-display").innerHTML += " - <span class='color-text'>Requested</span>";
             }
         })
 
@@ -100,6 +102,8 @@ function addRequestToFirestore()  {
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";
 
+            document.querySelector("#vehicle-name-display").innerHTML += " - <span class='color-text'>Requested</span>";
+
             document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
 
             // $('#successRequestPlaceholder').load('./text/request_success.html').then(() => {
@@ -132,6 +136,12 @@ function deleteRequest() {
                         console.log("request successfully deleted")
                         document.querySelector("#request-button").textContent = "Request This Car";
                         document.querySelector("#request-button").setAttribute("onclick", "createRequest()");
+
+                        let vehicleText = document.querySelector("#vehicle-name-display").textContent;
+                        document.querySelector("#vehicle-name-display").textContent 
+
+                        // 12 is the length of " - <span class=".color-text">Requested</span>
+                        = vehicleText.substring(0, vehicleText.length - 12);
                     })
                 }
             })

@@ -1,3 +1,10 @@
 #find-car-btn:hover {
     cursor: pointer;
 }
+
+#sell-button-icon {
+    width: 40%;
+    max-width: 100px;
+    min-width: 80px;
+    padding: 20px;
+}

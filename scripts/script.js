@@ -18,6 +18,8 @@ function toTitleCase(str) {
 
 /**
  * Returns the text at the specified url for placement in documents.
+ * Source: https://stackoverflow.com/questions/17636528/how-do-i-load-an-html-page-in-a-div-using-javascript
+ * By Lucio Paiva https://stackoverflow.com/users/778272/lucio-paiva
  * 
  * @param {*} url 
  * @returns the text at the url
