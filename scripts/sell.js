@@ -42,8 +42,7 @@ async function displayCardsDynamically() {
                     let newcardElement = newcard.querySelector('.request-card');
 
                     newcardElement.addEventListener('click', function () {
-                        console.log("add link to next page");
-                        // window.location.href = 
+                        window.location.href = 'sentOffers.html?vehicleID=' + vehicleID;
                     });
 
                     // for adding image to html <img>
@@ -75,7 +74,22 @@ async function displayCardsDynamically() {
                     console.log("User not found");
                 }
             })
+
+
+
+
+
+
+
+
+
+
     })
+
+
+
+
+
     // let userOffers = db.collection("requests").where("sellerID", "==", userID);
 
     // let carsBeingOffered = new Set();
@@ -108,6 +122,7 @@ async function displayCardsDynamically() {
     //     })
     // })
 }
+
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let makeTerm = toTitleCase(document.querySelector("#search-make").value);
