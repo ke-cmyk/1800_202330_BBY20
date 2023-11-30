@@ -75,22 +75,7 @@ async function displayCardsDynamically() {
                     console.log("User not found");
                 }
             })
-
-
-
-
-
-
-
-
-
-
     })
-
-
-
-
-
     // let userOffers = db.collection("requests").where("sellerID", "==", userID);
 
     // let carsBeingOffered = new Set();
@@ -123,7 +108,6 @@ async function displayCardsDynamically() {
     //     })
     // })
 }
-
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let makeTerm = toTitleCase(document.querySelector("#search-make").value);
@@ -153,12 +137,11 @@ function searchCars() {
             if (allmycars.size > 0) {
                 db.collection("users").doc(userID).get().then(userDoc => {
                     allmycars.forEach(car => {
-                        if (userDoc.data().vehicles != null) {
-                            isRequested = userDoc.data().vehicles.includes(car.id);
-                        } else {
-                            isRequested = false;
-                        }
-                        populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested);
+                        let numberOfRequests;
+                        db.collection("requests").where("vehicleID", "==", car.id).where("requesterID", "!=", userID).get().then((requestDocs) => {
+                            numberOfRequests = requestDocs.size;
+                            populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), numberOfRequests);
+                        })
                     })
                 })
             } else {
@@ -177,19 +160,17 @@ document.addEventListener("keyup", (event) => {
     }
 })
 
-function populateCarCard(doc, cardTemplate, target, requested) {
+function populateCarCard(doc, cardTemplate, target, numberOfRequests) {
     var make = doc.data().make;
     var model = doc.data().model;
     var year = doc.data().year;
     var vehicleID = doc.id;
     let newcard = cardTemplate.content.cloneNode(true);
-    if (requested) {
-        newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model; // + ' - <span class="color-text">Requested</span>';
-        // newcard.querySelector('.car-details-prompt').textContent = "2 Offers >";
-        newcard.querySelector('.car-preview-name').style.backgroundColor = "white";
+    newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
+    if (numberOfRequests == 1) {
+        newcard.querySelector('.car-details-prompt').textContent = numberOfRequests + " Request >";
     } else {
-        newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
-        newcard.querySelector('.car-details-prompt').textContent = "Make Offers >";
+        newcard.querySelector('.car-details-prompt').textContent = numberOfRequests + " Requests >";
     }
 
     newcard.querySelector('.car-preview-msrp').textContent = "$" + doc.data().trim[0].msrp;

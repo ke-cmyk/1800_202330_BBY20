@@ -66,7 +66,6 @@ function searchCars() {
                         } else {
                             isRequested = false;
                         }
-
                         // Gets the number of offers that the request currently has.
                         let carIndex = userDoc.data().vehicles.indexOf(car.id);
                         let currentRequestID = userDoc.data().requests[carIndex];
@@ -109,9 +108,9 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
         if (requestNumber == 1) {
-            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offer >";
+            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offer Recieved >";
         } else {
-            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offers >";
+            newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offers Recieved >";
         }
         newcard.querySelector('.car-preview-name').style.backgroundColor = "white";
 

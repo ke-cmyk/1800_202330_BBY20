@@ -32,7 +32,7 @@ function displayCardsDynamically() {
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
 
     let cardTemplate = document.getElementById("requests");
-    let vehicleRequests = db.collection("requests").where("vehicleID", "==", vehicleID);
+    let vehicleRequests = db.collection("requests").where("vehicleID", "==", vehicleID).where("requesterID", "!=", userID);
 
     vehicleRequests.get()
         .then(querySnapshot => {
