@@ -2,61 +2,61 @@
 <html lang="en">
 
 <head>
-    <title>AutoBridge</title>
-    <meta name="AutoBridge" content="AutoBridge">
+  <title>AutoBridge</title>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="AutoBridge" content="AutoBridge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Library CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!-- Boostrap Library JS CDN  go here -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script> -->
+  <!-- Boostrap Library JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/account.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/account.css">
 
+  <!-- Firebase Authentication -->
+  <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
 <body main="true">
-    <!-- Header -->
-    <div id="headerPlaceholder"></div>
-    <!-- Content -->
-    <div id="content-center">
-        <div class="glass-container" id="profile-container">
-            <div id="profile-image-container">
-                <img src="user-profile.jpg" id="user-profile-image">
-            </div>
-            <h1 id="user-name-display"></h1>
-            <h2 id="user-email-display"></h2>
-            <h2 id="user-city-display"></h2>
-            <h2 id="user-phone-display"></h2>
-            <a href="editAccount.html" id="edit-profile-button">
-                <button>Edit Profile</button>
-            </a>
-        </div>
-        <!-- <div class="glass-container" id="prefs-menu-container">
+  <!-- Header -->
+  <div id="headerPlaceholder"></div>
+  <!-- Content -->
+  <div id="content-center">
+    <div class="glass-container" id="profile-container">
+      <div id="profile-image-container">
+        <img src="user-profile.jpg" id="user-profile-image">
+      </div>
+      <h1 id="user-name-display"></h1>
+      <h2 id="user-email-display"></h2>
+      <h2 id="user-city-display"></h2>
+      <h2 id="user-phone-display"></h2>
+      <a href="editAccount.html" id="edit-profile-button">
+        <button>Edit Profile</button>
+      </a>
+    </div>
+    <!-- <div class="glass-container" id="prefs-menu-container">
             <h1>Settings</h1>
             <div class="settings-slot">
                 <p>Notifications</p>
@@ -68,25 +68,25 @@
                 <p>Location</p>
             </div>
         </div> -->
-        <button class="glass-container" id="sign-out-button" onclick="signOut()">Sign Out</button>
-    </div>
+    <button class="glass-container" id="sign-out-button" onclick="signOut()">Sign Out</button>
+  </div>
 
-    <!-- Footer -->
-    <div id="footerPlaceholder"></div>
+  <!-- Footer -->
+  <div id="footerPlaceholder"></div>
 
-    <!-- Navbar -->
-    <div id="navbarPlaceholder"></div>
+  <!-- Navbar -->
+  <div id="navbarPlaceholder"></div>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_BBY20.js"></script>
-    <script src="./scripts/account.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/firebaseAPI_BBY20.js"></script>
+  <script src="./scripts/account.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
