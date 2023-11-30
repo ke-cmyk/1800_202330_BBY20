@@ -21,12 +21,11 @@ h3 {
 body {
     font-family: 'Kanit', sans-serif;
     width: 100vw;
-    background: url("../images/background.jpg");
+    background: url("../images/background.png");
     
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* background-color: var(--background-color); */
 }
 
 #content-center {
