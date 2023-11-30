@@ -42,8 +42,7 @@ async function displayCardsDynamically() {
                     let newcardElement = newcard.querySelector('.request-card');
 
                     newcardElement.addEventListener('click', function () {
-                        console.log("add link to next page");
-                        // window.location.href = 
+                        window.location.href = 'sentOffers.html?vehicleID=' + vehicleID;
                     });
 
                     // for adding image to html <img>
@@ -75,53 +74,7 @@ async function displayCardsDynamically() {
                     console.log("User not found");
                 }
             })
-
-
-
-
-
-
-
-
-
-
     })
-
-
-
-
-
-    // let userOffers = db.collection("requests").where("sellerID", "==", userID);
-
-    // let carsBeingOffered = new Set();
-
-    // userOffers.get()
-    //     .then(offerDoc => {
-    //         offerDoc.forEach(vehicleOfferDoc => {
-    //             var vehicleID = vehicleOfferDoc.vehicleID;
-    //             carsBeingOffered.add(vehicleID);
-    //         })
-    //     })
-
-    // console.log(carsBeingOffered);
-    //------------
-
-    // .doc(userID);
-
-    // userDocRef.get()
-    // .then(userDoc => {
-    //     userDoc.data().requests.forEach(requestId => {
-    //         if (requestId != "") {
-    //             db.collection("requests").doc(requestId).get()
-    //             .then(requestDoc => {
-    //                 db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
-    //                 .then(doc => {
-    //                     populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true);
-    //                 })
-    //             })
-    //         }
-    //     })
-    // })
 }
 
 function searchCars() {
