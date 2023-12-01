@@ -2,7 +2,7 @@ authenticateUser(() => {
     displayCardsDynamically();
 })
 
-displayVehicleInfo()
+displayVehicleInfo();
 
 function displayVehicleInfo() {
     let params = new URL(window.location.href); //get URL of search bar

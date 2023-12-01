@@ -139,9 +139,12 @@ function deleteRequest() {
 
                         let vehicleText = document.querySelector("#vehicle-name-display").textContent;
                         document.querySelector("#vehicle-name-display").textContent 
-
                         // 12 is the length of " - <span class=".color-text">Requested</span>
                         = vehicleText.substring(0, vehicleText.length - 12);
+                    })
+
+                    db.collection("offers").where("requestID", "==", doc.id).get().then((offerDoc) => {
+                        offerDoc.remove();
                     })
                 }
             })

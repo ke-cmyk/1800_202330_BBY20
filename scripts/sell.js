@@ -68,7 +68,19 @@ async function displayCardsDynamically() {
                     newcard.querySelector('.request-card').style.setProperty("background-position", "center");
                     newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
 
-                    document.getElementById("offered-cars-container").appendChild(newcard);
+                    db.collection("offers").where("sellerID", "==", userID).where("vehicleID", "==", vehicleID).get().then((offerDocs) => {
+                        let offerCount = 0;
+                        offerDocs.forEach(offerDoc => {
+                            offerCount++;
+                        })
+                        newcard.querySelector('.car-details-prompt').textContent = `${offerCount} sent`;
+                        if (offerCount == 1) {
+                            newcard.querySelector('.car-details-prompt').textContent += " offer >";
+                        } else {
+                            newcard.querySelector('.car-details-prompt').textContent += " offers >";
+                        }
+                        document.getElementById("offered-cars-container").appendChild(newcard);
+                    })
 
                 } else {
                     console.log("User not found");
@@ -132,7 +144,7 @@ function searchCars() {
     console.log(makeTerm, modelTerm, yearTerm);
     var carsCollectionRef = db.collection("vehicles");
 
-    //create conditional queries5 based off of whether or not make, model and yearSearchTerm are empty.
+    //create conditional queries based off of whether or not make, model and yearSearchTerm are empty.
     if (makeTerm) {
         carsCollectionRef = carsCollectionRef.where("make", "==", makeTerm);
     }
