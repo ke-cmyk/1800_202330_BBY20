@@ -68,7 +68,14 @@ function searchCars() {
                         }
                         // Gets the number of offers that the request currently has.
                         let carIndex = userDoc.data().vehicles.indexOf(car.id);
-                        let currentRequestID = userDoc.data().requests[carIndex];
+                        let currentRequestID;
+                        if (carIndex != -1) {
+                            currentRequestID = userDoc.data().requests[carIndex];
+                        } else {
+                            currentRequestID = "none";
+                        }
+                        console.log(currentRequestID);
+                        
                         let numberOfOffers;
                         db.collection("offers").where("requestID", "==", currentRequestID).get().then((offerDocs) => {
                             numberOfOffers = offerDocs.size;
