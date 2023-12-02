@@ -215,19 +215,13 @@ function displayCardsDynamically() {
 
     let cardTemplate = document.getElementById("vehicle-offers");
     let vehicleOffers = db.collection("offers").where("vehicleID", "==", vehicleID).where("buyerID", "==", userID);
-    // console.log(db.collection("offers").where("vehicleID", "==", vehicleID));
-    // console.log(vehicleOffers); // temp
 
     vehicleOffers.get()
         .then(querySnapshot => {
             console.log("query finished", querySnapshot.size);
             querySnapshot.forEach(vehicleOffersDoc => {
-                
-                console.log("vehicle log", vehicleOffersDoc);
-
                 let sellerID = vehicleOffersDoc.data().sellerID;
                 let userDocRef = db.collection("users").doc(sellerID);
-
                 var requestDate = vehicleOffersDoc.data().offerDate;
 
                 // Get the document
