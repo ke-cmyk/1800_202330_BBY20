@@ -143,8 +143,12 @@ function deleteRequest() {
                         = vehicleText.substring(0, vehicleText.length - 12);
                     })
 
-                    db.collection("offers").where("requestID", "==", doc.id).get().then((offerDoc) => {
-                        offerDoc.remove();
+                    db.collection("offers").where("requestID", "==", doc.id).get().then((offerDocs) => {
+                        offerDocs.forEach((offerDoc) => {
+                            offerDoc.delete().then(() => {
+                                console.log("offer deleted.");
+                            })
+                        })
                     })
                 }
             })

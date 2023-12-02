@@ -27,3 +27,27 @@ function toTitleCase(str) {
 async function fetchHtmlAsText(url) {
     return await (await fetch(url)).text();
 }
+
+// function deleteEverything(verifier) {
+//     if (verifier == "Yes") {
+//         db.collection("requests").get().then(docs => {
+//             docs.forEach(doc => {
+//                 console.log(doc.id);
+//                 db.collection("requests").doc(doc.id).delete().then(() => {
+//                     console.log("document deleted");
+//                 });
+//             })
+//         })
+//         db.collection("offers").get().then(docs => {
+//             docs.forEach(doc => {
+//                 console.log(doc.id);
+//                 db.collection("offers").doc(doc.id).delete().then(() => {
+//                     console.log("document deleted");
+//                 });
+//             })
+//         })
+
+//     } else {
+//         console.log("the parameter is 'Yes'.");
+//     }
+// }
