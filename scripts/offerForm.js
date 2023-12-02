@@ -99,7 +99,10 @@ async function submitForm() {
 
 document.getElementById("offer-form-submit").addEventListener("click", function (event) {
     event.preventDefault();
-    submitForm().then(function() {
-        window.location.href = "sell.html";
+    submitForm().then(async function() {
+        document.getElementById("successOfferPlaceholder").innerHTML = await fetchHtmlAsText("./text/offer_success.html");
+        setTimeout(function() {
+            window.location.href = "sell.html";
+        }, 3000); // 3000 milliseconds = 3 seconds
     });
 })

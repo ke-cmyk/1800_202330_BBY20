@@ -137,30 +137,3 @@
     /* margin-right: 50px; */
     float: right;
 }
-
-#success-popup-container {
-    display: flex;
-    justify-content: center;
-}
-
-#success-popup {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    bottom: 80px;
-    padding: 10px;
-    color: black;
-    background-color: white;
-    z-index: 1;
-
-    border: 1px solid rgba( 255, 255, 255, 0.35);
-    box-shadow: 0 5px 10px 0 rgba( 0, 0, 0, 0.25);
-}
-
-#success-popup p {
-    margin: 0;
-}
-
-#success-popup button {
-    margin-left: 15px;
-}
