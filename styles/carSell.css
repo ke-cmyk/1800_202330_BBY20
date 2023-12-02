@@ -39,8 +39,8 @@
     border-radius: 30px;
     font-size: 14pt;
 
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--faded-button-color);
+    color: var(--faded-text-color);
 
     box-shadow: 0 5px 15px 0 rgba( 0, 0, 0, 0.25);
 }
@@ -50,6 +50,11 @@
 
 }
 
-.floating-button:hover {
+.selectionMade {
+background-color: var(--primary-color);
+color: white;
+}
+
+.selectionMade:hover{
     cursor: pointer;
 }

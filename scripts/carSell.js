@@ -61,6 +61,7 @@ function displayCardsDynamically() {
                             newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
                             newcardElement.addEventListener('click', function () {
                                         toggleSelection(this);
+                                        buttonStatus();
                                     });
 
                             newcard.querySelector('#pill-name').innerHTML = name;
@@ -110,6 +111,21 @@ function toggleSelection(element) {
     // console.log(selectedItems);
 
 
+}
+
+/**
+ * Updates send-offer-button based on selections made.
+ */
+function buttonStatus() {
+    //If requests selected, makes button clickable and solid color.
+    if (selectedItems.length > 0) {
+        document.getElementById("send-offer-button").classList.add('selectionMade');
+    } else {
+        document.getElementById("send-offer-button").classList.remove('selectionMade');
+    }
+
+    //Updates number of items selected in button name.
+    document.getElementById("send-offer-button").innerHTML = "Send Offers (" + selectedItems.length + ")";
 }
 
 document.getElementById("send-offer-button").addEventListener("click", function() {

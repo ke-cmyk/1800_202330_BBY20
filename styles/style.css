@@ -7,6 +7,8 @@
     --background-color: #F2E8CF;
     --selected: #ffffff;
     --selected-border: #0058d0;
+    --faded-button-color: #38664190;
+    --faded-text-color: #ffffff90;
 }
 
 h2 {
