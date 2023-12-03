@@ -61,25 +61,25 @@ function searchCars() {
             if (allmycars.size > 0) {
                 db.collection("users").doc(userID).get().then(userDoc => {
                     allmycars.forEach(car => {
-                        if (userDoc.data().vehicles != null) {
-                            isRequested = userDoc.data().vehicles.includes(car.id);
-                        } else {
-                            isRequested = false;
-                        }
+
                         // Gets the number of offers that the request currently has.
                         let carIndex = userDoc.data().vehicles.indexOf(car.id);
                         let currentRequestID;
                         if (carIndex != -1) {
                             currentRequestID = userDoc.data().requests[carIndex];
                         } else {
-                            currentRequestID = "none";
+                            currentRequestID = "";
                         }
-                        console.log(currentRequestID);
-                        
-                        let numberOfOffers;
+
                         db.collection("offers").where("requestID", "==", currentRequestID).get().then((offerDocs) => {
-                            numberOfOffers = offerDocs.size;
-                            populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested, numberOfOffers);
+                            if (userDoc.data().vehicles != null) {
+                                isRequested = userDoc.data().vehicles.includes(car.id);
+                            } else {
+                                isRequested = false;
+                            }
+
+                            console.log(car.data().model, isRequested);
+                            populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), isRequested, offerDocs.size);
                         })
                     })
                 })
@@ -112,6 +112,9 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
     var year = doc.data().year;
     var vehicleID = doc.id;
     let newcard = cardTemplate.content.cloneNode(true);
+
+    
+    console.log(doc.data().model, requested)
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
         if (requestNumber == 1) {
