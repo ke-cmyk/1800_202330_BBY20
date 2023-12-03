@@ -51,7 +51,7 @@ function displayCardsDynamically() {
 
                             var name = userDoc.data().name;
                             var location = userDoc.data().city;
-                            var picture = userDoc.data().picture;
+                            var picture = userDoc.data().profile;
 
                             let newcard = cardTemplate.content.cloneNode(true);
 
@@ -75,7 +75,7 @@ function displayCardsDynamically() {
                             const day = date.getDate();
 
                             newcard.querySelector('#pill-date').innerHTML = month + " " + day + "<br>" + year;
-                            // TODO: after user profile pic is implemented, update picture here
+                            newcard.querySelector('#pill-pic').setAttribute('src', picture);
 
                             document.getElementById("list-of-requests").appendChild(newcard);
 

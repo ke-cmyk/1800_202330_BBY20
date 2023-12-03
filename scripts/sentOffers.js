@@ -95,7 +95,7 @@ async function deleteOffer(offerID) {
         })
     })
 
-    if (window.href.includes("sentOffers.html")) {
+    if (window.location.href.includes("sentOffers.html")) {
         deleteOfferDisplay(offerID);
     }
 }
