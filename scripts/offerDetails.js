@@ -15,11 +15,17 @@ function displayOfferDetails() {
         let sellerName = sellerDoc.data().name;
         let sellerLocation = sellerDoc.data().city;
         let sellerImg = sellerDoc.data().profile;
+        let sellerEmail = sellerDoc.data().email;
+        let sellerPhone = sellerDoc.data().phone;
 
         document.querySelector('.seller-name').innerHTML = sellerName;
+
+        document.querySelector('.seller-location').textContent += `${sellerEmail} --- ${sellerPhone}`;
+
         if (sellerLocation) {
-            document.querySelector('.seller-location').innerHTML = sellerLocation;
+            document.querySelector('.seller-location').textContent += " --- " + sellerLocation;
         }
+
         document.querySelector('#pill-pic').setAttribute('src', sellerImg);
         document.querySelector('.offer-date').innerHTML += offerDate;
 
