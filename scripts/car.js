@@ -275,8 +275,8 @@ function displayCardsDynamically() {
                             const day = date.getDate();
 
                             newcard.querySelector('#pill-date').innerHTML = month + " " + day + ", " + year;
-                            // TODO: after user profile pic is implemented, update picture here
                             newcard.querySelector('#pill-pic').setAttribute("src", picture);
+                            newcardElement.setAttribute('onclick', `goToOffer("${vehicleOffersDoc.id}")`);
 
                             document.getElementById("offers-container").appendChild(newcard);
 
@@ -289,4 +289,8 @@ function displayCardsDynamically() {
         .catch(error => {
             console.error("Error getting documents: ", error);
         });
+}
+
+function goToOffer(offerID) {
+    window.location.assign("offerDetails.html?offerID=" + offerID);
 }

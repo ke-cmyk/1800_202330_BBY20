@@ -1,0 +1,19 @@
+#pill-pic-container {
+    margin-left: 0;
+    box-shadow: none;
+}
+
+.seller-details {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.seller-name {
+    margin: 0;
+}
+
+.seller-location {
+    margin: 0;
+}
