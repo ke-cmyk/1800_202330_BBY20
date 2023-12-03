@@ -15,12 +15,7 @@ async function displayCardsDynamically() {
     let cardTemplate = document.getElementById("offered-car-template");
     let userDoc = await db.collection("users").doc(userID).get();
 
-    console.log("this users ID doc", userDoc);
-
     let offerVehicleIDs = userDoc.data().offerVehicleIDs;
-
-    //I am getting the list properly from database
-    console.log("offer vehicles", offerVehicleIDs);
 
     offerVehicleIDs.forEach(vehicleID => {
 
@@ -86,21 +81,7 @@ async function displayCardsDynamically() {
                     console.log("User not found");
                 }
             })
-
-
-
-
-
-
-
-
-
-
     })
-
-
-
-
 
     // let userOffers = db.collection("requests").where("sellerID", "==", userID);
 
@@ -135,6 +116,9 @@ async function displayCardsDynamically() {
     // })
 }
 
+/**
+ * Searches the db for cars that match user input in the search bar and displays requests on the sell search page.
+ */
 function searchCars() {
     let cardTemplate = document.getElementById("search-results");
     let makeTerm = toTitleCase(document.querySelector("#search-make").value);
@@ -159,34 +143,56 @@ function searchCars() {
     }
 
     carsCollectionRef.get()
-        .then(allmycars => {
+        .then(offers => {
             document.getElementById("myCars-go-here").innerHTML = ``;
-            if (allmycars.size > 0) {
+            if (offers.size > 0) {
                 db.collection("users").doc(userID).get().then(userDoc => {
-                    allmycars.forEach(car => {
+                    offers.forEach(car => {
                         let numberOfRequests;
-                        db.collection("requests").where("vehicleID", "==", car.id).where("requesterID", "!=", userID).get().then((requestDocs) => {
+
+                        //queries db for requests only with the selected vehicle and not by the signed-in user
+                        db.collection("requests").where("vehicleID", "==", car.id).where("requesterID", "!=", userDoc.id).get().then((requestDocs) => {
                             numberOfRequests = requestDocs.size;
-                            populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), numberOfRequests);
+
+                            //double check that no request lists with 0 requests are rendered
+                            if (numberOfRequests > 0) {
+                                populateCarCard(car, cardTemplate, document.getElementById("myCars-go-here"), numberOfRequests);
+                            }
+
                         })
                     })
                 })
             } else {
-                document.getElementById("myCars-go-here").innerHTML =
-                    `<p class="glass-container">
-            We couldn't find any cars with your specifications.
-            </p>`;
+                if (yearTerm || modelTerm || makeTerm) {
+                    document.getElementById("myCars-go-here").innerHTML =
+                        `<p class="glass-container">
+                We couldn't find any cars with your specifications.
+                </p>`;
+                }
             }
         })
 }
 
+//searches upon load of search page
+if (window.location.href.includes("sellSearch.html")) {
+    window.onload = searchCars;
+}
+
 // Allows user to activate search by pressing enter
 document.addEventListener("keyup", (event) => {
-    if (window.location.href.endsWith("buySearch.html") && event.key === "Enter") {
+    if (window.location.href.endsWith("sellSearch.html") && event.key === "Enter") {
         searchCars();
     }
 })
 
+/**
+ * Populates a car card and appends it in search results based on Firestore data.
+ * 
+ * @param {object} doc the Firestore doc that data is taken from
+ * @param {object} cardTemplate the DOM template that is populated with doc data
+ * @param {object} target the DOM element where the cardTemplate children are added into
+ * @param {number} numberOfRequests the number of requests that are for the car represented by doc
+ */
 function populateCarCard(doc, cardTemplate, target, numberOfRequests) {
     var make = doc.data().make;
     var model = doc.data().model;

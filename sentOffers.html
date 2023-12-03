@@ -39,7 +39,7 @@
   <script src="./scripts/firebaseAPI_BBY20.js"></script>
 </head>
 
-<body name="Offers">
+<body name="Sent Offers">
   <!-- Header -->
   <div id="headerPlaceholder"></div>
 
@@ -50,22 +50,25 @@
     <div id="car-offers-list"></div>
 
     <template id="offers">
-      <div class="offer-card glass-background-only" data-request-id="">
+      <div class="offer-card glass-container" data-request-id="">
         <div class="requester-info">
-          <img src="https://dummyimage.com/300x300/ababab/fff.jpg&text=Profile+Pic" class="requester-pic"
-            alt="Requester Profile Picture">
-          <div class="request-info">
-            <h1 class="requester-name">Requester</h1>
-            <p class="requester-location">Location</p>
+          <div class="requester-pic-container">
+            <img src="https://dummyimage.com/300x300/ababab/fff.jpg&text=Profile+Pic" class="requester-pic"
+              alt="Requester Profile Picture">
+          </div>
+          <div>
+            <h1 class="requester-name"></h1>
+            <p class="requester-location"></p>
           </div>
         </div>
+        <p class="offer-date">Sent on: </p>
         <div class="vehicle-info">
-          <p class="vehicle-price">$100000</p>
-          <p class="vehicle-color">Color</p>
-          <p class="vehicle-odometer">000000km</p>
-          <p class="vehicle-vin">5YJSA1DP5CFF00000</p>
+          <p class="vehicle-price">Your Price: </p>
+          <p class="vehicle-color">Color: </p>
+          <p class="vehicle-odometer">Odometer: </p>
+          <p class="vehicle-vin">VIN: </p>
         </div>
-        <p class="offer-date">Month Day, Year</p>
+        <button class="delete-offer-button">Rescind Offer</button>
       </div>
     </template>
 

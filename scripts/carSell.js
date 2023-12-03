@@ -27,7 +27,6 @@ function displayVehicleInfo() {
 }
 
 function displayCardsDynamically() {
-
     let params = new URL(window.location.href); //get URL of search bar
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
 
@@ -65,9 +64,9 @@ function displayCardsDynamically() {
                                     });
 
                             newcard.querySelector('#pill-name').innerHTML = name;
-                            newcard.querySelector('#pill-location').innerHTML = location;
-
-
+                            if (location) {
+                                newcard.querySelector('#pill-location').innerHTML = location;
+                            }
                             // const match = requestDate.match(/seconds=(\d+),/);
                             // const seconds = match ? parseInt(match[1], 10) : null;
                             const date = new Date(requestDate.seconds * 1000);

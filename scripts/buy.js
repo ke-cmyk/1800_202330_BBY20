@@ -84,6 +84,7 @@ function searchCars() {
                     })
                 })
             } else {
+                console.log(yearTerm, modelTerm, makeTerm);
                 if (yearTerm || modelTerm || makeTerm) {
                     document.getElementById("myCars-go-here").innerHTML =
                         `<p class="glass-container">
