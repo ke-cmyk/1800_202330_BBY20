@@ -17,6 +17,13 @@ async function displayCardsDynamically() {
 
     let offerVehicleIDs = userDoc.data().offerVehicleIDs;
 
+    if (offerVehicleIDs.length <= 0) {
+        document.getElementById("offered-cars-container").innerHTML =
+                        `<p class="glass-container">
+                You have not made any offers. When you do, they will show up here.
+                </p>`;
+    }
+
     offerVehicleIDs.forEach(vehicleID => {
 
         let vehicleDoc = db.collection("vehicles").doc(vehicleID);

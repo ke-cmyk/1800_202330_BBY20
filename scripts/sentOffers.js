@@ -13,7 +13,7 @@ async function displayOffers() {
 
     for (let i = 0; i < userCarOffers.docs.length; i++) {
         var newcard = cardTemplate.content.cloneNode(true);
-        // newcard.querySelector('.offer-card').setAttribute("data-request-id", userCarOffers.docs[i].id);
+        newcard.querySelector('.offer-card').setAttribute("data-request-id", userCarOffers.docs[i].id);
 
         var vehiclePrice = userCarOffers.docs[i].data().price;
         var vehicleColor = userCarOffers.docs[i].data().color;
@@ -94,4 +94,10 @@ function deleteOffer(offerID) {
             })
         });
     })
+
+    deleteOfferDisplay(offerID);
+}
+
+function deleteOfferDisplay(offerID) {
+    document.querySelector(`div[data-request-id="${offerID}"]`).remove();
 }

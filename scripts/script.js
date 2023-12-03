@@ -1,3 +1,10 @@
+/**
+ * The workhorse of AutoBridge's search functionality. This function formats a string to be in capitalized form,
+ * with exceptions for hypenated strings and strings with a length of less than 4 letters which signifies that it is an
+ * acronym and should remain fully uppercase.
+ * @param {string} str 
+ * @returns 
+ */
 function toTitleCase(str) {
     let result = "";
     let wordCount = 0;

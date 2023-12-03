@@ -10,12 +10,19 @@ authenticateUser(() => {
                 document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
                 document.querySelector("#request-button").textContent = "Delete Request";
 
-                document.querySelector("#vehicle-name-display").innerHTML += " - <span class='color-text'>Requested</span>";
+                document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'>Requested</div>";
+                
             }
         })
 
+        if (requestRef.docs.length <= 0) {
+            document.querySelector(".card-section-heading").remove();
+        } else {
+            displayCardsDynamically();
+        }
+
     })
-    displayCardsDynamically();
+
 })
 
 /**
@@ -102,7 +109,7 @@ function addRequestToFirestore()  {
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";
 
-            document.querySelector("#vehicle-name-display").innerHTML += " - <span class='color-text'>Requested</span>";
+            document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'>Requested</div>";
 
             document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
 
@@ -137,10 +144,7 @@ function deleteRequest() {
                         document.querySelector("#request-button").textContent = "Request This Car";
                         document.querySelector("#request-button").setAttribute("onclick", "createRequest()");
 
-                        let vehicleText = document.querySelector("#vehicle-name-display").textContent;
-                        document.querySelector("#vehicle-name-display").textContent 
-                        // 12 is the length of " - <span class=".color-text">Requested</span>
-                        = vehicleText.substring(0, vehicleText.length - 12);
+                        document.querySelector("#request-status").remove();
                     })
 
                     db.collection("offers").where("requestID", "==", doc.id).get().then((offerDocs) => {
@@ -226,6 +230,12 @@ function displayCardsDynamically() {
     vehicleOffers.get()
         .then(querySnapshot => {
             console.log("query finished", querySnapshot.size);
+            if (querySnapshot.size <= 0) {
+                document.getElementById("offers-container").innerHTML =
+                `<p class="glass-container">
+        Your request has not recieved any offers yet. When it does, they will show up here.
+        </p>`;
+            }
             querySnapshot.forEach(vehicleOffersDoc => {
                 let sellerID = vehicleOffersDoc.data().sellerID;
                 let userDocRef = db.collection("users").doc(sellerID);

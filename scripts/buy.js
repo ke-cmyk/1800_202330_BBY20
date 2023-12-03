@@ -16,6 +16,12 @@ function displayCardsDynamically() {
 
     userDocRef.get()
         .then(userDoc => {
+            if (userDoc.data().requests.length <= 0) {
+                document.getElementById("requests-container").innerHTML =
+                    `<p class="glass-container">
+        You have not made any requests. When you do, they will show up here.
+        </p>`;
+            }
             userDoc.data().requests.forEach(requestId => {
                 if (requestId != "") {
                     db.collection("requests").doc(requestId).get().then(requestDoc => {
@@ -114,7 +120,7 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
     var vehicleID = doc.id;
     let newcard = cardTemplate.content.cloneNode(true);
 
-    
+
     console.log(doc.data().model, requested)
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
