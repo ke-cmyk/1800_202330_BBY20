@@ -1,7 +1,8 @@
 authenticateUser(() => {
     console.log(userID);
-    displayOffers();
-
+    if (window.location.href.includes("sentOffers.html")) {
+        displayOffers();
+    }
 });
 
 async function displayOffers() {
@@ -68,34 +69,35 @@ async function displayOffers() {
 /**
  * Deletes an offer entirely. This function deletes:
  * - The offer from the 'offers' collection
- * - The offerID from the 'offers' array of the current user
- * - The vehicleID from the 'offerVehiclesIDs' array of the current user IF there are no other offers with the sellerID of the current user AND the vehicleID of the current vehicleID.
- * @param {*} offerID 
+ * - The offerID from the 'offers' array of the seller
+ * - The vehicleID from the 'offerVehiclesIDs' array of the seller IF there are no other offers with the sellerID of the seller AND the vehicleID of the current vehicleID.
+ * @param {string} offerID 
  */
-function deleteOffer(offerID) {
-    db.collection("users").doc(userID).update({
+async function deleteOffer(offerID) {
+    let offerDoc = await db.collection("offers").doc(offerID).get();
+    db.collection("users").doc(offerDoc.data().sellerID).update({
         offers: firebase.firestore.FieldValue.arrayRemove(offerID)
     })
-    db.collection("offers").doc(offerID).delete().then(() => {
-        console.log("offer deleted");
+    db.collection("offers").doc(offerID).delete();
 
-        db.collection("users").doc(userID).get().then(userDoc => {
+    db.collection("users").doc(offerDoc.data().sellerID).get().then(userDoc => {
 
-            userDoc.data().offerVehicleIDs.forEach(vehicleID => {
-                db.collection("offers").where("sellerID", "==", userID).where("vehicleID", "==", vehicleID).get().then(remainingOffers => {
-                    console.log(vehicleID, remainingOffers.docs.length);
+        userDoc.data().offerVehicleIDs.forEach(vehicleID => {
+            db.collection("offers").where("sellerID", "==", offerDoc.data().sellerID).where("vehicleID", "==", vehicleID).get().then(remainingOffers => {
+                console.log(vehicleID, remainingOffers.docs.length);
 
-                    if (remainingOffers.docs.length == 0) {
-                        db.collection("users").doc(userID).update({
-                            offerVehicleIDs: firebase.firestore.FieldValue.arrayRemove(vehicleID)
-                        })
-                    }
-                })
+                if (remainingOffers.docs.length == 0) {
+                    db.collection("users").doc(offerDoc.data().sellerID).update({
+                        offerVehicleIDs: firebase.firestore.FieldValue.arrayRemove(vehicleID)
+                    })
+                }
             })
-        });
+        })
     })
 
-    deleteOfferDisplay(offerID);
+    if (window.href.includes("sentOffers.html")) {
+        deleteOfferDisplay(offerID);
+    }
 }
 
 function deleteOfferDisplay(offerID) {

@@ -149,9 +149,7 @@ function deleteRequest() {
 
                     db.collection("offers").where("requestID", "==", doc.id).get().then((offerDocs) => {
                         offerDocs.forEach((offerDoc) => {
-                            offerDoc.delete().then(() => {
-                                console.log("offer deleted.");
-                            })
+                            deleteOffer(offerDoc.id);
                         })
                     })
                 }
