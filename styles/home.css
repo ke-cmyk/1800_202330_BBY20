@@ -19,3 +19,9 @@
 #welcome-link {
     color: var(--secondary-color);
 }
+
+#welcome-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+}
