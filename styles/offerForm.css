@@ -42,7 +42,15 @@ input {
     margin-bottom: 20px;
 }
 
-#send-offer-button {
+#offer-form-submit {
     width: 100px;
     margin-top: 15px;
+
+
+}
+
+#offer-form-submit-greyed {
+    width: 100px;
+    margin-top: 15px;
+    background-color: var(--faded-button-color);
 }
