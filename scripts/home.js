@@ -1,5 +1,6 @@
-authenticateUser(() => {
+authenticateUser((user) => {
     loadRecommendations();
+    loadWelcome(user.data().name);
 });
 
 /**
@@ -30,4 +31,8 @@ function loadRecommendations() {
             })
         })
     })
+}
+
+function loadWelcome(userName) {
+    document.getElementById('welcome-name').textContent += userName;
 }

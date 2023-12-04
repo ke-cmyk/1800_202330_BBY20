@@ -15,3 +15,7 @@
 #recommendations a {
     margin-bottom: 0px;
 }
+
+#welcome-link {
+    color: var(--secondary-color);
+}

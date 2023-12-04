@@ -136,7 +136,7 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
         newcard.querySelector('.car-details-prompt').textContent = "Request this car >";
     }
 
-    newcard.querySelector('.car-preview-msrp').textContent = "$" + doc.data().trim[0].msrp;
+    newcard.querySelector('.car-preview-msrp').textContent = "New: $" + doc.data().trim[0].msrp;
     newcard.querySelector('.request-card').style.setProperty("background", `url(${doc.data().img[1]})`);
     newcard.querySelector('.request-card').style.setProperty("background-position", "center");
     newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
