@@ -106,7 +106,7 @@ function handleOfferFormSubmit(event) {
         document.getElementById("successOfferPlaceholder").innerHTML = await fetchHtmlAsText("./text/offer_success.html");
         setTimeout(function() {
             window.location.href = "sell.html";
-        }, 3000); // 3000 milliseconds = 3 seconds
+        }, 2000); // 2000 milliseconds = 2 seconds
     });
 }
 
