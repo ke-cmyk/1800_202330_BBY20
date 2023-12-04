@@ -100,6 +100,7 @@ async function submitForm() {
 document.getElementById("offer-form-submit").addEventListener("click", function (event) {
     event.preventDefault();
     submitForm().then(async function() {
+        document.getElementById("offer-form-submit").style.visibility = "hidden";
         document.getElementById("successOfferPlaceholder").innerHTML = await fetchHtmlAsText("./text/offer_success.html");
         setTimeout(function() {
             window.location.href = "sell.html";
