@@ -58,7 +58,7 @@ function saveUserInfo() {
         let userName = document.getElementById("name-input").value;
         let userCity = document.getElementById("city-input").value;
         let userPhone = document.getElementById("phone-input").value;
-        var storageRef = storage.ref("User Profile Pictures/" + user.uid + ".jpg");
+        var storageRef = firebase.storage().ref("User Profile Pictures/" + user.uid + ".jpg");
 
         if (fileInput.files[0] != null) {
             storageRef.put(imageFile)
