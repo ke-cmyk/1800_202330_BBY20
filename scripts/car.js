@@ -8,10 +8,14 @@ authenticateUser(() => {
             console.log(doc.id)
             if (doc) {
                 document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
-                document.querySelector("#request-button").textContent = "Delete Request";
+                document.querySelector("#request-money").style.display = "none";
+                if (doc.data().requesterPrice) {
+                    document.querySelector("#request-button").textContent = "Delete Request for $" + doc.data().requesterPrice;
+                } else {
+                    document.querySelector("#request-button").textContent = "Delete Request";
+                }
 
                 document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'  class='color-text'>Requested</div>";
-                
             }
         })
 
@@ -87,10 +91,12 @@ function createRequest() {
  */
 function addRequestToFirestore()  {
     vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
+    let requesterPrice = document.getElementById("request-money").value;
     db.collection("requests").add({
         requestDate: firebase.firestore.FieldValue.serverTimestamp(),
         requesterID: userID,
-        vehicleID: vehicleID
+        vehicleID: vehicleID,
+        requesterPrice: requesterPrice
     })
         .then(async (requestRef) => {
             console.log("Document successfully written!");
@@ -98,26 +104,17 @@ function addRequestToFirestore()  {
                 requests: firebase.firestore.FieldValue.arrayUnion(requestRef.id),
                 vehicles: firebase.firestore.FieldValue.arrayUnion(vehicleID)
             })
-
-            // Success Menu
-            // document.querySelector("#success-container").style.visibility = "visible";
-
-            // document.querySelector("#return-button").addEventListener("click", () => {
-            //     // document.querySelector("#success-container").style.visibility = "hidden";
-            //     window.location.assign("buy.html");
-            // })
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
-            document.querySelector("#request-button").textContent = "Delete Request";
+            document.querySelector("#request-money").style.display = "none";
+            if (requesterPrice) {
+                document.querySelector("#request-button").textContent = "Delete Request for $" + requesterPrice;
+            } else {
+                document.querySelector("#request-button").textContent = "Delete Request";
+            }
 
             document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status' class='color-text'>Requested</div>";
 
             document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
-
-            // $('#successRequestPlaceholder').load('./text/request_success.html').then(() => {
-            //     document.getElementById("success-popup-container").className += "slide-in-bottom";
-            // });
-
-
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
@@ -141,7 +138,8 @@ function deleteRequest() {
                     });
                     db.collection("requests").doc(doc.id).delete().then(() => {
                         console.log("request successfully deleted")
-                        document.querySelector("#request-button").textContent = "Request This Car";
+                        document.querySelector("#request-button").textContent = "Request this car for:";
+                        document.querySelector("#request-money").style.display = "inherit";
                         document.querySelector("#request-button").setAttribute("onclick", "createRequest()");
 
                         document.querySelector("#request-status").remove();

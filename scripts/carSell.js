@@ -64,8 +64,9 @@ function displayCardsDynamically() {
                                     });
 
                             newcard.querySelector('#pill-name').innerHTML = name;
+                            newcard.querySelector('#pill-location').innerHTML += "$" + vehicleRequestsDoc.data().requesterPrice;
                             if (location) {
-                                newcard.querySelector('#pill-location').innerHTML = location;
+                                newcard.querySelector('#pill-location').innerHTML += `,  ` + location;
                             }
                             // const match = requestDate.match(/seconds=(\d+),/);
                             // const seconds = match ? parseInt(match[1], 10) : null;

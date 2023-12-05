@@ -65,19 +65,19 @@
           <tbody>
             <tr>
               <td><label>Price:</label></td>
-              <td><input type="text" placeholder="Sale Price [USD]" id="price-input"></td>
+              <td><input id="price-input" placeholder="$" type="number" value="0" step="500" min="0" onkeydown="return false;"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td><label>Year:</label></td>
               <td><input type="number" placeholder="Vehicle Year" id="year-input"></td>
-            </tr>
+            </tr> -->
             <tr>
               <td><label>Color:</label></td>
               <td><input type="text" placeholder="Vehicle Color" id="color-input"></td>
             </tr>
             <tr>
               <td><label>Odometer:</label></td>
-              <td><input type="number" placeholder="Odometer Reading [Miles]:" id="odometer-input"></td>
+              <td><input type="number" placeholder="Odometer Reading [Miles]:" id="odometer-input" step="10" min="0"></td>
             </tr>
             <tr>
               <td><label title="Vehicle Identification Number">VIN:</label></td>

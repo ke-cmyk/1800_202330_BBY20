@@ -16,18 +16,19 @@ async function displayOffers() {
         var newcard = cardTemplate.content.cloneNode(true);
         newcard.querySelector('.offer-card').setAttribute("data-request-id", userCarOffers.docs[i].id);
 
-        var vehiclePrice = userCarOffers.docs[i].data().price;
-        var vehicleColor = userCarOffers.docs[i].data().color;
-        var vehicleOdometer = userCarOffers.docs[i].data().odometer;
-        var vehicleVin = userCarOffers.docs[i].data().vin;
-        var requesterID = userCarOffers.docs[i].data().buyerID;
+        let requesterPrice = userCarOffers.docs[i].data().requesterPrice;
+        let vehiclePrice = userCarOffers.docs[i].data().price;
+        let vehicleColor = userCarOffers.docs[i].data().color;
+        let vehicleOdometer = userCarOffers.docs[i].data().odometer;
+        let vehicleVin = userCarOffers.docs[i].data().vin;
+        let requesterID = userCarOffers.docs[i].data().buyerID;
 
         let offerDate = userCarOffers.docs[i].data().offerDate.toDate().toDateString();
 
         let offerRequester = await db.collection("users").doc(requesterID).get();
-        var requesterName = offerRequester.data().name;
-        var requesterLocation = offerRequester.data().city;
-        var requesterImg = offerRequester.data().profile;
+        let requesterName = offerRequester.data().name;
+        let requesterLocation = offerRequester.data().city;
+        let requesterImg = offerRequester.data().profile;
 
         newcard.querySelector('.requester-name').innerHTML = requesterName;
         if (requesterLocation) {
@@ -35,6 +36,8 @@ async function displayOffers() {
         }
         newcard.querySelector('.requester-pic').setAttribute('src', requesterImg);
         newcard.querySelector('.offer-date').innerHTML += offerDate;
+
+        newcard.querySelector('.vehicle-price-requester').innerHTML += "$" + requesterPrice;
 
         if (vehiclePrice.substring(0, 1) == "$") {
             newcard.querySelector('.vehicle-price').innerHTML += vehiclePrice;

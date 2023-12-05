@@ -50,7 +50,7 @@ async function submitForm() {
     }
 
     var price = document.getElementById("price-input").value;
-    var year = document.getElementById("year-input").value;
+    // var year = document.getElementById("year-input").value;
     var color = document.getElementById("color-input").value;
     var odometer = document.getElementById("odometer-input").value;
     var vin = document.getElementById("vin-input").value;
@@ -67,14 +67,18 @@ async function submitForm() {
                 var buyerID = doc.data().requesterID;
                 console.log("Buyer ID:", buyerID);
 
+                console.log(doc.data().price);
+                let requesterPrice = doc.data().requesterPrice;
+
                 const offerRef = await db.collection("offers").add({
                     requestID: selectedRequests[i],
                     buyerID: buyerID,
                     sellerID: userID,
                     vehicleID: vehicleID,
                     offerDate: firebase.firestore.FieldValue.serverTimestamp(),
+                    requesterPrice: requesterPrice,
                     price: price,
-                    year: year,
+                    // year: year,
                     color: color,
                     odometer: odometer,
                     vin: vin

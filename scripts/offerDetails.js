@@ -5,6 +5,7 @@ function displayOfferDetails() {
 
     db.collection("offers").doc(offerID).get().then(async offerDoc => {
         let vehiclePrice = offerDoc.data().price;
+        let vehiclePriceRequester = offerDoc.data().requesterPrice;
         let vehicleColor = offerDoc.data().color;
         let vehicleOdometer = offerDoc.data().odometer;
         let vehicleVin = offerDoc.data().vin;
@@ -30,6 +31,8 @@ function displayOfferDetails() {
         document.querySelector('.offer-date').innerHTML += offerDate;
 
         document.querySelector('.vehicle-price').innerHTML = `${sellerName}'s Price: `;
+
+        document.querySelector('.vehicle-price-requester').innerHTML += "$" + vehiclePriceRequester;
 
         if (vehiclePrice.substring(0, 1) == "$") {
             document.querySelector('.vehicle-price').innerHTML += vehiclePrice;

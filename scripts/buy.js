@@ -120,8 +120,6 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
     var vehicleID = doc.id;
     let newcard = cardTemplate.content.cloneNode(true);
 
-
-    console.log(doc.data().model, requested)
     if (requested) {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model + ' - <span class="color-text">Requested</span>';
         if (requestNumber == 1) {
@@ -130,13 +128,13 @@ function populateCarCard(doc, cardTemplate, target, requested, requestNumber) {
             newcard.querySelector('.car-details-prompt').textContent = requestNumber + " Offers Recieved >";
         }
         newcard.querySelector('.car-preview-name').style.backgroundColor = "white";
-
+        newcard.querySelector('.car-preview-msrp').textContent = "";
     } else {
         newcard.querySelector('.car-preview-name').innerHTML = year + " " + make + " " + model;
+        newcard.querySelector('.car-preview-msrp').textContent = "New: $" + doc.data().trim[0].msrp;
         newcard.querySelector('.car-details-prompt').textContent = "Request this car >";
     }
 
-    newcard.querySelector('.car-preview-msrp').textContent = "New: $" + doc.data().trim[0].msrp;
     newcard.querySelector('.request-card').style.setProperty("background", `url(${doc.data().img[1]})`);
     newcard.querySelector('.request-card').style.setProperty("background-position", "center");
     newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
