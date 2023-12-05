@@ -10,19 +10,19 @@ body {
     width: 100vw;
     padding: 0px 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 50px;
 
     /* glass effect */
     box-shadow: 0 8px 15px 0 rgba( 100, 100, 100, 0.25);
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 0px 0px 10px 10px;
     border: 1px solid rgba( 255, 255, 255, 0.35);
 }
 #header-brand {
-    color: var(--text-color);
-    padding-top: 7px;
+    max-height: 50%;
 }
 
 .header-back {

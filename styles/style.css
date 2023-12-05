@@ -1,6 +1,6 @@
 :root {
     --primary-color: #386641;
-    --secondary-color: #BC4749;
+    --secondary-color: #086788;
     --tertiary-color: #6A994E;
     --text-color: black;
     /* --text-color: #292F36; */
@@ -11,13 +11,13 @@
     --faded-text-color: #ffffff90;
 }
 
-h2 {
-    font-weight: 100;
+*, ::after, ::before {
+    box-sizing: border-box;
+
 }
 
-h3 {
-    font-weight: 100;
-    font-size: 14pt;
+h1, h2, h3 {
+    font-weight: 500;
 }
 
 body {
@@ -215,7 +215,7 @@ button {
 }
 
 .color-text {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 /* User Profile Pills */
@@ -302,6 +302,7 @@ button {
 
 .selected {
     background: var(--selected);
+    border: 1px solid var(--secondary-color);
     box-shadow: 0 5px 15px 0 rgba( 0, 0, 0, 0.25);
 }
 

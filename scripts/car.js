@@ -10,7 +10,7 @@ authenticateUser(() => {
                 document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
                 document.querySelector("#request-button").textContent = "Delete Request";
 
-                document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'>Requested</div>";
+                document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'  class='color-text'>Requested</div>";
                 
             }
         })
@@ -109,7 +109,7 @@ function addRequestToFirestore()  {
             document.querySelector("#request-button").setAttribute("onclick", "deleteRequest()");
             document.querySelector("#request-button").textContent = "Delete Request";
 
-            document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status'>Requested</div>";
+            document.querySelector("#vehicle-image-container").innerHTML += "<div id='request-status' class='color-text'>Requested</div>";
 
             document.getElementById("successRequestPlaceholder").innerHTML = await fetchHtmlAsText("./text/request_success.html");
 
