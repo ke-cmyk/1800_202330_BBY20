@@ -3,3 +3,8 @@
 node_modules/
 .vscode/
 scripts/firebaseAPI_BBY20.js
+
+.firebasesrc
+firebase.json
+firestore.indexes.json
+firestore.rules
