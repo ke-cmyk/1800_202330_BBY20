@@ -17,17 +17,20 @@ As a car seller, the core feature is the creation and deletion of **offers**. Wh
 * Icons: [Material Symbols](https://fonts.google.com/icons)
 * Fonts: [Kanit](https://fonts.google.com/specimen/Kanit) from Google Fonts and [Petrov Sans](https://www.dafont.com/petrov-sans.font)
 * Car Images and Data: [Edmunds](https://www.edmunds.com/)
+
 ## 4. Complete setup/installion/usage
 * Download the project.
 * Live-serving in VSCode will work.
 * Create requests by searching for cars on the buy page, then clicking on a car and selecting the request button. Request deletion is in the same place. A refresh is required to view offers that other users make if you have not left the page recently.
 * Create offers by searching for requests on the sell page. Click on a car that you want to sell, then select the requests you want to send an offer to. Fill in the fields and click send. Selecting multiple user requests will send copies of this offer to them.
+
 ## 5. Known Bugs and Limitations
 * A signed-user is not automatically redirected to the home page when they access index.html. This is a bug only in the version deployed with Firebase.
 * There is no limit to how many offers a user can send another user's request, i.e. there are no spam-prevention measures.
 * There is no input validation for the number a user inputs for the buying or asking price of a car, which is why the fields are disabled with JavaScript. If this code is removed, nothing will currently break because no math is performed with those values.
 * Users cannot archive requests, only delete them.
 * Users are not notified of changes to the status of their offers. There is no notification that your offer was deleted because its parent request was, it just silently disappears.
+
 ## 6. Features for Future
 * An in-app chat function
 * Image uploading for sellers
