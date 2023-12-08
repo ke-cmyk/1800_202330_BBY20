@@ -14,8 +14,11 @@ As a car seller, the core feature is the creation and deletion of **offers**. Wh
 * Bootstrap 5.0 (Frontend library). Bootstrap is used minimally in most of the app. It's styling is used for the welcome page as well as some scaling of elements within the app.
 * Firebase 8.0 (BAAS - Backend as a Service)
 <hr>
+
 * Icons: [Material Symbols](https://fonts.google.com/icons)
+
 * Fonts: [Kanit](https://fonts.google.com/specimen/Kanit) from Google Fonts and [Petrov Sans](https://www.dafont.com/petrov-sans.font)
+
 * Car Images and Data: [Edmunds](https://www.edmunds.com/)
 
 ## 4. Complete setup/installion/usage
