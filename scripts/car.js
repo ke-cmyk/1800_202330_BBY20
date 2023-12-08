@@ -1,3 +1,9 @@
+/**
+ * Loaded on:
+ * car.html
+ */
+
+// Determine if the page is for an active request or unrequested car. Then, format accordingly.
 authenticateUser(() => {
     displayVehicleInfo();
     let params = new URL(window.location.href);
@@ -122,7 +128,7 @@ function addRequestToFirestore()  {
 }
 
 /**
- * Deletes the request of the current vehicle page from the requests collection and user request array
+ * Deletes the request of the current vehicle page from the requests collection and user request array.
  */
 function deleteRequest() {
     vehicleID = window.location.href.substring(window.location.href.indexOf("=") + 1);
@@ -155,18 +161,28 @@ function deleteRequest() {
         })
 }
 
+/**
+ * deletes a request and removes the popup.
+ */
 function undoRequest() {
     deleteRequest();
     document.querySelector("#success-popup").remove();
     // history.back();
 }
 
+/**
+ * Creates a request and removes the confirmation popup.
+ * Also sets local storage to remember whether the user wants to keep seeing the popup.
+ */
 function confirmRequest() {
     localStorage.setItem("hideRequestWarning", document.querySelector("#request-info-hide").checked);
     document.querySelector("#popup-container").style.visibility = "hidden";
     addRequestToFirestore();
 }
 
+/**
+ * Displays a car's trims that are grabbed from Firestore.
+ */
 function displayTrims() {
     let target = document.getElementById("trim-entries");
     let template = document.getElementById("vehicle-trim");
@@ -183,6 +199,7 @@ function displayTrims() {
 }
 displayTrims();
 
+// Sets the visibility of the trims and adds functionality to the collapse button.
 let trimsHidden = "true";
 document.querySelector("#expand-button").addEventListener("click", () => {
     if (trimsHidden == "true") {
@@ -196,6 +213,7 @@ document.querySelector("#expand-button").addEventListener("click", () => {
     }
 })
 
+// Sets the visibility of the details and adds functionality to the details' collapse button
 let detailsHidden = "false";
 document.querySelector("#expand-details-button").addEventListener("click", () => {
     if (detailsHidden == "true") {
@@ -211,10 +229,9 @@ document.querySelector("#expand-details-button").addEventListener("click", () =>
     }
 })
 
-/* ---------------------------------
-            Display Offers
----------------------------------*/
-
+/**
+ * Displays the offers under a car on car.html.
+ */
 function displayCardsDynamically() {
 
     let params = new URL(window.location.href); //get URL of search bar
@@ -265,8 +282,7 @@ function displayCardsDynamically() {
                                 newcard.querySelector('#pill-price').innerHTML = "$" + newcard.querySelector('#pill-price').innerHTML;
                             }
 
-                            // const match = requestDate.match(/seconds=(\d+),/);
-                            // const seconds = match ? parseInt(match[1], 10) : null;
+                            // gets the time information of when the offer was made
                             const date = new Date(requestDate.seconds * 1000);
                             const year = date.getFullYear();
                             const month = date.toLocaleString('en-US', { month: 'short' });
@@ -289,6 +305,11 @@ function displayCardsDynamically() {
         });
 }
 
+/**
+ * Directs the user to an offer details page.
+ * 
+ * @param {string} offerID the Firestore ID of the offer.
+ */
 function goToOffer(offerID) {
     window.location.assign("offerDetails.html?offerID=" + offerID);
 }

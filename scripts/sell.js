@@ -1,3 +1,9 @@
+/* Loaded on:
+ * sell.html
+ * carSell.html
+ * sellSearch.html
+ */
+
 authenticateUser(() => {
     console.log(userID);
 
@@ -9,7 +15,9 @@ authenticateUser(() => {
     }
 });
 
-// Shows car w/ offers on sell page
+/**
+ * Shows requests with offer numbers on the sell page.
+ */
 async function displayCardsDynamically() {
 
     let cardTemplate = document.getElementById("offered-car-template");
@@ -47,25 +55,7 @@ async function displayCardsDynamically() {
                         window.location.href = 'sentOffers.html?vehicleID=' + vehicleID;
                     });
 
-                    // for adding image to html <img>
-                    // let newcardImg = newcardElement.querySelector('.offered-car-image');
-                    // newcardImg.setAttribute('src', vehicleImage2);
-
                     newcard.querySelector('.offered-car-name').innerHTML = vehicleYear + " " + vehicleMake + " " + vehicleModel;
-
-                    // newcard.querySelector('#offer-location-display').innerHTML = location;
-                    // newcard.querySelector('#offer-price-display').innerHTML = price;
-
-
-                    // const match = requestDate.match(/seconds=(\d+),/);
-                    // const seconds = match ? parseInt(match[1], 10) : null;
-                    // const date = new Date(requestDate.seconds * 1000);
-                    // const year = date.getFullYear();
-                    // const month = date.toLocaleString('en-US', { month: 'short' });
-                    // const day = date.getDate();
-
-                    // TODO: after user profile pic is implemented, update picture here
-
                     newcard.querySelector('.request-card').style.setProperty("background", `url(${vehicleDoc.data().img[1]})`);
                     newcard.querySelector('.request-card').style.setProperty("background-position", "center");
                     newcard.querySelector('.request-card').style.setProperty("background-size", "cover");
@@ -89,38 +79,6 @@ async function displayCardsDynamically() {
                 }
             })
     })
-
-    // let userOffers = db.collection("requests").where("sellerID", "==", userID);
-
-    // let carsBeingOffered = new Set();
-
-    // userOffers.get()
-    //     .then(offerDoc => {
-    //         offerDoc.forEach(vehicleOfferDoc => {
-    //             var vehicleID = vehicleOfferDoc.vehicleID;
-    //             carsBeingOffered.add(vehicleID);
-    //         })
-    //     })
-
-    // console.log(carsBeingOffered);
-    //------------
-
-    // .doc(userID);
-
-    // userDocRef.get()
-    // .then(userDoc => {
-    //     userDoc.data().requests.forEach(requestId => {
-    //         if (requestId != "") {
-    //             db.collection("requests").doc(requestId).get()
-    //             .then(requestDoc => {
-    //                 db.collection("vehicles").doc(requestDoc.data().vehicleID).get()
-    //                 .then(doc => {
-    //                     populateCarCard(doc, cardTemplate, document.getElementById("requests-container"), true);
-    //                 })
-    //             })
-    //         }
-    //     })
-    // })
 }
 
 /**

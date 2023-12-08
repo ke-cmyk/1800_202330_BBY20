@@ -1,8 +1,8 @@
-//-----------------------------------------------------------------------
-// Read the file called "mock_vehicles.json"
-// and save it to Firestore vehicles collection.
-// The file must on on server (ie, use "Live Server") for fetch to work.
-//-----------------------------------------------------------------------
+/**
+ * Read the file called "mock_vehicles.json"
+ * and save it to Firestore vehicles collection.
+ * The file must on on server (ie, use "Live Server") for fetch to work.
+ */
 function readJsonAndSaveToFirestore() {
     fetch('json/mock_vehicles.json')
       .then(response => response.json())

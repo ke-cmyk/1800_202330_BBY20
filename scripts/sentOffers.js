@@ -1,3 +1,8 @@
+/* Loaded on:
+ * car.html
+ * sentOffers.html
+ */
+
 authenticateUser(() => {
     console.log(userID);
     if (window.location.href.includes("sentOffers.html")) {
@@ -5,6 +10,9 @@ authenticateUser(() => {
     }
 });
 
+/**
+ * Displays the offers the current user has made for a particular car.
+ */
 async function displayOffers() {
 
     let cardTemplate = document.getElementById("offers");
@@ -16,6 +24,7 @@ async function displayOffers() {
         var newcard = cardTemplate.content.cloneNode(true);
         newcard.querySelector('.offer-card').setAttribute("data-request-id", userCarOffers.docs[i].id);
 
+        // Grab data about the offer
         let requesterPrice = userCarOffers.docs[i].data().requesterPrice;
         let vehiclePrice = userCarOffers.docs[i].data().price;
         let vehicleColor = userCarOffers.docs[i].data().color;
@@ -39,24 +48,22 @@ async function displayOffers() {
 
         newcard.querySelector('.vehicle-price-requester').innerHTML += "$" + requesterPrice;
 
+        // If it exists, display the field
         if (vehiclePrice.substring(0, 1) == "$") {
             newcard.querySelector('.vehicle-price').innerHTML += vehiclePrice;
         } else {
             newcard.querySelector('.vehicle-price').innerHTML += "$" + vehiclePrice;
         }
-
         if (vehicleColor) {
             newcard.querySelector('.vehicle-color').innerHTML += vehicleColor;
         } else {
             newcard.querySelector('.vehicle-color').innerHTML = "";
         }
-
         if (vehicleOdometer) {
             newcard.querySelector('.vehicle-odometer').innerHTML += vehicleOdometer + " miles";
         } else {
             newcard.querySelector('.vehicle-odometer').innerHTML = "";
         }
-
         if (vehicleVin) {
             newcard.querySelector('.vehicle-vin').innerHTML += vehicleVin;
         } else {
@@ -103,6 +110,9 @@ async function deleteOffer(offerID) {
     }
 }
 
+/**
+ * Deletes the offer DOM Element.
+ */
 function deleteOfferDisplay(offerID) {
     document.querySelector(`div[data-request-id="${offerID}"]`).remove();
 }

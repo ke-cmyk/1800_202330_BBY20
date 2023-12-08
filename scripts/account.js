@@ -1,4 +1,14 @@
-var currentUser;               //points to the document of the user who is logged in
+/* Loaded on:
+ * account.html
+ */
+
+/** points to the document of the user who is logged in. */
+var currentUser;
+
+/**
+ * Loads the user's information, such as their name and profile picture.
+ * The profile picture is loaded by setting the source of the image to where it is stored in Firebase Storage.
+ */
 function updateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -15,7 +25,7 @@ function updateUserInfo() {
                     var userPhone = userDoc.data().phone;
                     var userPicture = userDoc.data().profile;
 
-                    //if the data fields are not empty, then write them in to the form.
+                    //if the data fields are not empty, write them in to the form.
                     if (userName != null) {
                         document.getElementById("user-name-display").textContent = userName;
                     }
@@ -40,22 +50,9 @@ function updateUserInfo() {
 }
 updateUserInfo();
 
-// function saveUserInfo() {
-//     userName = document.getElementById("name-input").value;
-//     userCity = document.getElementById("city-input").value;
-//     userPhone = document.getElementById("phone-input").value;
-
-//     currentUser.update({
-//         name: userName,
-//         city: userCity,
-//         phone: userPhone
-//     })
-//         .then(() => {
-//             console.log("Document successfully updated!");
-//             window.location.href = "account.html";
-//         })
-// }
-
+/**
+ * Signs out the user.
+ */
 function signOut() {
     firebase.auth().signOut();
 }

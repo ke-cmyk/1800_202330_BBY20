@@ -1,7 +1,12 @@
-//---------------------------------------------------
-// This function loads the parts of your skeleton
-// (navbar, footer, and other things) into html doc.
-//---------------------------------------------------
+/* Loaded on:
+ * Every page.
+ */
+
+/**
+ * This function loads the parts of the skeleton
+ * (navbar, footer, and other things) into html doc.
+ * Also redirects user to index.html if they are not signed in.
+ */
 function loadSkeleton() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {

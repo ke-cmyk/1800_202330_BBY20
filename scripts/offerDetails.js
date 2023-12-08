@@ -1,9 +1,15 @@
+/* Loaded on:
+ * offerDetails.html
+ */
+
+/**
+ * Loads the details of a single offer that a buyer clicks on.
+ */
 function displayOfferDetails() {
     let offerID = window.location.href.substring(window.location.href.indexOf('=') + 1);
 
-    console.log(offerID);
-
     db.collection("offers").doc(offerID).get().then(async offerDoc => {
+        // Grab data from the offer document
         let vehiclePrice = offerDoc.data().price;
         let vehiclePriceRequester = offerDoc.data().requesterPrice;
         let vehicleColor = offerDoc.data().color;
@@ -20,7 +26,6 @@ function displayOfferDetails() {
         let sellerPhone = sellerDoc.data().phone;
 
         document.querySelector('.seller-name').innerHTML = sellerName;
-
         document.querySelector('.seller-location').textContent += `${sellerEmail} --- ${sellerPhone}`;
 
         if (sellerLocation) {
@@ -29,29 +34,25 @@ function displayOfferDetails() {
 
         document.querySelector('#pill-pic').setAttribute('src', sellerImg);
         document.querySelector('.offer-date').innerHTML += offerDate;
-
         document.querySelector('.vehicle-price').innerHTML = `${sellerName}'s Price: `;
-
         document.querySelector('.vehicle-price-requester').innerHTML += "$" + vehiclePriceRequester;
 
+        // If it is not null, load it
         if (vehiclePrice.substring(0, 1) == "$") {
             document.querySelector('.vehicle-price').innerHTML += vehiclePrice;
         } else {
             document.querySelector('.vehicle-price').innerHTML += "$" + vehiclePrice;
         }
-
         if (vehicleColor) {
             document.querySelector('.vehicle-color').innerHTML += vehicleColor;
         } else {
             document.querySelector('.vehicle-color').innerHTML = "";
         }
-
         if (vehicleOdometer) {
             document.querySelector('.vehicle-odometer').innerHTML += vehicleOdometer + " miles";
         } else {
             document.querySelector('.vehicle-odometer').innerHTML = "";
         }
-
         if (vehicleVin) {
             document.querySelector('.vehicle-vin').innerHTML += vehicleVin;
         } else {

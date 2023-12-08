@@ -1,4 +1,13 @@
-var currentUser;               //points to the document of the user who is logged in
+/* Loaded on:
+ * editAccount.html
+ */
+
+/** points to the document of the user who is logged in. */
+var currentUser;
+
+/**
+ * Loads the user's information into the input fields of the form.
+ */
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -32,15 +41,6 @@ function populateUserInfo() {
     });
 }
 populateUserInfo();
-
-
-
-firebase.auth().onAuthStateChanged((user) => {
-    // fileInput.files[0] = db.collection("users").doc(user.uid).get().then((userDoc) => {
-    //     userDoc.data().profile;
-    //     console.log(userDoc.data().profile);
-    // })
-})
 
 let imageFile;
 const fileInput = document.getElementById("photo-input");

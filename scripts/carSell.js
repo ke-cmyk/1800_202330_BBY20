@@ -1,9 +1,16 @@
+/* Loaded on:
+ * carSell.html
+ */
+
 authenticateUser(() => {
     displayCardsDynamically();
 })
 
 displayVehicleInfo();
 
+/**
+ * Displays a vehicle's details in the context of a seller's viewpoint.
+ */
 function displayVehicleInfo() {
     let params = new URL(window.location.href); //get URL of search bar
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
@@ -26,6 +33,9 @@ function displayVehicleInfo() {
         });
 }
 
+/**
+ * Displays the requests for a car so that a seller can choose them.
+ */
 function displayCardsDynamically() {
     let params = new URL(window.location.href); //get URL of search bar
     let vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
@@ -46,8 +56,6 @@ function displayCardsDynamically() {
                 userDocRef.get()
                     .then(userDoc => {
                         if (userDoc.exists) {
-                            // Document found, you can access the data using userDoc.data()
-                            // console.log("User document data:", userDoc.data());
 
                             var name = userDoc.data().name;
                             var location = userDoc.data().city;
@@ -55,7 +63,7 @@ function displayCardsDynamically() {
 
                             let newcard = cardTemplate.content.cloneNode(true);
 
-                            //set custom html attribut of requestID to relevant request for reference by toggle selection
+                            //set custom html attribute of requestID to relevant request for reference by toggle selection
                             let newcardElement = newcard.querySelector('.pill-item');
                             newcardElement.setAttribute('data-request-id', vehicleRequestsDoc.id);
                             newcardElement.addEventListener('click', function () {
@@ -68,8 +76,8 @@ function displayCardsDynamically() {
                             if (location) {
                                 newcard.querySelector('#pill-location').innerHTML += `,  ` + location;
                             }
-                            // const match = requestDate.match(/seconds=(\d+),/);
-                            // const seconds = match ? parseInt(match[1], 10) : null;
+
+                            // Get time information of request postings
                             const date = new Date(requestDate.seconds * 1000);
                             const year = date.getFullYear();
                             const month = date.toLocaleString('en-US', { month: 'short' });
@@ -137,6 +145,5 @@ document.getElementById("send-offer-button").addEventListener("click", function(
         window.location.href = 'offerForm.html?vehicleID=' + vehicleID;
     } else {
         console.log("no new requests");
-        //ADD CODE TO SHOW WARNING
     }
 })

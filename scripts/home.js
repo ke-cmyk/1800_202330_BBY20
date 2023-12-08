@@ -1,10 +1,14 @@
+/* Loaded on:
+ * home.js
+ */
+
 authenticateUser((user) => {
     loadRecommendations();
     loadWelcome(user.data().name);
 });
 
 /**
- * loads the data for recommendations on the home page. populateCarCard is borrowed from buy.js.
+ * loads the data for recommendations on the home page. populateCarCard is called from buy.js.
  */
 function loadRecommendations() {
     let cardTemplate = document.getElementById("car-card");

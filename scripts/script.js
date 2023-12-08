@@ -1,9 +1,13 @@
+/* Loaded on:
+ * Every page.
+ */
+
 /**
- * The workhorse of AutoBridge's search functionality. This function formats a string to be in capitalized form,
+ * The workhorse of AutoBridge's case-insentive search functionality. This function formats a string to be in capitalized form,
  * with exceptions for hypenated strings and strings with a length of less than 4 letters which signifies that it is an
  * acronym and should remain fully uppercase.
  * @param {string} str 
- * @returns 
+ * @returns the resulting capitalized string.
  */
 function toTitleCase(str) {
     let result = "";
@@ -34,27 +38,3 @@ function toTitleCase(str) {
 async function fetchHtmlAsText(url) {
     return await (await fetch(url)).text();
 }
-
-// function deleteEverything(verifier) {
-//     if (verifier == "Yes") {
-//         db.collection("requests").get().then(docs => {
-//             docs.forEach(doc => {
-//                 console.log(doc.id);
-//                 db.collection("requests").doc(doc.id).delete().then(() => {
-//                     console.log("document deleted");
-//                 });
-//             })
-//         })
-//         db.collection("offers").get().then(docs => {
-//             docs.forEach(doc => {
-//                 console.log(doc.id);
-//                 db.collection("offers").doc(doc.id).delete().then(() => {
-//                     console.log("document deleted");
-//                 });
-//             })
-//         })
-
-//     } else {
-//         console.log("the parameter is 'Yes'.");
-//     }
-// }

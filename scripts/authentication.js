@@ -1,6 +1,13 @@
+/* Loaded on:
+ * login.html
+ */
+
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+/**
+ * User authentication setup.
+ */
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {

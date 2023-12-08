@@ -1,9 +1,13 @@
+/* Loaded on:
+ * offerForm.html
+ */
+
 authenticateUser(() => {
     displayVehicleInfo()
 })
 
+/** Displays a vehicle's make, model, year, and image as the user inputs offer information on the form page. */
 function displayVehicleInfo() {
-
     let params = new URL(window.location.href); //get URL of search bar
     var vehicleID = params.searchParams.get("vehicleID"); //get value for key "vehicleID"
 
@@ -40,6 +44,12 @@ if (selectedRequests) {
     console.log("No data found in local storage.");
 }
 
+/**
+ * Creates new offers with the information a user had input into the form. A new offer
+ * is created for every request selected on the previous page.
+ * 
+ * @returns null
+ */
 async function submitForm() {
     let params = new URL(window.location.href);
     var vehicleID = params.searchParams.get("vehicleID");
@@ -103,6 +113,11 @@ async function submitForm() {
 
 document.getElementById("offer-form-submit").addEventListener("click", handleOfferFormSubmit);
 
+/**
+ * Disables the submit button as the offers are being created and redirects the user to the main page after 2 seconds.
+ * 
+ * @param {Event} event 
+ */
 function handleOfferFormSubmit(event) {
     document.getElementById("offer-form-submit").removeEventListener("click", handleOfferFormSubmit);
     document.getElementById("offer-form-submit").style.backgroundColor = "var(--faded-button-color)";
