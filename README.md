@@ -21,7 +21,7 @@ As a car seller, the core feature is the creation and deletion of **offers**. Wh
 
 * Car Images and Data: [Edmunds](https://www.edmunds.com/)
 
-## 4. Complete setup/installion/usage
+## 4. Complete setup/installation/usage
 * Download the project.
 * Live-serving in VSCode will work.
 * Create requests by searching for cars on the buy page, then clicking on a car and selecting the request button. Request deletion is in the same place. A refresh is required to view offers that other users make if you have not left the page recently.
